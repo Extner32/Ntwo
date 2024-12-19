@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl22qui08rcyb"]
+
+[ext_resource type="Script" path="res://test/test.gd" id="1_s5xu3"]
+[ext_resource type="Script" path="res://quadcopter/pid controller/pidcontroller.gd" id="2_sgn4h"]
+[ext_resource type="PackedScene" uid="uid://c7dy4ybkm8330" path="res://GUI/graph/graph.tscn" id="3_ami0b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gae55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj7qq"]
+size = Vector2(135, 20)
+
+[node name="test" type="Node2D"]
+script = ExtResource("1_s5xu3")
+
+[node name="PID" type="Node" parent="."]
+script = ExtResource("2_sgn4h")
+Kp = 1e+06
+Ki = 20.0
+Kd = 1e+06
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(300, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_gae55")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(300, 300)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(57.5, 0)
+shape = SubResource("RectangleShape2D_xj7qq")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(300, 300)
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../StaticBody2D")
+
+[node name="Graph" parent="." instance=ExtResource("3_ami0b")]
+position = Vector2(62, 45)
+size = Vector2i(500, 100)

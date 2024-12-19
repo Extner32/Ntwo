@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5aq7rwrg1xvm"]
+
+[ext_resource type="Script" path="res://GUI/gui.gd" id="1_2vknh"]
+[ext_resource type="PackedScene" uid="uid://c7dy4ybkm8330" path="res://GUI/graph/graph.tscn" id="1_3vg5m"]
+
+[sub_resource type="Gradient" id="Gradient_xdgpj"]
+colors = PackedColorArray(0.57, 0, 0.228, 1, 0.32, 1, 0.410667, 1)
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2vknh")
+fps_gradient = SubResource("Gradient_xdgpj")
+
+[node name="GraphRoll" parent="." instance=ExtResource("1_3vg5m")]
+visible = false
+size = Vector2i(300, 200)
+
+[node name="GraphInput" parent="." instance=ExtResource("1_3vg5m")]
+visible = false
+size = Vector2i(300, 200)
+data_color = Color(0, 1, 0.316667, 1)
+
+[node name="VelocityLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -138.0
+offset_right = 20.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "velocity: "
+
+[node name="ThrustLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.5
+offset_top = -117.485
+offset_right = 28.5
+offset_bottom = -94.485
+grow_horizontal = 2
+grow_vertical = 0
+text = "thrust: "
+
+[node name="FPSLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "FPS: "

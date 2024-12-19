@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl5eci0hpso2m"]
+
+[ext_resource type="Script" path="res://quadcopter/flight_controller/FlightController.gd" id="1_apqoi"]
+[ext_resource type="Script" path="res://quadcopter/pid controller/pidcontroller.gd" id="2_nfqh2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_33ynk"]
+size = Vector3(0.03, 0.008, 0.03)
+
+[node name="FlightController" type="Node3D"]
+script = ExtResource("1_apqoi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_33ynk")
+
+[node name="PID_pitch" type="Node" parent="."]
+script = ExtResource("2_nfqh2")
+
+[node name="PID_roll" type="Node" parent="."]
+script = ExtResource("2_nfqh2")
+Kp = 0.4
+
+[node name="PID_yaw" type="Node" parent="."]
+script = ExtResource("2_nfqh2")
