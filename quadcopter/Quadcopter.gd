@@ -14,7 +14,7 @@ extends RigidBody3D
 #if for example the y drag is high (top-bottom):
 	#if the top/bottom is facing the same direction
 	#as the direction that the quad is moving in, the drone will slow down
-@export var drag_coefficients = Vector3(0.1, 0.3, 0.1)
+@export var drag_coefficients = Vector3(0.05, 0.1, 0.05)
 
 var imu_pitch_speed = 0
 var imu_roll_speed = 0

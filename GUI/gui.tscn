@@ -1,10 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5aq7rwrg1xvm"]
+[gd_scene load_steps=9 format=3 uid="uid://b5aq7rwrg1xvm"]
 
 [ext_resource type="Script" path="res://GUI/gui.gd" id="1_2vknh"]
 [ext_resource type="PackedScene" uid="uid://c7dy4ybkm8330" path="res://GUI/graph/graph.tscn" id="1_3vg5m"]
+[ext_resource type="PackedScene" uid="uid://bh8sbb7ijckks" path="res://GUI/rate plotter/rate_plotter.tscn" id="3_uj5tt"]
+[ext_resource type="Shader" path="res://GUI/rate plotter/rate_plotter.gdshader" id="4_2i3ev"]
 
 [sub_resource type="Gradient" id="Gradient_xdgpj"]
-colors = PackedColorArray(0.57, 0, 0.228, 1, 0.32, 1, 0.410667, 1)
+offsets = PackedFloat32Array(0, 0.535948, 1)
+colors = PackedColorArray(0.57, 0, 0.228, 1, 1, 0.883333, 0, 1, 0.32, 1, 0.410667, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yanta"]
+resource_local_to_scene = true
+shader = ExtResource("4_2i3ev")
+shader_parameter/max_rate = 200.0
+shader_parameter/center_rate = null
+shader_parameter/expo = null
+shader_parameter/graph_thickness = 0.01
+shader_parameter/graph_color = Color(0, 0, 1, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vyl6p"]
+resource_local_to_scene = true
+shader = ExtResource("4_2i3ev")
+shader_parameter/max_rate = 200.0
+shader_parameter/center_rate = null
+shader_parameter/expo = null
+shader_parameter/graph_thickness = 0.01
+shader_parameter/graph_color = Color(0, 1, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eei6l"]
+resource_local_to_scene = true
+shader = ExtResource("4_2i3ev")
+shader_parameter/max_rate = 200.0
+shader_parameter/center_rate = 0.0
+shader_parameter/expo = 0.0
+shader_parameter/graph_thickness = 0.01
+shader_parameter/graph_color = Color(1, 0, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -17,12 +50,14 @@ script = ExtResource("1_2vknh")
 fps_gradient = SubResource("Gradient_xdgpj")
 
 [node name="GraphRoll" parent="." instance=ExtResource("1_3vg5m")]
-visible = false
 size = Vector2i(300, 200)
+max_value = 20.0
+min_value = -20.0
 
 [node name="GraphInput" parent="." instance=ExtResource("1_3vg5m")]
-visible = false
 size = Vector2i(300, 200)
+max_value = 20.0
+min_value = -20.0
 data_color = Color(0, 1, 0.316667, 1)
 
 [node name="VelocityLabel" type="Label" parent="."]
@@ -68,3 +103,28 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "FPS: "
+
+[node name="RatePlots" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -318.0
+offset_top = -208.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Yaw" parent="RatePlots" instance=ExtResource("3_uj5tt")]
+material = SubResource("ShaderMaterial_yanta")
+layout_mode = 1
+
+[node name="Roll" parent="RatePlots" instance=ExtResource("3_uj5tt")]
+material = SubResource("ShaderMaterial_vyl6p")
+layout_mode = 1
+
+[node name="Pitch" parent="RatePlots" instance=ExtResource("3_uj5tt")]
+material = SubResource("ShaderMaterial_eei6l")
+layout_mode = 1

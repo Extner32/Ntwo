@@ -11,23 +11,29 @@ extends Node
 var error = 0
 var prev_error = 0
 var error_sum = 0
+
+var saturated = false
 	
 func compute(delta, desired_value, actual_value):
 	
 	prev_error = error
-	error = shortest_angle_diff(actual_value, desired_value)
 	
-	print("error: ", error)
-	
-	var error_rate = (error-prev_error)/delta
-	
-	error_sum += error * delta
-	
+	error = desired_value - actual_value
 	var proportional = error * Kp
-	var integral = error_sum * Ki
+
+	var error_rate = (error-prev_error)/delta
 	var derivative = error_rate * Kd
 	
-	return clamp(proportional + integral + derivative, clamp_min, clamp_max)
+	#average of current and previous error is a better approximation than 
+	#just using error
+	#error_sum += ((error+prev_error)/2) * delta * Ki
+	error_sum += error * delta
+		
+	var integral = error_sum * Ki
+		
+	var output = clamp(proportional + integral + derivative, clamp_min, clamp_max)
+	
+	return output
 
 
 func shortest_angle_diff(a:float, b:float):

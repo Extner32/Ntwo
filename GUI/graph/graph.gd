@@ -27,8 +27,8 @@ func _draw():
 	var center = (abs(min_value)*height_scale)
 	
 	for i in range(len(data)-1):
-		var current = data[i]
-		var next = data[i+1]
+		var current = clamp(data[i], min_value, max_value)
+		var next = clamp(data[i+1], min_value, max_value)
 		draw_line(
 		Vector2(i*step, size.y - (center+current*height_scale)) + global_position,
 		Vector2((i+1)*step, size.y - (center+next*height_scale)) + global_position,

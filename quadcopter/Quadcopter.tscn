@@ -33,7 +33,6 @@ material_override = SubResource("StandardMaterial3D_4prjh")
 mesh = SubResource("BoxMesh_ivhy6")
 
 [node name="motors" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0143423, 0)
 
 [node name="Motor1" parent="motors" node_paths=PackedStringArray("prop") instance=ExtResource("1_7js25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0, 0.08)

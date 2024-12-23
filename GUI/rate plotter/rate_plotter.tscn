@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh8sbb7ijckks"]
+
+[ext_resource type="Shader" path="res://GUI/rate plotter/rate_plotter.gdshader" id="1_q8l78"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rjv66"]
+resource_local_to_scene = true
+shader = ExtResource("1_q8l78")
+shader_parameter/max_rate = 200.0
+shader_parameter/center_rate = null
+shader_parameter/expo = 0.0
+shader_parameter/graph_thickness = 0.01
+shader_parameter/graph_color = Color(0.752941, 0, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+
+[node name="RatePlotter" type="ColorRect"]
+material = SubResource("ShaderMaterial_rjv66")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

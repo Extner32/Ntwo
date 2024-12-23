@@ -13,16 +13,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 const MOTOR_IDLE = 0.2
 
 #rates
-var throttle_mult = 7
-
-var pitch_expo = 1.5
-var pitch_mult = 0.1
-
-var roll_expo = 1.5
-var roll_mult = 0.1
-
-var yaw_expo = 1.5
-var yaw_mult = 0.5
 
 #PID controllers
 
@@ -48,23 +38,23 @@ var armed = true
 func _physics_process(delta):
 	if armed:
 		#get input and apply rates
-		var input_throttle = get_throttle_input() * throttle_mult
-		var input_pitch = rates_function(get_pitch_input(), pitch_expo, pitch_mult)
-		var input_roll = rates_function(get_roll_input(), roll_expo, roll_mult)
-		var input_yaw = rates_function(get_yaw_input(), yaw_expo, yaw_mult)
+		var input_throttle = get_throttle_input() * gb.throttle_max
+		var input_pitch = rates_function(get_pitch_input(), gb.pitch_max_rate, gb.pitch_center_rate, gb.pitch_expo)
+		var input_roll = rates_function(get_roll_input(), gb.roll_max_rate, gb.roll_center_rate, gb.roll_expo)
+		var input_yaw = rates_function(get_yaw_input(), gb.yaw_max_rate, gb.yaw_center_rate, gb.yaw_expo)
 		
 		
 		#make the PIDs figure out the new speeds for pitch, roll and yaw
-		#var pitch_speed = PID_pitch.compute(delta, input_pitch, quadcopter.imu_pitch_speed)
-		#var roll_speed = PID_roll.compute(delta, input_roll, quadcopter.imu_roll_speed)
-		#var yaw_speed = PID_yaw.compute(delta, input_yaw, quadcopter.imu_yaw_speed)
+		var pitch_speed = PID_pitch.compute(delta, input_pitch, quadcopter.imu_pitch_speed)
+		var roll_speed = PID_roll.compute(delta, input_roll, quadcopter.imu_roll_speed)
+		var yaw_speed = PID_yaw.compute(delta, input_yaw, quadcopter.imu_yaw_speed)
 		
-		var pitch_speed = input_pitch
-		var roll_speed = input_roll
-		var yaw_speed = input_yaw
+		#print(rad_to_deg(quadcopter.imu_roll_speed))
+		print(roll_speed)
 		
-		gb.roll_speed = roll_speed
 		gb.input_roll = input_roll
+		gb.roll_speed = quadcopter.imu_roll_speed
+		
 
 		#mix the pitch, roll and yaw speeds to the velocites of the motors
 		motor1.angular_vel = max(MOTOR_IDLE + input_throttle  - pitch_speed + roll_speed + yaw_speed, 0)
@@ -73,10 +63,10 @@ func _physics_process(delta):
 		motor4.angular_vel = max(MOTOR_IDLE + input_throttle  + pitch_speed - roll_speed + yaw_speed, 0)
 
 
-func rates_function(x, expo, mult):
-	return sign(x) * pow(abs(x), expo) * mult
+#func rates_function(x, expo, mult):
+	#return sign(x) * pow(abs(x), expo) * mult
 	
-func actual_rates_f(x, max_rate, center_rate, expo):
+func rates_function(x, max_rate, center_rate, expo):
 	#x is in the range [-1, 1]
 	#you can see a desmos graph here:
 	#https://www.desmos.com/calculator/5hlbr3utht

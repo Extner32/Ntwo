@@ -19,6 +19,7 @@ radiance_size = 2
 background_mode = 2
 sky = SubResource("Sky_jcrw3")
 tonemap_mode = 2
+ssr_enabled = true
 glow_enabled = true
 fog_density = 0.001
 
@@ -39,7 +40,13 @@ environment = SubResource("Environment_njgnw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_bake_mode = 1
 shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93629, 0)
+size = Vector3(0.1, 12.7364, 0.1)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
@@ -51,17 +58,9 @@ mesh = SubResource("PlaneMesh_lgk1n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 shape = SubResource("BoxShape3D_n0ijr")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93629, 0)
-size = Vector3(0.1, 12.7364, 0.1)
-
 [node name="Quadcopter" parent="." instance=ExtResource("1_hk1jx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.819586, 2.5423)
 angular_damp = 4.242
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="CanvasLayer" instance=ExtResource("3_qnehr")]
 
 [node name="objects" type="Node3D" parent="."]
 
@@ -101,3 +100,10 @@ transform = Transform3D(0.382748, 0.923853, 1.49012e-08, 0.28297, -0.117233, 0.9
 
 [node name="RaceGate5" parent="objects/gates" instance=ExtResource("5_30uvh")]
 transform = Transform3D(0.382748, -0.282509, -0.879598, 0.28297, 0.942186, -0.17948, 0.87945, -0.180204, 0.440562, 44.9607, 29.578, -56.3593)
+
+[node name="RaceGate6" parent="objects/gates" instance=ExtResource("5_30uvh")]
+transform = Transform3D(-8.74228e-08, -2, 0, -8.74228e-08, 0, 2, -2, 8.74228e-08, -8.74228e-08, -22.0992, -1.90735e-06, 0.262596)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("3_qnehr")]

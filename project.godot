@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 gb="*res://global/Global.gd"
 
+[display]
+
+window/vsync/vsync_mode=0
+
 [input]
 
 pitch_up={
