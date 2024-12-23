@@ -49,9 +49,6 @@ func _physics_process(delta):
 		var roll_speed = PID_roll.compute(delta, input_roll, quadcopter.imu_roll_speed)
 		var yaw_speed = PID_yaw.compute(delta, input_yaw, quadcopter.imu_yaw_speed)
 		
-		#print(rad_to_deg(quadcopter.imu_roll_speed))
-		print(roll_speed)
-		
 		gb.input_roll = input_roll
 		gb.roll_speed = quadcopter.imu_roll_speed
 		

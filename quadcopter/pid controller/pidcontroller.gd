@@ -26,8 +26,8 @@ func compute(delta, desired_value, actual_value):
 	
 	#average of current and previous error is a better approximation than 
 	#just using error
-	#error_sum += ((error+prev_error)/2) * delta * Ki
-	error_sum += error * delta
+	error_sum += ((error+prev_error)/2) * delta * Ki
+	#error_sum += error * delta
 		
 	var integral = error_sum * Ki
 		

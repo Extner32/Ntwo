@@ -61,6 +61,7 @@ shape = SubResource("BoxShape3D_n0ijr")
 [node name="Quadcopter" parent="." instance=ExtResource("1_hk1jx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.819586, 2.5423)
 angular_damp = 4.242
+debug_cam = true
 
 [node name="objects" type="Node3D" parent="."]
 

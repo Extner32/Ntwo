@@ -24,7 +24,7 @@ var yaw_max_rate := deg_to_rad(800)
 var yaw_center_rate := 0
 var yaw_expo := 0
 
-var throttle_max := 16
+var throttle_max := 5
 
 func reset():
 	get_tree().reload_current_scene()
