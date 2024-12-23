@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://djiskdxn5dfpb"]
+
+[ext_resource type="Texture2D" uid="uid://comtw0c6ph3he" path="res://Grid/Orange/texture_01.png" id="1_dfe0u"]
+[ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="2_cy4ne"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tkn1t"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_bottom_color = Color(0.938046, 0.9179, 0.895083, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jcrw3"]
+sky_material = SubResource("ProceduralSkyMaterial_tkn1t")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_pi1uh"]
+background_mode = 2
+sky = SubResource("Sky_jcrw3")
+tonemap_mode = 3
+fog_density = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0uyxe"]
+albedo_texture = ExtResource("1_dfe0u")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mhxxf"]
+size = Vector2(500, 500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gwlj"]
+size = Vector3(500, 3, 500)
+
+[node name="TestMap" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pi1uh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_bake_mode = 0
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+material_override = SubResource("StandardMaterial3D_0uyxe")
+mesh = SubResource("PlaneMesh_mhxxf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+shape = SubResource("BoxShape3D_1gwlj")
+
+[node name="Quadcopter" parent="." instance=ExtResource("2_cy4ne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63999, 0.819586, 2.58571)
+angular_damp = 4.242
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)

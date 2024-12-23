@@ -59,9 +59,12 @@ func _physics_process(delta):
 		motor3.angular_vel = max(MOTOR_IDLE + input_throttle  - pitch_speed - roll_speed - yaw_speed, 0)
 		motor4.angular_vel = max(MOTOR_IDLE + input_throttle  + pitch_speed - roll_speed + yaw_speed, 0)
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("self_right"):
+		quadcopter.global_rotation.x = 0
+		quadcopter.global_rotation.z = 0
+		reset()
 
-#func rates_function(x, expo, mult):
-	#return sign(x) * pow(abs(x), expo) * mult
 	
 func rates_function(x, max_rate, center_rate, expo):
 	#x is in the range [-1, 1]
@@ -85,3 +88,8 @@ func get_roll_input():
 func get_yaw_input():
 	var nudge_factor = 1.43
 	return -clamp(Input.get_axis("yaw_left", "yaw_right") * nudge_factor, -1, 1)
+
+func reset():
+	PID_pitch.reset()
+	PID_roll.reset()
+	PID_yaw.reset()

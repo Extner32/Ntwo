@@ -44,6 +44,8 @@ func _process(delta):
 	gb.velocity = linear_velocity.length()
 	#print(imu_pitch, imu_roll, imu_yaw)
 	
+
+	
 func _physics_process(delta):
 	var total_thrust = 0
 	#set forces per motor

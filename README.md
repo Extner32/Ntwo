@@ -7,4 +7,5 @@
 - Good preformance (should easily run on intigrated gpu's with the right settings), but also nice visuals if your computer can handle it.
 
 ## current progress:
-- basic drone physics (no PID controllers yet)
+- basic drone physics (with PID controllers)
+- working on ground effect simulation

@@ -1,110 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://dl1ttl764ii3a"]
+[gd_scene load_steps=7 format=3 uid="uid://dl1ttl764ii3a"]
 
-[ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="1_hk1jx"]
-[ext_resource type="Texture2D" uid="uid://comtw0c6ph3he" path="res://Grid/Orange/texture_01.png" id="1_yc6kj"]
+[ext_resource type="PackedScene" uid="uid://0chsx6yecwbn" path="res://post process/post_process.tscn" id="2_g20ue"]
+[ext_resource type="PackedScene" uid="uid://djiskdxn5dfpb" path="res://world/maps/test map/test_map.tscn" id="2_ns77e"]
 [ext_resource type="PackedScene" uid="uid://b5aq7rwrg1xvm" path="res://GUI/gui.tscn" id="3_qnehr"]
-[ext_resource type="PackedScene" uid="uid://ye0y5lqwg2ec" path="res://objects/unit_box.tscn" id="4_vpe2u"]
-[ext_resource type="PackedScene" uid="uid://igw4dto0q5kg" path="res://objects/race_gate.tscn" id="5_30uvh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ftmel"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_bottom_color = Color(0.938046, 0.9179, 0.895083, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_jcrw3"]
+[sub_resource type="Sky" id="Sky_tw8yf"]
 sky_material = SubResource("ProceduralSkyMaterial_ftmel")
 radiance_size = 2
 
 [sub_resource type="Environment" id="Environment_njgnw"]
 background_mode = 2
-sky = SubResource("Sky_jcrw3")
+sky = SubResource("Sky_tw8yf")
 tonemap_mode = 2
-ssr_enabled = true
 glow_enabled = true
 fog_density = 0.001
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5enr"]
-albedo_texture = ExtResource("1_yc6kj")
-uv1_triplanar = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_lgk1n"]
-size = Vector2(500, 500)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_n0ijr"]
-size = Vector3(500, 3, 500)
 
 [node name="world" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_njgnw")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-light_bake_mode = 1
-shadow_enabled = true
-directional_shadow_mode = 0
+[node name="TestMap" parent="." instance=ExtResource("2_ns77e")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93629, 0)
-size = Vector3(0.1, 12.7364, 0.1)
-
-[node name="Ground" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-material_override = SubResource("StandardMaterial3D_q5enr")
-mesh = SubResource("PlaneMesh_lgk1n")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
-shape = SubResource("BoxShape3D_n0ijr")
-
-[node name="Quadcopter" parent="." instance=ExtResource("1_hk1jx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.819586, 2.5423)
-angular_damp = 4.242
-debug_cam = true
-
-[node name="objects" type="Node3D" parent="."]
-
-[node name="boxes" type="Node" parent="objects"]
-
-[node name="UnitBox" parent="objects/boxes" instance=ExtResource("4_vpe2u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.161, 0.5, -0.048)
-
-[node name="UnitBox2" parent="objects/boxes" instance=ExtResource("4_vpe2u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39712, 0.5, -0.048)
-
-[node name="UnitBox3" parent="objects/boxes" instance=ExtResource("4_vpe2u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49859, 0.5, -0.048)
-
-[node name="UnitBox4" parent="objects/boxes" instance=ExtResource("4_vpe2u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79815, 1.59297, -0.048)
-
-[node name="UnitBox5" parent="objects/boxes" instance=ExtResource("4_vpe2u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64369, 1.59297, -0.048)
-
-[node name="UnitBox6" parent="objects/boxes" instance=ExtResource("4_vpe2u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41219, 2.68673, -0.048)
-
-[node name="gates" type="Node" parent="objects"]
-
-[node name="RaceGate" parent="objects/gates" instance=ExtResource("5_30uvh")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0853, 3.56747, -7.82092)
-
-[node name="RaceGate2" parent="objects/gates" instance=ExtResource("5_30uvh")]
-transform = Transform3D(1, 0, 0, 0, 0.581726, 0.813385, 0, -0.813385, 0.581726, -2.0853, 8.88023, -20.5179)
-
-[node name="RaceGate3" parent="objects/gates" instance=ExtResource("5_30uvh")]
-transform = Transform3D(0.921016, 0.389526, -7.45058e-09, 0.119309, -0.282101, 0.951937, 0.370804, -0.876749, -0.306293, 7.45136, 11.021, -42.8043)
-
-[node name="RaceGate4" parent="objects/gates" instance=ExtResource("5_30uvh")]
-transform = Transform3D(0.382748, 0.923853, 1.49012e-08, 0.28297, -0.117233, 0.951937, 0.87945, -0.364352, -0.306293, 36.1825, 9.92362, -46.215)
-
-[node name="RaceGate5" parent="objects/gates" instance=ExtResource("5_30uvh")]
-transform = Transform3D(0.382748, -0.282509, -0.879598, 0.28297, 0.942186, -0.17948, 0.87945, -0.180204, 0.440562, 44.9607, 29.578, -56.3593)
-
-[node name="RaceGate6" parent="objects/gates" instance=ExtResource("5_30uvh")]
-transform = Transform3D(-8.74228e-08, -2, 0, -8.74228e-08, 0, 2, -2, 8.74228e-08, -8.74228e-08, -22.0992, -1.90735e-06, 0.262596)
+[node name="PostProcess" parent="." instance=ExtResource("2_g20ue")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("3_qnehr")]
+metadata/_edit_use_anchors_ = true

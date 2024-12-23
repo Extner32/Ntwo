@@ -24,12 +24,14 @@ motor1 = NodePath("motors/Motor1")
 motor2 = NodePath("motors/Motor2")
 motor3 = NodePath("motors/Motor3")
 motor4 = NodePath("motors/Motor4")
+drag_coefficients = Vector3(0.04, 0.1, 0.04)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6p65n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_4prjh")
+gi_mode = 2
 mesh = SubResource("BoxMesh_ivhy6")
 
 [node name="motors" type="Node3D" parent="."]
@@ -40,18 +42,21 @@ prop = NodePath("Propeller")
 direction = true
 
 [node name="Propeller" parent="motors/Motor1" instance=ExtResource("2_rl4bc")]
+visible = false
 
 [node name="Motor2" parent="motors" node_paths=PackedStringArray("prop") instance=ExtResource("1_7js25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0, -0.08)
 prop = NodePath("Propeller")
 
 [node name="Propeller" parent="motors/Motor2" instance=ExtResource("2_rl4bc")]
+visible = false
 
 [node name="Motor3" parent="motors" node_paths=PackedStringArray("prop") instance=ExtResource("1_7js25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, 0.08)
 prop = NodePath("Propeller")
 
 [node name="Propeller" parent="motors/Motor3" instance=ExtResource("2_rl4bc")]
+visible = false
 
 [node name="Motor4" parent="motors" node_paths=PackedStringArray("prop") instance=ExtResource("1_7js25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, -0.08)
@@ -59,6 +64,7 @@ prop = NodePath("Propeller")
 direction = true
 
 [node name="Propeller" parent="motors/Motor4" instance=ExtResource("2_rl4bc")]
+visible = false
 
 [node name="FlightController" parent="." node_paths=PackedStringArray("quadcopter", "motor1", "motor2", "motor3", "motor4") instance=ExtResource("3_eqg83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01225, 0)
@@ -69,8 +75,9 @@ motor3 = NodePath("../motors/Motor3")
 motor4 = NodePath("../motors/Motor4")
 
 [node name="FPVCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.885751, -0.464162, 0, 0.464162, 0.885751, 0, 0.0324702, -0.117618)
+transform = Transform3D(1, 0, 0, 0, 0.871223, -0.490889, 0, 0.490889, 0.871223, 0, 0.00223842, -0.0945663)
 fov = 90.0
+near = 0.01
 
 [node name="DebugCamPivot" type="Node3D" parent="."]
 top_level = true
