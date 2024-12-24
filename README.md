@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/d0d7b100-aae6-4765-9fa3-80c42758923e)
+![image](https://github.com/user-attachments/assets/de747f52-3c83-49f1-845b-88b2048e8226)
+
 
 ## the goal
 - Open source and free forever
@@ -6,6 +7,6 @@
 - Realistic physics
 - Good preformance (should easily run on intigrated gpu's with the right settings), but also nice visuals if your computer can handle it.
 
-## current progress:
-- basic drone physics (with PID controllers)
-- working on ground effect simulation
+## current working features:
+- drone physics with PID controllers (this will probably keep getting improved during development)
+- analog screen effect shader
