@@ -36,8 +36,8 @@ func _process(delta):
 	imu_roll_speed = local_angular_velocity.z
 	imu_yaw_speed = local_angular_velocity.y
 	
-	$FPVCam.current = not debug_cam
-	$DebugCamPivot/DebugCam.current = debug_cam
+	#$FPVCam.current = not debug_cam
+	#$DebugCamPivot/DebugCam.current = debug_cam
 	$DebugCamPivot.global_position = global_position
 	$DebugCamPivot.global_rotation.y = global_rotation.y
 	

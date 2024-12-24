@@ -24,7 +24,6 @@ func _ready():
 
 func compute_thrust():
 	if not on: return 0
-	#return pow(KvSi, 4) * pow(prop.thrust_multiplier, 2) * pow(KvSi * voltage, 2) * 2*gb.air_density * prop.swept_area
 	return lift_const * angular_vel
 
 func compute_torque():

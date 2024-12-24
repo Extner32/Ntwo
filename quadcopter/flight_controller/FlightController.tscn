@@ -15,17 +15,23 @@ mesh = SubResource("BoxMesh_33ynk")
 [node name="PID_pitch" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.3
-Ki = 0.2
+Ki = 1.0
 Kd = 0.002
+clamp_min = -10.0
+clamp_max = 10.0
 
 [node name="PID_roll" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.3
-Ki = 0.2
+Ki = 1.0
 Kd = 0.002
+clamp_min = -10.0
+clamp_max = 10.0
 
 [node name="PID_yaw" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.3
-Ki = 0.2
+Ki = 1.0
 Kd = 0.002
+clamp_min = -10.0
+clamp_max = 10.0

@@ -28,8 +28,10 @@ environment = SubResource("Environment_njgnw")
 [node name="TestMap" parent="." instance=ExtResource("2_ns77e")]
 
 [node name="PostProcess" parent="." instance=ExtResource("2_g20ue")]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("3_qnehr")]
 metadata/_edit_use_anchors_ = true

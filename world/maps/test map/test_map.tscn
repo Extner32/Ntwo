@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://djiskdxn5dfpb"]
+[gd_scene load_steps=10 format=3 uid="uid://djiskdxn5dfpb"]
 
 [ext_resource type="Texture2D" uid="uid://comtw0c6ph3he" path="res://Grid/Orange/texture_01.png" id="1_dfe0u"]
 [ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="2_cy4ne"]
+[ext_resource type="PackedScene" uid="uid://igw4dto0q5kg" path="res://objects/race_gate.tscn" id="3_yh26c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tkn1t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,11 +31,15 @@ size = Vector3(500, 3, 500)
 
 [node name="TestMap" type="Node3D"]
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.861266, 0.0839135, -0.501179, 0, 0.986271, 0.165134, 0.508155, -0.142224, 0.849442, -29.6184, 9.51371, 26.0395)
+current = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pi1uh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, -1, -3.4641, 1.73205)
 light_bake_mode = 0
 shadow_enabled = true
 directional_shadow_mode = 0
@@ -50,10 +55,1049 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 shape = SubResource("BoxShape3D_1gwlj")
 
 [node name="Quadcopter" parent="." instance=ExtResource("2_cy4ne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63999, 0.819586, 2.58571)
+transform = Transform3D(-3.97198e-08, -1.82489e-08, -1, -0.417486, 0.908683, 0, 0.908683, 0.417486, -4.37114e-08, -29.0706, 9.30345, 25.1731)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
 angular_damp = 4.242
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="RaceGate" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, 0)
+
+[node name="RaceGate8" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 0, 1, 1, 4.37114e-08, -4.37114e-08, 14, 1, 4.37114e-07)
+
+[node name="RaceGate9" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-1, -8.74228e-08, 0, 0, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 32, 1, 26)
+
+[node name="RaceGate12" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-0.866025, 0.5, 0, 2.18557e-08, 3.78552e-08, 1, 0.5, 0.866025, -4.37114e-08, 25.6699, 1, 7.0359)
+
+[node name="RaceGate10" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-0.707107, -0.707107, 0, -3.09086e-08, 3.09086e-08, 1, -0.707107, 0.707107, -4.37114e-08, 23.8787, 1, 48.0503)
+
+[node name="RaceGate11" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(0.707107, -0.707107, 0, -3.09086e-08, -3.09086e-08, 1, -0.707107, -0.707107, -4.37114e-08, 6.04345, 1, 51.9758)
+
+[node name="RaceGate6" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-2.12132, 2.12132, 9.27258e-08, 6.35275e-22, -1.31134e-07, 3, 2.12132, 2.12132, 9.27259e-08, -33, 4, -38)
+
+[node name="RaceGate7" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -54, 11, 0)
+
+[node name="RaceGate5" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 21, 0)
+
+[node name="RaceGate2" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, 10)
+
+[node name="RaceGate3" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, -10)
+
+[node name="RaceGate4" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 11, -42)
+
+[node name="building" type="Node3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="Sheet" type="Node3D" parent="Objects/building"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 calculate_tangents = false
 use_collision = true
 size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="Sheet2" type="Node3D" parent="Objects/building"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 6, -2, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -8.74228e-08)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, -13, -8.74228e-08)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="Sheet3" type="Node3D" parent="Objects/building"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7, -2, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="building2" type="Node3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 28)
+metadata/_edit_group_ = true
+
+[node name="Sheet" type="Node3D" parent="Objects/building2"]
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building2/Sheet"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building2/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="Sheet2" type="Node3D" parent="Objects/building2"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 6, -2, 1)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building2/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="Sheet3" type="Node3D" parent="Objects/building2"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7, -2, 1)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building2/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="building3" type="Node3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -27)
+metadata/_edit_group_ = true
+
+[node name="Sheet" type="Node3D" parent="Objects/building3"]
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building3/Sheet"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building3/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="Sheet2" type="Node3D" parent="Objects/building3"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 6, -2, 1)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building3/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="Sheet3" type="Node3D" parent="Objects/building3"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7, -2, 1)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building3/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="building4" type="Node3D" parent="Objects"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32, 6, -1)
+metadata/_edit_group_ = true
+
+[node name="Sheet" type="Node3D" parent="Objects/building4"]
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building4/Sheet"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building4/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="Sheet2" type="Node3D" parent="Objects/building4"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 6, -2, 1)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building4/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="Sheet3" type="Node3D" parent="Objects/building4"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7, -2, 1)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building4/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="building5" type="Node3D" parent="Objects"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32, 16, -1)
+metadata/_edit_group_ = true
+
+[node name="Sheet" type="Node3D" parent="Objects/building5"]
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building5/Sheet"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building5/Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="Sheet2" type="Node3D" parent="Objects/building5"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 6, -2, 1)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building5/Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="Sheet3" type="Node3D" parent="Objects/building5"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7, -2, 1)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects/building5/Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(10, 1, 1)

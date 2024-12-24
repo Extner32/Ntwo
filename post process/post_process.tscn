@@ -7,17 +7,17 @@
 shader = ExtResource("1_1qhf8")
 shader_parameter/vhs_resolution = Vector2(320, 240)
 shader_parameter/samples = 2
-shader_parameter/crease_noise = 1.0
-shader_parameter/crease_opacity = 0.5
-shader_parameter/filter_intensity = 1.0
-shader_parameter/tape_crease_smear = 0.2
+shader_parameter/crease_noise = 2.0
+shader_parameter/crease_opacity = 1.0
+shader_parameter/filter_intensity = 0.0
+shader_parameter/tape_crease_smear = 0.5
 shader_parameter/tape_crease_intensity = 0.2
 shader_parameter/tape_crease_jitter = 0.1
 shader_parameter/tape_crease_speed = 0.5
 shader_parameter/tape_crease_discoloration = 1.0
-shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_thickness = 2.7
 shader_parameter/bottom_border_jitter = 6.0
-shader_parameter/noise_intensity = 0.1
+shader_parameter/noise_intensity = 0.2
 shader_parameter/noise_texture = ExtResource("2_5l30p")
 
 [node name="PostProcess" type="CanvasLayer"]
