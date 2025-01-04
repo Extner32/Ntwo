@@ -31,10 +31,6 @@ size = Vector3(500, 3, 500)
 
 [node name="TestMap" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.861266, 0.0839135, -0.501179, 0, 0.986271, 0.165134, 0.508155, -0.142224, 0.849442, -29.6184, 9.51371, 26.0395)
-current = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pi1uh")
 
@@ -55,18 +51,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 shape = SubResource("BoxShape3D_1gwlj")
 
 [node name="Quadcopter" parent="." instance=ExtResource("2_cy4ne")]
-transform = Transform3D(-3.97198e-08, -1.82489e-08, -1, -0.417486, 0.908683, 0, 0.908683, 0.417486, -4.37114e-08, -29.0706, 9.30345, 25.1731)
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0956279, 0)
 angular_damp = 4.242
 
 [node name="Objects" type="Node3D" parent="."]
-
-[node name="RaceGate" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, 0)
 
 [node name="RaceGate8" parent="Objects" instance=ExtResource("3_yh26c")]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 0, 1, 1, 4.37114e-08, -4.37114e-08, 14, 1, 4.37114e-07)
@@ -90,13 +78,13 @@ transform = Transform3D(-2.12132, 2.12132, 9.27258e-08, 6.35275e-22, -1.31134e-0
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -54, 11, 0)
 
 [node name="RaceGate5" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 21, 0)
+transform = Transform3D(2, 0, 0, 0, -2, -1.74846e-07, 0, 1.74846e-07, -2, 0, 21, 0)
 
 [node name="RaceGate2" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, 10)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, 8)
 
 [node name="RaceGate3" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, -10)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, -6)
 
 [node name="RaceGate4" parent="Objects" instance=ExtResource("3_yh26c")]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 11, -42)

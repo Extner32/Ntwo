@@ -63,6 +63,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("self_right"):
 		quadcopter.global_rotation.x = 0
 		quadcopter.global_rotation.z = 0
+		quadcopter.global_rotation.y = PI
 		reset()
 
 	
@@ -75,7 +76,7 @@ func rates_function(x, max_rate, center_rate, expo):
 	return (center_rate*x)+((max_rate-center_rate)*expo_factor) * sign(x)
 	
 func get_throttle_input():
-	return Input.get_action_strength("throttle_up")
+	return (Input.get_axis("throttle_down", "throttle_up") + 1)/2
 	
 func get_pitch_input():
 	var nudge_factor = 1.43

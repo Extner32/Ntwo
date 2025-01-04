@@ -8,8 +8,8 @@ func _process(delta: float) -> void:
 	$GraphRoll.data.append(gb.roll_speed)
 	$GraphInput.data.append(gb.input_roll)
 	
-	#to go from m/s to Km/s you need to multiply by 3.6
-	$VelocityLabel.text = "velocity: "+str(snapped(gb.velocity*3.6, 0.01)) + " Km/s"
+	#to go from m/s to Km/h you need to multiply by 3.6
+	$VelocityLabel.text = "velocity: "+str(snapped(gb.velocity*3.6, 0.01)) + " Km/h"
 	#in Newton
 	$ThrustLabel.text = "total thrust: "+str(snapped(gb.total_thrust, 0.01)) + " N"
 	

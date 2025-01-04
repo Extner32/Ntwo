@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ukwqm4lynwtt"]
+[gd_scene load_steps=9 format=3 uid="uid://ukwqm4lynwtt"]
 
 [ext_resource type="Script" path="res://quadcopter/Quadcopter.gd" id="1_2l7nd"]
 [ext_resource type="PackedScene" uid="uid://dj2tf6l8de5d8" path="res://quadcopter/motors/Motor.tscn" id="1_7js25"]
 [ext_resource type="PackedScene" uid="uid://k72klqrwdsfh" path="res://quadcopter/propellers/Propeller.tscn" id="2_rl4bc"]
 [ext_resource type="PackedScene" uid="uid://bl5eci0hpso2m" path="res://quadcopter/flight_controller/FlightController.tscn" id="3_eqg83"]
+[ext_resource type="AudioStream" uid="uid://xt4m8jaqfh6a" path="res://quadcopter/383852__simeonradivoev__mini-quadcopter-flying-loop.wav" id="5_aj1qe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6p65n"]
 size = Vector3(0.2, 0.02, 0.2)
@@ -19,12 +20,14 @@ mass = 0.68
 can_sleep = false
 continuous_cd = true
 linear_damp_mode = 1
+angular_damp = 1.0
 script = ExtResource("1_2l7nd")
 motor1 = NodePath("motors/Motor1")
 motor2 = NodePath("motors/Motor2")
 motor3 = NodePath("motors/Motor3")
 motor4 = NodePath("motors/Motor4")
-drag_coefficients = Vector3(0.02, 0.05, 0.02)
+drag_coefficients = Vector3(0.02, 0.04, 0.02)
+drag_mult = 0.435
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6p65n")
@@ -84,3 +87,8 @@ top_level = true
 
 [node name="DebugCam" type="Camera3D" parent="DebugCamPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.936096, 0.351744, 0, -0.351744, 0.936096, 0, 0.538586, 0.98207)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_aj1qe")
+autoplay = true
+bus = &"sfx"

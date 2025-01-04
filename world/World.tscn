@@ -1,29 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl1ttl764ii3a"]
+[gd_scene load_steps=4 format=3 uid="uid://dl1ttl764ii3a"]
 
 [ext_resource type="PackedScene" uid="uid://0chsx6yecwbn" path="res://post process/post_process.tscn" id="2_g20ue"]
 [ext_resource type="PackedScene" uid="uid://djiskdxn5dfpb" path="res://world/maps/test map/test_map.tscn" id="2_ns77e"]
 [ext_resource type="PackedScene" uid="uid://b5aq7rwrg1xvm" path="res://GUI/gui.tscn" id="3_qnehr"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ftmel"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_bottom_color = Color(0.938046, 0.9179, 0.895083, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_tw8yf"]
-sky_material = SubResource("ProceduralSkyMaterial_ftmel")
-radiance_size = 2
-
-[sub_resource type="Environment" id="Environment_njgnw"]
-background_mode = 2
-sky = SubResource("Sky_tw8yf")
-tonemap_mode = 2
-glow_enabled = true
-fog_density = 0.001
-
 [node name="world" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_njgnw")
 
 [node name="TestMap" parent="." instance=ExtResource("2_ns77e")]
 
@@ -31,7 +12,6 @@ environment = SubResource("Environment_njgnw")
 visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("3_qnehr")]
 metadata/_edit_use_anchors_ = true

@@ -10,11 +10,15 @@ extends RigidBody3D
 
 @onready var motors = [motor1, motor2, motor3, motor4]
 
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+
+
 #drag in the (local) x, y, z directions
 #if for example the y drag is high (top-bottom):
 	#if the top/bottom is facing the same direction
 	#as the direction that the quad is moving in, the drone will slow down
 @export var drag_coefficients = Vector3(0.05, 0.1, 0.05)
+@export var drag_mult = 1.0
 
 var imu_pitch_speed = 0
 var imu_roll_speed = 0
@@ -23,6 +27,8 @@ var imu_yaw_speed = 0
 var imu_pitch = 0
 var imu_roll = 0
 var imu_yaw = 0
+
+
 
 
 func _process(delta):
@@ -36,8 +42,8 @@ func _process(delta):
 	imu_roll_speed = local_angular_velocity.z
 	imu_yaw_speed = local_angular_velocity.y
 	
-	#$FPVCam.current = not debug_cam
-	#$DebugCamPivot/DebugCam.current = debug_cam
+	$FPVCam.current = not debug_cam
+	$DebugCamPivot/DebugCam.current = debug_cam
 	$DebugCamPivot.global_position = global_position
 	$DebugCamPivot.global_rotation.y = global_rotation.y
 	
@@ -59,6 +65,12 @@ func _physics_process(delta):
 		apply_torque(motor.up * torque)
 		
 	gb.total_thrust = total_thrust
+	#perunum is from 0-1 instead of 0-100%
+	var thrust_perunum = total_thrust/70
+	audio.volume_db = linear_to_db(thrust_perunum)
+	audio.pitch_scale = pow(2, thrust_perunum)
+	
+	
 	
 	var vel_norm = linear_velocity.normalized()
 	var drag_directions = Vector3(0, 0, 0)
@@ -68,7 +80,6 @@ func _physics_process(delta):
 	
 	var drag = drag_directions.x + drag_directions.y + drag_directions.z
 	var drag_force = (vel_norm * linear_velocity.length_squared()) * gb.air_drag * drag
-	#print(drag)
 	apply_central_force(-drag_force)
 		
 		
