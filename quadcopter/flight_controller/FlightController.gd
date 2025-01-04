@@ -38,11 +38,10 @@ var armed = true
 func _physics_process(delta):
 	if armed:
 		#get input and apply rates
-		var input_throttle = get_throttle_input() * gb.throttle_max
-		var input_pitch = rates_function(get_pitch_input(), gb.pitch_max_rate, gb.pitch_center_rate, gb.pitch_expo)
-		var input_roll = rates_function(get_roll_input(), gb.roll_max_rate, gb.roll_center_rate, gb.roll_expo)
-		var input_yaw = rates_function(get_yaw_input(), gb.yaw_max_rate, gb.yaw_center_rate, gb.yaw_expo)
-		
+		var input_throttle = Controller.get_throttle_input()
+		var input_pitch = -Controller.get_pitch_input()
+		var input_roll = -Controller.get_roll_input()
+		var input_yaw = -Controller.get_yaw_input()
 		
 		#make the PIDs figure out the new speeds for pitch, roll and yaw
 		var pitch_speed = PID_pitch.compute(delta, input_pitch, quadcopter.imu_pitch_speed)
@@ -67,28 +66,6 @@ func _process(delta: float) -> void:
 		reset()
 
 	
-func rates_function(x, max_rate, center_rate, expo):
-	#x is in the range [-1, 1]
-	#you can see a desmos graph here:
-	#https://www.desmos.com/calculator/5hlbr3utht
-	var expo_factor = x*(pow(x, 5) * expo + x*(1.0-expo))
-	#this is multiplied by sign(x) so it also works for x < 0
-	return (center_rate*x)+((max_rate-center_rate)*expo_factor) * sign(x)
-	
-func get_throttle_input():
-	return (Input.get_axis("throttle_down", "throttle_up") + 1)/2
-	
-func get_pitch_input():
-	var nudge_factor = 1.43
-	return -clamp(Input.get_axis("pitch_up", "pitch_down") * nudge_factor, -1, 1)
-	
-func get_roll_input():
-	var nudge_factor = 1.76
-	return -clamp(Input.get_axis("roll_left", "roll_right") * nudge_factor, -1, 1)
-	
-func get_yaw_input():
-	var nudge_factor = 1.43
-	return -clamp(Input.get_axis("yaw_left", "yaw_right") * nudge_factor, -1, 1)
 
 func reset():
 	PID_pitch.reset()

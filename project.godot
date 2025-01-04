@@ -18,6 +18,7 @@ config/icon="res://logo.png"
 [autoload]
 
 gb="*res://global/Global.gd"
+Controller="*res://global/controller.gd"
 
 [display]
 

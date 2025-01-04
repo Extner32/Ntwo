@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5aq7rwrg1xvm"]
+[gd_scene load_steps=8 format=3 uid="uid://b5aq7rwrg1xvm"]
 
 [ext_resource type="Script" path="res://GUI/gui.gd" id="1_2vknh"]
-[ext_resource type="PackedScene" uid="uid://c7dy4ybkm8330" path="res://GUI/graph/graph.tscn" id="1_3vg5m"]
 [ext_resource type="PackedScene" uid="uid://bh8sbb7ijckks" path="res://GUI/rate plotter/rate_plotter.tscn" id="3_uj5tt"]
 [ext_resource type="Shader" path="res://GUI/rate plotter/rate_plotter.gdshader" id="4_2i3ev"]
 
@@ -48,19 +47,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2vknh")
 fps_gradient = SubResource("Gradient_xdgpj")
-
-[node name="GraphRoll" parent="." instance=ExtResource("1_3vg5m")]
-visible = false
-size = Vector2i(300, 200)
-max_value = 20.0
-min_value = -20.0
-
-[node name="GraphInput" parent="." instance=ExtResource("1_3vg5m")]
-visible = false
-size = Vector2i(300, 200)
-max_value = 20.0
-min_value = -20.0
-data_color = Color(0, 1, 0.316667, 1)
 
 [node name="VelocityLabel" type="Label" parent="."]
 layout_mode = 1
