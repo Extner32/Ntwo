@@ -58,9 +58,8 @@ func _physics_process(delta):
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("self_right"):
-		quadcopter.global_rotation.x = 0
 		quadcopter.global_rotation.z = 0
-		quadcopter.global_rotation.y = PI
+		quadcopter.global_rotation.x = 0
 		reset()
 
 	

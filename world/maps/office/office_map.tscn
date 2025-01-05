@@ -11,7 +11,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
 light_energy = 1.067
 omni_range = 1.106
 
+[node name="Plane" parent="map" index="224"]
+visible = false
+
 [node name="AL" parent="map" index="225"]
+visible = false
 light_energy = 1.358
 
 [editable path="map"]

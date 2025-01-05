@@ -32,7 +32,6 @@ motor2 = NodePath("motors/Motor2")
 motor3 = NodePath("motors/Motor3")
 motor4 = NodePath("motors/Motor4")
 drag_coefficients = Vector3(0.02, 0.04, 0.02)
-drag_mult = 0.435
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6p65n")

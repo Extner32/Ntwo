@@ -74,14 +74,12 @@ func _physics_process(delta):
 	
 	var vel_norm = linear_velocity.normalized()
 	var drag_directions = Vector3(0, 0, 0)
-	drag_directions.x = abs(global_basis.x.dot(vel_norm))*drag_coefficients.x
-	drag_directions.y = abs(global_basis.y.dot(vel_norm))*drag_coefficients.y
-	drag_directions.z = abs(global_basis.z.dot(vel_norm))*drag_coefficients.z
+	drag_directions.x = abs(global_basis.x.dot(vel_norm))*drag_coefficients.x * drag_mult
+	drag_directions.y = abs(global_basis.y.dot(vel_norm))*drag_coefficients.y * drag_mult
+	drag_directions.z = abs(global_basis.z.dot(vel_norm))*drag_coefficients.z * drag_mult
 	
 	var drag = drag_directions.x + drag_directions.y + drag_directions.z
 	var drag_force = (vel_norm * linear_velocity.length_squared()) * gb.air_drag * drag
 	apply_central_force(-drag_force)
 		
 		
-	if Input.is_action_just_pressed("reset"):
-		gb.reset()
