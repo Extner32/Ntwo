@@ -180,13 +180,60 @@ layout_mode = 2
 text = "Throttle Down"
 action_name = "throttle_down"
 
-[node name="spacer" type="Control" parent="settings/ScrollContainer/directionals"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
 [node name="Label4" type="Label" parent="settings/ScrollContainer/directionals"]
 layout_mode = 2
-text = "Rates"
+text = "Switches"
+
+[node name="Switches" type="VBoxContainer" parent="settings/ScrollContainer/directionals"]
+layout_mode = 2
+
+[node name="Arm" type="HBoxContainer" parent="settings/ScrollContainer/directionals/Switches"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings/ScrollContainer/directionals/Switches/Arm"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Arm"
+
+[node name="KeybindButton" parent="settings/ScrollContainer/directionals/Switches/Arm" instance=ExtResource("1_s8nf5")]
+layout_mode = 2
+size_flags_horizontal = 3
+action_name = "arm"
+
+[node name="Label2" type="Label" parent="settings/ScrollContainer/directionals/Switches/Arm"]
+layout_mode = 2
+text = "toggle"
+
+[node name="CheckBox" type="CheckBox" parent="settings/ScrollContainer/directionals/Switches/Arm"]
+layout_mode = 2
+
+[node name="Reset" type="HBoxContainer" parent="settings/ScrollContainer/directionals/Switches"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings/ScrollContainer/directionals/Switches/Reset"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset
+"
+
+[node name="KeybindButton" parent="settings/ScrollContainer/directionals/Switches/Reset" instance=ExtResource("1_s8nf5")]
+layout_mode = 2
+size_flags_horizontal = 3
+action_name = "reset"
+
+[node name="SelfRight" type="HBoxContainer" parent="settings/ScrollContainer/directionals/Switches"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings/ScrollContainer/directionals/Switches/SelfRight"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Self Right
+"
+
+[node name="KeybindButton" parent="settings/ScrollContainer/directionals/Switches/SelfRight" instance=ExtResource("1_s8nf5")]
+layout_mode = 2
+size_flags_horizontal = 3
+action_name = "self_right"
 
 [node name="Example" type="VBoxContainer" parent="settings"]
 layout_mode = 2
@@ -201,7 +248,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="settings/Example/ViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(554, 608)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="transform" parent="settings/Example/ViewportContainer/SubViewport" instance=ExtResource("2_og0rt")]

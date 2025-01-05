@@ -8,9 +8,8 @@ extends Node3D
 @export var motor4: Motor
 
 @onready var motors = [motor1, motor2, motor3, motor4]
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-const MOTOR_IDLE = 0.2
+var motor_idle = 0.2
 
 #rates
 
@@ -34,7 +33,6 @@ var armed = true
 @onready var PID_yaw = $PID_yaw
 
 
-
 func _physics_process(delta):
 	if armed:
 		#get input and apply rates
@@ -53,10 +51,10 @@ func _physics_process(delta):
 		
 
 		#mix the pitch, roll and yaw speeds to the velocites of the motors
-		motor1.angular_vel = max(MOTOR_IDLE + input_throttle  - pitch_speed + roll_speed + yaw_speed, 0)
-		motor2.angular_vel = max(MOTOR_IDLE + input_throttle  + pitch_speed + roll_speed - yaw_speed, 0)
-		motor3.angular_vel = max(MOTOR_IDLE + input_throttle  - pitch_speed - roll_speed - yaw_speed, 0)
-		motor4.angular_vel = max(MOTOR_IDLE + input_throttle  + pitch_speed - roll_speed + yaw_speed, 0)
+		motor1.angular_vel = max(motor_idle + input_throttle  - pitch_speed + roll_speed + yaw_speed, 0)
+		motor2.angular_vel = max(motor_idle + input_throttle  + pitch_speed + roll_speed - yaw_speed, 0)
+		motor3.angular_vel = max(motor_idle + input_throttle  - pitch_speed - roll_speed - yaw_speed, 0)
+		motor4.angular_vel = max(motor_idle + input_throttle  + pitch_speed - roll_speed + yaw_speed, 0)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("self_right"):

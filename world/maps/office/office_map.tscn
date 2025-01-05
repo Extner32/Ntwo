@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdcrswrw0u2g7"]
+[gd_scene load_steps=2 format=3 uid="uid://cdcrswrw0u2g7"]
 
 [ext_resource type="PackedScene" uid="uid://by65uvaxt0ito" path="res://world/maps/office/map.blend" id="1_n88tk"]
-[ext_resource type="VoxelGIData" uid="uid://ggdrdsrf3nck" path="res://world/maps/office/office_map.VoxelGI_data.res" id="2_yqlyq"]
-[ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="3_kgcva"]
 
 [node name="OfficeMap" type="Node3D"]
 
@@ -13,15 +11,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
 light_energy = 1.067
 omni_range = 1.106
 
-[node name="AL" parent="map" index="226"]
+[node name="AL" parent="map" index="225"]
 light_energy = 1.358
-
-[node name="VoxelGI" type="VoxelGI" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05774, 2.10928, 1.03491)
-size = Vector3(10.4426, 5.04095, 17.9302)
-data = ExtResource("2_yqlyq")
-
-[node name="Quadcopter" parent="." instance=ExtResource("3_kgcva")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93478, 0, 3.53084)
 
 [editable path="map"]

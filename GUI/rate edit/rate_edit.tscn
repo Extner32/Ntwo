@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv41jcgkr46t1"]
+
+[ext_resource type="Script" path="res://GUI/rate edit/rate_edit.gd" id="1_a0gc0"]
+[ext_resource type="PackedScene" uid="uid://co8rtekw33i3f" path="res://GUI/number input/number_input.tscn" id="1_qs6ok"]
+[ext_resource type="PackedScene" uid="uid://bh8sbb7ijckks" path="res://GUI/rate plotter/rate_plotter.tscn" id="2_hgsyl"]
+[ext_resource type="Shader" path="res://GUI/rate plotter/rate_plotter.gdshader" id="3_fripl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26krl"]
+resource_local_to_scene = true
+shader = ExtResource("3_fripl")
+shader_parameter/max_rate = 200.0
+shader_parameter/center_rate = 0.0
+shader_parameter/expo = 0.0
+shader_parameter/graph_thickness = 0.01
+shader_parameter/graph_color = Color(1, 0, 0, 1)
+shader_parameter/background_color = Color(0.246898, 0.290535, 0.140149, 0)
+
+[node name="RateEdit" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a0gc0")
+expo_default = 1.0
+
+[node name="Rates" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Center" parent="Rates" instance=ExtResource("1_qs6ok")]
+layout_mode = 2
+text = "Center"
+
+[node name="Max" parent="Rates" instance=ExtResource("1_qs6ok")]
+layout_mode = 2
+text = "Max"
+
+[node name="Expo" parent="Rates" instance=ExtResource("1_qs6ok")]
+layout_mode = 2
+text = "Expo"
+
+[node name="RatePlot" parent="." instance=ExtResource("2_hgsyl")]
+material = SubResource("ShaderMaterial_26krl")
+layout_mode = 2
+size_flags_horizontal = 3
+
+[editable path="Rates/Center"]

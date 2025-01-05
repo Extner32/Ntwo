@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://ukwqm4lynwtt"]
+[gd_scene load_steps=10 format=3 uid="uid://ukwqm4lynwtt"]
 
 [ext_resource type="Script" path="res://quadcopter/Quadcopter.gd" id="1_2l7nd"]
 [ext_resource type="PackedScene" uid="uid://dj2tf6l8de5d8" path="res://quadcopter/motors/Motor.tscn" id="1_7js25"]
 [ext_resource type="PackedScene" uid="uid://k72klqrwdsfh" path="res://quadcopter/propellers/Propeller.tscn" id="2_rl4bc"]
 [ext_resource type="PackedScene" uid="uid://bl5eci0hpso2m" path="res://quadcopter/flight_controller/FlightController.tscn" id="3_eqg83"]
 [ext_resource type="AudioStream" uid="uid://xt4m8jaqfh6a" path="res://quadcopter/383852__simeonradivoev__mini-quadcopter-flying-loop.wav" id="5_aj1qe"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n3fk8"]
+friction = 0.8
+bounce = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6p65n"]
 size = Vector3(0.2, 0.02, 0.2)
@@ -16,7 +20,8 @@ albedo_color = Color(1, 0, 1, 1)
 size = Vector3(0.2, 0.02, 0.2)
 
 [node name="Quadcopter" type="RigidBody3D" node_paths=PackedStringArray("motor1", "motor2", "motor3", "motor4")]
-mass = 0.68
+mass = 0.7
+physics_material_override = SubResource("PhysicsMaterial_n3fk8")
 can_sleep = false
 continuous_cd = true
 linear_damp_mode = 1
@@ -78,7 +83,7 @@ motor3 = NodePath("../motors/Motor3")
 motor4 = NodePath("../motors/Motor4")
 
 [node name="FPVCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965287, -0.261196, 0, 0.261196, 0.965287, 0, 0.00223842, -0.0945663)
+transform = Transform3D(1, 0, 0, 0, 0.866157, -0.499774, 0, 0.499774, 0.866157, 0, 0.00223842, -0.0945663)
 fov = 90.0
 near = 0.001
 

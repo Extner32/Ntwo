@@ -20,7 +20,7 @@ float rates_function(float x) {
 float dst_to_line(vec2 p, vec2 a, vec2 b) {
 	// p is the sample point, a and b are the start and end of the line
 	float numerator = (b.x-a.x)*(p.y-a.y)-(b.y-a.y)*(p.x-a.x);
-	
+
 	float c = (b.x-a.x);
 	float d = (b.y-a.y);
 	float denominator = sqrt(c*c + d*d);
@@ -36,12 +36,12 @@ void fragment() {
 	//else {
 		//COLOR = background_color;
 	//}
-	
+
 	float dx = 0.01;
-	
+
 	float y1 = 1.0 - (rates_function(UV.x)/max_rate);
 	float y2 = 1.0 - (rates_function(UV.x+dx)/max_rate);
-	float dst = dst_to_line(UV, vec2(UV.x, y1), vec2(UV.x+dx, y2));
+	float dst = dst_to_line(UV, vec2(UV.x, y1-graph_thickness/2.0), vec2(UV.x+dx, y2-graph_thickness/2.0));
 	//float dst_sq = dst_sq_to_line(UV, vec2(0, 0.5), vec2(1.0, 0.5));
 	if (dst <= (graph_thickness/2.0)) {
 		COLOR = graph_color;
@@ -49,6 +49,6 @@ void fragment() {
 	else {
 		COLOR = background_color;
 	}
-	
-	
+
+
 }
