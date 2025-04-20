@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=4 uid="uid://djiskdxn5dfpb"]
+[gd_scene load_steps=16 format=4 uid="uid://djiskdxn5dfpb"]
 
 [ext_resource type="Texture2D" uid="uid://comtw0c6ph3he" path="res://Grid/Orange/texture_01.png" id="1_dfe0u"]
 [ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="2_cy4ne"]
 [ext_resource type="PackedScene" uid="uid://igw4dto0q5kg" path="res://objects/race_gate.tscn" id="3_yh26c"]
 [ext_resource type="Texture2D" uid="uid://bw3n6xkmrxoot" path="res://Grid/Purple/texture_01.png" id="4_1fjex"]
-[ext_resource type="PackedScene" uid="uid://cdcrswrw0u2g7" path="res://world/maps/office/office_map.tscn" id="5_akx8b"]
 [ext_resource type="PackedScene" uid="uid://cqpi8dl1uxmrn" path="res://test/human_low.blend" id="6_s8mc5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tkn1t"]
@@ -78,6 +77,9 @@ light_bake_mode = 0
 shadow_enabled = true
 directional_shadow_mode = 0
 
+[node name="human_low" parent="." instance=ExtResource("6_s8mc5")]
+transform = Transform3D(0.650814, 0, 0.759237, 0, 1, 0, -0.759237, 0, 0.650814, -8.1505, 4.76837e-07, -12.4884)
+
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
@@ -111,6 +113,12 @@ transform = Transform3D(0.707107, -0.707107, 0, -3.09086e-08, -3.09086e-08, 1, -
 
 [node name="RaceGate6" parent="Objects" instance=ExtResource("3_yh26c")]
 transform = Transform3D(-2.12132, 2.12132, 9.27258e-08, 6.35275e-22, -1.31134e-07, 3, 2.12132, 2.12132, 9.27259e-08, -33, 4, -38)
+
+[node name="RaceGate13" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1.31134e-07, 3, 1.31134e-07, 8.47033e-22, -1.31134e-07, 3, 3, -1.31134e-07, 6.88749e-14, -90, 4, 57)
+
+[node name="RaceGate14" parent="Objects" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1.31134e-07, 3, 1.31134e-07, 8.47033e-22, -1.31134e-07, 3, 3, -1.31134e-07, 6.88749e-14, -90, 25, 57)
 
 [node name="RaceGate7" parent="Objects" instance=ExtResource("3_yh26c")]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -54, 11, 0)
@@ -709,7 +717,7 @@ use_collision = true
 size = Vector3(10, 1, 1)
 
 [node name="building4" type="Node3D" parent="Objects"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32, 6, -1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.2817, 6, 0.0375013)
 metadata/_edit_group_ = true
 
 [node name="Sheet" type="Node3D" parent="Objects/building4"]
@@ -919,7 +927,7 @@ use_collision = true
 size = Vector3(10, 1, 1)
 
 [node name="building5" type="Node3D" parent="Objects"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32, 16, -1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.2817, 16, 0.0375013)
 metadata/_edit_group_ = true
 
 [node name="Sheet" type="Node3D" parent="Objects/building5"]
@@ -1128,19 +1136,344 @@ calculate_tangents = false
 use_collision = true
 size = Vector3(10, 1, 1)
 
+[node name="CSGBox3D6" type="CSGBox3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9112, 13.3673, -26.9271)
 material_override = SubResource("StandardMaterial3D_ey6s5")
 use_collision = true
 size = Vector3(1, 27.7347, 25.9254)
 
-[node name="OfficeMap" parent="." instance=ExtResource("5_akx8b")]
-transform = Transform3D(3.281, 0, 0, 0, 3.281, 0, 0, 0, 3.281, 27.106, 0, -83.5678)
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.5888, 0.99995, 45.0729)
+material_override = SubResource("StandardMaterial3D_ey6s5")
+use_collision = true
+size = Vector3(26, 3, 25.9254)
 
-[node name="human_low" parent="." instance=ExtResource("6_s8mc5")]
-transform = Transform3D(0.650814, 0, 0.759237, 0, 1, 0, -0.759237, 0, 0.650814, -8.1505, 4.76837e-07, -12.4884)
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.161076, -0.202588, -0.965926, -0.782739, 0.622351, 0, 0.601145, 0.756067, -0.258819, -62.2128, 2.30413, 76.3355)
+material_override = SubResource("StandardMaterial3D_ey6s5")
+use_collision = true
+size = Vector3(1, 11.4665, 16.9255)
+
+[node name="Sheet" type="Node3D" parent="."]
+transform = Transform3D(-4.22219e-08, 0.965926, 0.258819, -1, -4.37114e-08, 0, 1.13133e-08, -0.258819, 0.965926, -69, 6, 52)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Sheet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="Sheet2" type="Node3D" parent="."]
+transform = Transform3D(-3.09086e-08, 0.707107, -0.707107, -1, -4.37114e-08, -8.57914e-16, -3.09086e-08, 0.707107, 0.707107, -83, 4, 73)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Sheet2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="RaceGate7" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -102, 4, 53)
+
+[node name="RaceGate9" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 55)
+
+[node name="RaceGate13" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -112.7, 15.6, 72.6)
+
+[node name="RaceGate14" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -104.9, 15.6, 70.5)
+
+[node name="RaceGate15" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(-1.55994e-09, 0.689038, -0.724725, 1, -4.37114e-08, -4.37114e-08, -6.17976e-08, -0.724725, -0.689038, -87.2, 15.6, 77.3)
+
+[node name="RaceGate10" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 51)
+
+[node name="RaceGate11" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 47)
+
+[node name="RaceGate12" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 43)
+
+[node name="RaceGate8" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -102, 4, 45)
+
+[node name="RaceGate16" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -118, 9, 53)
+
+[node name="RaceGate17" parent="." instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -118, 9, 45)
+
+[node name="Sheet3" type="Node3D" parent="."]
+transform = Transform3D(1.13133e-08, -0.258819, 0.965926, -1, -4.37114e-08, -4.22798e-15, 4.22219e-08, -0.965926, -0.258819, -103, 4, 70)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Sheet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="Sheet4" type="Node3D" parent="."]
+transform = Transform3D(1.91068e-15, -4.37114e-08, -1, -0.707106, -0.707107, 3.09086e-08, -0.707106, 0.707107, -3.09086e-08, -90, 9.53553, 39.5355)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sheet4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(32.67, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Sheet4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(32.67, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Sheet4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(32.67, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Sheet4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(32.67, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Sheet4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(32.67, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Sheet4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(32.67, 1, 1)
+
+[node name="Sheet7" type="Node3D" parent="."]
+transform = Transform3D(4.37114e-08, 8.14599e-15, -1, 0.707106, -0.707106, 3.09086e-08, -0.707106, -0.707107, -3.09086e-08, -90, 6, 48.7279)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sheet7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(21.21, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Sheet7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(21.21, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Sheet7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(21.21, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Sheet7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(21.21, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Sheet7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(21.21, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Sheet7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(21.21, 1, 1)
+
+[node name="Sheet6" type="Node3D" parent="."]
+transform = Transform3D(-2.98023e-08, 1, 7.10543e-15, -0.999999, -1.19209e-07, 1.77636e-15, -6.07984e-16, -7.10543e-15, 1, -118, 6, 49)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sheet6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Sheet6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Sheet6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Sheet6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Sheet6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Sheet6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="Sheet5" type="Node3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, -118, 6, 49)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sheet5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Sheet5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Sheet5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Sheet5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
 multimesh = SubResource("MultiMesh_dypve")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -41, -2.53526e-06, 19)
+calculate_tangents = false
+use_collision = true
+size = Vector3(20, 1, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 6.18172e-08, 6.18172e-08, -8.74228e-08, -0.707107, -0.707107, 0, -0.707107, 0.707107, -90, 12.3582, 42.3582)
+calculate_tangents = false
+use_collision = true
+size = Vector3(24, 1, 1)
 
 [editable path="human_low"]

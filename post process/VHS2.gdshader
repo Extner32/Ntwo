@@ -20,5 +20,5 @@ void fragment() {
 	vec4 screen_color = texture(screen_texture, SCREEN_UV);
 	vec4 offset_color1 = texture(screen_texture, SCREEN_UV+aberration_strength);
 	vec4 offset_color2 = texture(screen_texture, SCREEN_UV-aberration_strength);
-	COLOR = 
+	COLOR =
 }

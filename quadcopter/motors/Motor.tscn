@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj2tf6l8de5d8"]
 
-[ext_resource type="Script" path="res://quadcopter/motors/Motor.gd" id="1_ix55h"]
+[ext_resource type="Script" uid="uid://htev3yd8ih7u" path="res://quadcopter/motors/Motor.gd" id="1_ix55h"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_y1iq6"]
 top_radius = 0.015

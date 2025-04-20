@@ -25,6 +25,9 @@ func _ready():
 func compute_thrust():
 	if not on: return 0
 	return lift_const * angular_vel
+	
+func compute_ground_effect():
+	return prop.ground_effect()
 
 func compute_torque():
 	if not on: return 0

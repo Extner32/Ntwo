@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cl22qui08rcyb"]
 
-[ext_resource type="Script" path="res://test/test.gd" id="1_s5xu3"]
-[ext_resource type="Script" path="res://quadcopter/pid controller/pidcontroller.gd" id="2_sgn4h"]
+[ext_resource type="Script" uid="uid://dscxbrlgm5jj4" path="res://test/test.gd" id="1_s5xu3"]
+[ext_resource type="Script" uid="uid://btk5vyqql5uby" path="res://quadcopter/pid controller/pidcontroller.gd" id="2_sgn4h"]
 [ext_resource type="PackedScene" uid="uid://c7dy4ybkm8330" path="res://GUI/graph/graph.tscn" id="3_ami0b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gae55"]

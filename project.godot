@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Ntwo"
 run/main_scene="res://world/World.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://logo.png"
 
 [autoload]
@@ -22,7 +22,6 @@ Controller="*res://global/controller.gd"
 
 [display]
 
-window/size/mode=3
 window/vsync/vsync_mode=0
 
 [file_customization]
@@ -91,8 +90,9 @@ arm={
 
 [physics]
 
+3d/run_on_separate_thread=true
 common/physics_ticks_per_second=120
-3d/physics_engine="JoltPhysics3D"
+3d/physics_engine="Jolt Physics"
 
 [rendering]
 

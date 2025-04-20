@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://703vmiecp1lf"]
 
-[ext_resource type="Script" path="res://quadcopter/pid controller/pidcontroller.gd" id="1_lu1ai"]
+[ext_resource type="Script" uid="uid://btk5vyqql5uby" path="res://quadcopter/pid controller/pidcontroller.gd" id="1_lu1ai"]
 
 [node name="PIDcontroller" type="Node"]
 script = ExtResource("1_lu1ai")

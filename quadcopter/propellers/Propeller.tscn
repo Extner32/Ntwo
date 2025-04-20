@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://k72klqrwdsfh"]
 
-[ext_resource type="Script" path="res://quadcopter/propellers/Propeller.gd" id="1_sqrqu"]
+[ext_resource type="Script" uid="uid://c636nf3mvnqud" path="res://quadcopter/propellers/Propeller.gd" id="1_sqrqu"]
 
 [sub_resource type="Gradient" id="Gradient_f3h27"]
 colors = PackedColorArray(0.0392157, 0.580392, 1, 1, 0.96, 0, 0.32, 1)
@@ -22,3 +22,6 @@ color_gradient = SubResource("Gradient_f3h27")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00962847, 0)
 material_override = SubResource("StandardMaterial3D_t4dqj")
 mesh = SubResource("CylinderMesh_j1ye6")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -5, 0)

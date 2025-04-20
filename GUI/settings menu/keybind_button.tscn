@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://0tldi4hhu4fb"]
 
-[ext_resource type="Script" path="res://GUI/settings menu/keybind_button.gd" id="1_ycvv5"]
+[ext_resource type="Script" uid="uid://dj8112dl8b0ub" path="res://GUI/settings menu/keybind_button.gd" id="1_ycvv5"]
 
 [node name="KeybindButton" type="Button"]
 anchors_preset = 10

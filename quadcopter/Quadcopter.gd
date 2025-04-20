@@ -57,11 +57,12 @@ func _physics_process(delta):
 	#set forces per motor
 	for motor in motors:
 		var thrust = motor.compute_thrust()
+		var ground_effect = motor.compute_ground_effect()
 		total_thrust += thrust
 		#print("thrust ",thrust)
 		var torque = motor.compute_torque()
 		
-		apply_force(motor.up * thrust, global_transform.basis * motor.position)
+		apply_force(motor.up * thrust * ground_effect, global_transform.basis * motor.position)
 		apply_torque(motor.up * torque)
 		
 	gb.total_thrust = total_thrust

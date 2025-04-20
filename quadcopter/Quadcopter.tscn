@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ukwqm4lynwtt"]
 
-[ext_resource type="Script" path="res://quadcopter/Quadcopter.gd" id="1_2l7nd"]
+[ext_resource type="Script" uid="uid://cmivc86q17toe" path="res://quadcopter/Quadcopter.gd" id="1_2l7nd"]
 [ext_resource type="PackedScene" uid="uid://dj2tf6l8de5d8" path="res://quadcopter/motors/Motor.tscn" id="1_7js25"]
 [ext_resource type="PackedScene" uid="uid://k72klqrwdsfh" path="res://quadcopter/propellers/Propeller.tscn" id="2_rl4bc"]
 [ext_resource type="PackedScene" uid="uid://bl5eci0hpso2m" path="res://quadcopter/flight_controller/FlightController.tscn" id="3_eqg83"]
@@ -82,7 +82,7 @@ motor3 = NodePath("../motors/Motor3")
 motor4 = NodePath("../motors/Motor4")
 
 [node name="FPVCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866157, -0.499774, 0, 0.499774, 0.866157, 0, 0.00223842, -0.0945663)
+transform = Transform3D(1, 0, 0, 0, 0.831461, -0.555586, 0, 0.555586, 0.831461, 0, 0.00223842, -0.0945663)
 fov = 90.0
 near = 0.001
 

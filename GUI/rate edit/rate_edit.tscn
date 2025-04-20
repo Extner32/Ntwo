@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dv41jcgkr46t1"]
 
-[ext_resource type="Script" path="res://GUI/rate edit/rate_edit.gd" id="1_a0gc0"]
+[ext_resource type="Script" uid="uid://bdiplgeup8r4p" path="res://GUI/rate edit/rate_edit.gd" id="1_a0gc0"]
 [ext_resource type="PackedScene" uid="uid://co8rtekw33i3f" path="res://GUI/number input/number_input.tscn" id="1_qs6ok"]
 [ext_resource type="PackedScene" uid="uid://bh8sbb7ijckks" path="res://GUI/rate plotter/rate_plotter.tscn" id="2_hgsyl"]
-[ext_resource type="Shader" path="res://GUI/rate plotter/rate_plotter.gdshader" id="3_fripl"]
+[ext_resource type="Shader" uid="uid://b1sqnf15gie1x" path="res://GUI/rate plotter/rate_plotter.gdshader" id="3_fripl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26krl"]
 resource_local_to_scene = true
