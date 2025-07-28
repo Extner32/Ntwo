@@ -5,8 +5,13 @@
 - Open source and free forever
 - allow for user-created maps (made in the Godot editor and then used in the game)
 - Realistic physics
-- Good preformance (should easily run on intigrated gpu's with the right settings), but also nice visuals if your computer can handle it.
+- Good preformance (should easily run on integrated gpu's with the right settings), but also allow nice visuals if your computer can handle it.
 
 ## current working features:
-- drone physics with PID controllers (this will probably keep getting improved during development)
-- analog screen effect shader
+- drone physics (this will probably keep getting improved during development)
+    - PID controllers
+    - ground effect simulation
+    - Actual Rates
+
+- one test map
+- input rebind menu
