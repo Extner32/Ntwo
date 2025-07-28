@@ -22,10 +22,6 @@ gb="*res://global/Global.gd"
 Controller="*res://global/controller.gd"
 InputSettings="*res://user settings/InputSettings.gd"
 
-[display]
-
-window/vsync/vsync_mode=0
-
 [file_customization]
 
 folder_colors={

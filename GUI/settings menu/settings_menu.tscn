@@ -28,11 +28,10 @@ process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/side_margin = 0
-current_tab = 2
+current_tab = 0
 tab_focus_mode = 0
 
 [node name="Input" parent="VBoxContainer/TabContainer" instance=ExtResource("1_1fi4o")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -42,6 +41,7 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="HUD" parent="VBoxContainer/TabContainer" instance=ExtResource("4_1rlb3")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

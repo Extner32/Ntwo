@@ -4,11 +4,6 @@ extends MarginContainer
 var target_rotation := Vector3.ZERO
 var max_rotation := TAU*0.1
 
-var input_map = InputMapRes.new()
-
-var throttle_zero_center = false
-var arm_toggle = false
-
 var keybind_buttons = []
 
 func get_all_children(in_node,arr:=[]):
@@ -18,6 +13,8 @@ func get_all_children(in_node,arr:=[]):
 	return arr
 
 func _ready() -> void:
+	InputSettings.input_menu = self
+	
 	for child in get_all_children($settings/ScrollContainer/VBoxContainer):
 		if child is KeybindButton:
 			keybind_buttons.append(child)
@@ -45,18 +42,15 @@ func _process(delta: float) -> void:
 	model.rotation = target_rotation
 	model.global_basis = model.global_basis.orthonormalized()
 
-
+#REMOVE LATER
 func _on_throttle_zero_center_check_box_toggled(toggled_on: bool) -> void:
 	Controller.throttle_zero_center = toggled_on
-	throttle_zero_center = toggled_on
-
-func _on_arm_check_box_toggled(toggled_on: bool) -> void:
-	arm_toggle = toggled_on
-
+	
 func _on_input_map_change(action_name, new_event):
-	save_input_settings()
+	InputSettings.save_settings()
 
-func save_input_settings():
+#gets called when InputSettings.save_settings() is called
+func write_input_settings():
 	InputSettings.res.pitch_up = $settings/ScrollContainer/VBoxContainer/Pitch/PitchUp.event
 	InputSettings.res.pitch_down = $settings/ScrollContainer/VBoxContainer/Pitch/PitchDown.event
 	
@@ -69,13 +63,16 @@ func save_input_settings():
 	
 	InputSettings.res.throttle_up = $settings/ScrollContainer/VBoxContainer/Throttle/ThrottleUp.event
 	InputSettings.res.throttle_down = $settings/ScrollContainer/VBoxContainer/Throttle/ThrottleDown.event
-	InputSettings.res.throttle_0_at_center = throttle_zero_center
+	InputSettings.res.throttle_0_at_center = $settings/ScrollContainer/VBoxContainer/Throttle/HBoxContainer/CheckBox.button_pressed
 	
 	InputSettings.res.arm = $settings/ScrollContainer/VBoxContainer/Switches/Arm/KeybindButton.event
-	InputSettings.res.arm_toggle = arm_toggle
+	InputSettings.res.arm_toggle = $settings/ScrollContainer/VBoxContainer/Switches/Arm/CheckBox.button_pressed
 	
 	InputSettings.res.reset = $settings/ScrollContainer/VBoxContainer/Switches/Reset/KeybindButton.event
 	InputSettings.res.self_right = $settings/ScrollContainer/VBoxContainer/Switches/SelfRight/KeybindButton.event
+
+func load_input_settings():
+	$settings/ScrollContainer/VBoxContainer/Throttle/HBoxContainer/CheckBox.button_pressed = InputSettings.res.throttle_0_at_center
+	$settings/ScrollContainer/VBoxContainer/Switches/Arm/CheckBox.button_pressed = InputSettings.res.arm_toggle
 	
-	
-	InputSettings.save_settings()
+	#the rest gets loaded by the InputSettings singleton

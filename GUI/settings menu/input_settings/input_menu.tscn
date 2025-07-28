@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdi77hs80voda"]
+[gd_scene load_steps=11 format=3 uid="uid://cdi77hs80voda"]
 
 [ext_resource type="Script" uid="uid://81hjvo8cvkwp" path="res://GUI/settings menu/input_settings/input_menu.gd" id="1_ovigh"]
 [ext_resource type="PackedScene" uid="uid://0tldi4hhu4fb" path="res://GUI/settings menu/input_settings/keybind_button.tscn" id="1_s8nf5"]
@@ -14,18 +14,26 @@ expand_margin_bottom = 4.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2h2af"]
 shading_mode = 0
+diffuse_mode = 1
+specular_mode = 2
 albedo_texture = ExtResource("3_cg3j7")
 texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypms8"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.305882)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ia2eo"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_y3fu6"]
+[sub_resource type="Sky" id="Sky_ypms8"]
 sky_material = SubResource("ProceduralSkyMaterial_ia2eo")
 
 [sub_resource type="Environment" id="Environment_sapd5"]
-sky = SubResource("Sky_y3fu6")
+sky = SubResource("Sky_ypms8")
 ambient_light_color = Color(1, 1, 1, 1)
 glow_enabled = true
 
@@ -266,15 +274,18 @@ render_target_update_mode = 4
 [node name="Cube" parent="settings/Example/ViewportContainer/SubViewport/transform" index="0"]
 material_override = SubResource("StandardMaterial3D_2h2af")
 
+[node name="Plane" parent="settings/Example/ViewportContainer/SubViewport/transform" index="1"]
+material_override = SubResource("StandardMaterial3D_ypms8")
+
 [node name="Camera3D" type="Camera3D" parent="settings/Example/ViewportContainer/SubViewport"]
-transform = Transform3D(-1, 0, 8.74227e-08, 0, 0.999999, 0, -8.74228e-08, 0, -0.999999, 2.74705e-07, 0, -47.0216)
-projection = 1
+transform = Transform3D(-1, 2.15164e-08, -8.47336e-08, 0, 0.969239, 0.246119, 8.74228e-08, 0.246119, -0.969239, -2.33846e-05, 82.3274, -317.488)
+fov = 17.4
 size = 110.981
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="settings/Example/ViewportContainer/SubViewport"]
 environment = SubResource("Environment_sapd5")
 
-[connection signal="toggled" from="settings/ScrollContainer/VBoxContainer/Throttle/HBoxContainer/CheckBox" to="." method="_on_throttle_zero_center_check_box_toggled"]
-[connection signal="toggled" from="settings/ScrollContainer/VBoxContainer/Switches/Arm/CheckBox" to="." method="_on_arm_check_box_toggled"]
+[connection signal="pressed" from="settings/ScrollContainer/VBoxContainer/Throttle/HBoxContainer/CheckBox" to="." method="_on_input_map_change"]
+[connection signal="pressed" from="settings/ScrollContainer/VBoxContainer/Switches/Arm/CheckBox" to="." method="_on_input_map_change"]
 
 [editable path="settings/Example/ViewportContainer/SubViewport/transform"]

@@ -2,19 +2,26 @@ extends Node
 
 const SETTINGS_PATH = "user://inputsettings.tres"
 
+#the actual GUI where the user can configure their settings
+var input_menu = null
+
 #this thing actually contains all the settings
 var res:InputMapRes
 
 func save_settings(input_map:InputMapRes=res):
+	input_menu.write_input_settings()
 	ResourceSaver.save(input_map, SETTINGS_PATH)
 	update_input_map()
 
 func load_settings():
 	if ResourceLoader.exists(SETTINGS_PATH, "InputMapRes"):
 		res = ResourceLoader.load(SETTINGS_PATH)
-		update_input_map()
 	else:
 		res = load("res://user settings/DefaultInputMap.tres").duplicate(true)
+		
+	input_menu.load_input_settings()
+		
+	update_input_map()
 		
 	return res
 
