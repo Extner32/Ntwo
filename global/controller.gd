@@ -27,8 +27,9 @@ func rates_function(x, max_rate, center_rate, expo):
 	var expo_factor = x*(pow(x, 5) * expo + x*(1.0-expo))
 	#this is multiplied by sign(x) so it also works for x < 0
 	return (center_rate*x)+((max_rate-center_rate)*expo_factor) * sign(x)
-	
 
+
+#throttle
 func raw_throttle():
 	if throttle_zero_center:
 		return Input.get_action_strength("throttle_up")
@@ -38,19 +39,21 @@ func raw_throttle():
 func get_throttle_input():
 	return raw_throttle() * throttle_max
 	
-	
+#pitch
 func raw_pitch():
 	return clamp(Input.get_axis("pitch_up", "pitch_down"), -1, 1)
 	
 func get_pitch_input():
 	return rates_function(raw_pitch(), pitch_max_rate, pitch_center_rate, pitch_expo)
 	
+#roll
 func raw_roll():
 	return clamp(Input.get_axis("roll_left", "roll_right"), -1, 1)
 
 func get_roll_input():
 	return rates_function(raw_roll(), roll_max_rate, roll_center_rate, roll_expo)
 	
+#yaw
 func raw_yaw():
 	return clamp(Input.get_axis("yaw_left", "yaw_right"), -1, 1)
 

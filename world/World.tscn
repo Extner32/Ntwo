@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl1ttl764ii3a"]
+[gd_scene load_steps=5 format=3 uid="uid://dl1ttl764ii3a"]
 
 [ext_resource type="PackedScene" uid="uid://0chsx6yecwbn" path="res://post process/post_process.tscn" id="2_g20ue"]
 [ext_resource type="PackedScene" uid="uid://djiskdxn5dfpb" path="res://world/maps/test map/test_map.tscn" id="2_ns77e"]
-[ext_resource type="PackedScene" uid="uid://b5aq7rwrg1xvm" path="res://GUI/gui.tscn" id="3_qnehr"]
+[ext_resource type="PackedScene" uid="uid://b5aq7rwrg1xvm" path="res://GUI/HUD.tscn" id="2_qcaji"]
+[ext_resource type="PackedScene" uid="uid://bw7d2fl35plyt" path="res://GUI/GUI.tscn" id="3_5hvw7"]
 
 [node name="world" type="Node3D"]
-
-[node name="TestMap" parent="." instance=ExtResource("2_ns77e")]
 
 [node name="PostProcess" parent="." instance=ExtResource("2_g20ue")]
 visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="GUILayer" type="CanvasLayer" parent="."]
 
-[node name="GUI" parent="CanvasLayer" instance=ExtResource("3_qnehr")]
-metadata/_edit_use_anchors_ = true
+[node name="HUD" parent="GUILayer" instance=ExtResource("2_qcaji")]
+
+[node name="GUI" parent="GUILayer" instance=ExtResource("3_5hvw7")]
+
+[node name="TestMap" parent="." instance=ExtResource("2_ns77e")]

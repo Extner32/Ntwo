@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://oqqtev8oo5q6"]
 
-[ext_resource type="Script" uid="uid://ctm0look8fbxb" path="res://GUI/settings menu/rates_menu.gd" id="1_qwmhh"]
+[ext_resource type="Script" uid="uid://ctm0look8fbxb" path="res://GUI/settings menu/rates_settings/rates_menu.gd" id="1_qwmhh"]
 [ext_resource type="PackedScene" uid="uid://dv41jcgkr46t1" path="res://GUI/rate edit/rate_edit.tscn" id="2_vnivm"]
 
 [node name="RatesMenu" type="MarginContainer"]

@@ -1,12 +1,16 @@
-[gd_scene format=3 uid="uid://6gx7yfx883d"]
+[gd_scene load_steps=2 format=3 uid="uid://6gx7yfx883d"]
+
+[ext_resource type="Script" uid="uid://ditb4sn4rgyo" path="res://GUI/pause menu/pause_menu.gd" id="1_0fxbn"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0fxbn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -15,17 +19,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -158.0
+offset_top = -50.0
+offset_right = 158.0
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "Resume"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Settings"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

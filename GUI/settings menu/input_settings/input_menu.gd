@@ -1,0 +1,81 @@
+extends MarginContainer
+
+@onready var model: Node3D = $settings/Example/ViewportContainer/SubViewport/transform
+var target_rotation := Vector3.ZERO
+var max_rotation := TAU*0.1
+
+var input_map = InputMapRes.new()
+
+var throttle_zero_center = false
+var arm_toggle = false
+
+var keybind_buttons = []
+
+func get_all_children(in_node,arr:=[]):
+	arr.push_back(in_node)
+	for child in in_node.get_children():
+		arr = get_all_children(child,arr)
+	return arr
+
+func _ready() -> void:
+	for child in get_all_children($settings/ScrollContainer/VBoxContainer):
+		if child is KeybindButton:
+			keybind_buttons.append(child)
+			child.event_changed.connect(_on_input_map_change)
+			
+	InputSettings.load_settings()
+	InputSettings.update_input_map()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	target_rotation.x = Controller.raw_pitch() * max_rotation
+	$settings/ScrollContainer/VBoxContainer/Pitch/ProgressBar.value = Input.get_action_strength("pitch_up")
+	$settings/ScrollContainer/VBoxContainer/Pitch/ProgressBar2.value = Input.get_action_strength("pitch_down")
+	
+	target_rotation.z = Controller.raw_roll() * max_rotation
+	$settings/ScrollContainer/VBoxContainer/Roll/VBoxContainer/ProgressBar3.value = Input.get_action_strength("roll_left")
+	$settings/ScrollContainer/VBoxContainer/Roll/VBoxContainer2/ProgressBar4.value = Input.get_action_strength("roll_right")
+	
+	target_rotation.y = -Controller.raw_yaw() * max_rotation
+	$settings/ScrollContainer/VBoxContainer/Yaw/VBoxContainer/ProgressBar3.value = Input.get_action_strength("yaw_left")
+	$settings/ScrollContainer/VBoxContainer/Yaw/VBoxContainer2/ProgressBar4.value = Input.get_action_strength("yaw_right")
+	
+	$settings/ScrollContainer/VBoxContainer/Throttle/ProgressBar4.value = Controller.raw_throttle()
+	
+	model.rotation = target_rotation
+	model.global_basis = model.global_basis.orthonormalized()
+
+
+func _on_throttle_zero_center_check_box_toggled(toggled_on: bool) -> void:
+	Controller.throttle_zero_center = toggled_on
+	throttle_zero_center = toggled_on
+
+func _on_arm_check_box_toggled(toggled_on: bool) -> void:
+	arm_toggle = toggled_on
+
+func _on_input_map_change(action_name, new_event):
+	save_input_settings()
+
+func save_input_settings():
+	InputSettings.res.pitch_up = $settings/ScrollContainer/VBoxContainer/Pitch/PitchUp.event
+	InputSettings.res.pitch_down = $settings/ScrollContainer/VBoxContainer/Pitch/PitchDown.event
+	
+	InputSettings.res.roll_right = $settings/ScrollContainer/VBoxContainer/Roll/VBoxContainer2/RollRight.event
+	InputSettings.res.roll_left = $settings/ScrollContainer/VBoxContainer/Roll/VBoxContainer/RollLeft.event
+	
+	InputSettings.res.yaw_right = $settings/ScrollContainer/VBoxContainer/Yaw/VBoxContainer2/YawRight.event
+	InputSettings.res.yaw_left = $settings/ScrollContainer/VBoxContainer/Yaw/VBoxContainer/YawLeft.event
+	
+	
+	InputSettings.res.throttle_up = $settings/ScrollContainer/VBoxContainer/Throttle/ThrottleUp.event
+	InputSettings.res.throttle_down = $settings/ScrollContainer/VBoxContainer/Throttle/ThrottleDown.event
+	InputSettings.res.throttle_0_at_center = throttle_zero_center
+	
+	InputSettings.res.arm = $settings/ScrollContainer/VBoxContainer/Switches/Arm/KeybindButton.event
+	InputSettings.res.arm_toggle = arm_toggle
+	
+	InputSettings.res.reset = $settings/ScrollContainer/VBoxContainer/Switches/Reset/KeybindButton.event
+	InputSettings.res.self_right = $settings/ScrollContainer/VBoxContainer/Switches/SelfRight/KeybindButton.event
+	
+	
+	InputSettings.save_settings()
