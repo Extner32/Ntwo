@@ -25,28 +25,24 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	target_rotation.x = Controller.raw_pitch() * max_rotation
+	target_rotation.x = gb.raw_pitch() * max_rotation
 	$settings/ScrollContainer/VBoxContainer/Pitch/ProgressBar.value = Input.get_action_strength("pitch_up")
 	$settings/ScrollContainer/VBoxContainer/Pitch/ProgressBar2.value = Input.get_action_strength("pitch_down")
 	
-	target_rotation.z = Controller.raw_roll() * max_rotation
+	target_rotation.z = gb.raw_roll() * max_rotation
 	$settings/ScrollContainer/VBoxContainer/Roll/VBoxContainer/ProgressBar3.value = Input.get_action_strength("roll_left")
 	$settings/ScrollContainer/VBoxContainer/Roll/VBoxContainer2/ProgressBar4.value = Input.get_action_strength("roll_right")
 	
-	target_rotation.y = -Controller.raw_yaw() * max_rotation
+	target_rotation.y = -gb.raw_yaw() * max_rotation
 	$settings/ScrollContainer/VBoxContainer/Yaw/VBoxContainer/ProgressBar3.value = Input.get_action_strength("yaw_left")
 	$settings/ScrollContainer/VBoxContainer/Yaw/VBoxContainer2/ProgressBar4.value = Input.get_action_strength("yaw_right")
 	
-	$settings/ScrollContainer/VBoxContainer/Throttle/ProgressBar4.value = Controller.raw_throttle()
+	$settings/ScrollContainer/VBoxContainer/Throttle/ProgressBar4.value = gb.raw_throttle()
 	
 	model.rotation = target_rotation
 	model.global_basis = model.global_basis.orthonormalized()
-
-#REMOVE LATER
-func _on_throttle_zero_center_check_box_toggled(toggled_on: bool) -> void:
-	Controller.throttle_zero_center = toggled_on
 	
-func _on_input_map_change(action_name, new_event):
+func _on_input_map_change():
 	InputSettings.save_settings()
 
 #gets called when InputSettings.save_settings() is called

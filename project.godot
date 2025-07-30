@@ -20,7 +20,8 @@ config/icon="res://logo.png"
 
 gb="*res://global/Global.gd"
 Controller="*res://global/controller.gd"
-InputSettings="*res://user settings/InputSettings.gd"
+InputSettings="*res://user settings/input_map/InputSettings.gd"
+RatesSettings="*res://user settings/rates/RatesSettings.gd"
 
 [file_customization]
 

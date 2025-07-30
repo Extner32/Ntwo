@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InputMapRes" load_steps=13 format=3 uid="uid://ci1mfs7mj2mwt"]
 
-[ext_resource type="Script" uid="uid://tykbt8t02t0d" path="res://user settings/InputMapResource.gd" id="1_jqbu3"]
+[ext_resource type="Script" uid="uid://tykbt8t02t0d" path="res://user settings/input_map/InputMapResource.gd" id="1_jqbu3"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_krufm"]
 device = -1

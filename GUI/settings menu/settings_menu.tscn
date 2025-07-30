@@ -47,6 +47,6 @@ metadata/_tab_index = 2
 
 [node name="ExitSettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Exit Settings"
+text = "Save & Exit"
 
 [connection signal="pressed" from="VBoxContainer/ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]

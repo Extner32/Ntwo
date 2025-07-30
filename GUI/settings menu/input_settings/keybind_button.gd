@@ -11,7 +11,7 @@ var prev_last_event = null
 var waiting := false
 var explanation := ""
 
-signal event_changed(action_name, event)
+signal event_changed()
 
 func _ready():
 	event = InputMap.action_get_events(action_name)[0]
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 			waiting = false
 			event = last_event
 			
-			event_changed.emit(action_name, last_event)
+			event_changed.emit()
 			
 			text = explanation+" "+get_formatted_event(last_event)
 				

@@ -13,7 +13,7 @@ extends Node3D
 const mass = 0.3 #in kg
 var inertia_moment = 0
 
-const lift_const = 1.0
+const lift_const = 0.23
 const torque_const = 0.1
 
 var angular_vel = 0

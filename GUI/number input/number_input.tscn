@@ -25,4 +25,6 @@ stretch_mode = 4
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "0"
+text = "0.0"
+
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]

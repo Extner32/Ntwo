@@ -20,7 +20,7 @@ albedo_color = Color(1, 0, 1, 1)
 size = Vector3(0.2, 0.02, 0.2)
 
 [node name="Quadcopter" type="RigidBody3D" node_paths=PackedStringArray("motor1", "motor2", "motor3", "motor4")]
-mass = 0.7
+mass = 0.6
 physics_material_override = SubResource("PhysicsMaterial_n3fk8")
 can_sleep = false
 continuous_cd = true

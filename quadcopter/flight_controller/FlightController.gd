@@ -35,19 +35,16 @@ var armed = true
 
 func _physics_process(delta):
 	if armed:
-		#get input and apply rates
-		var input_throttle = Controller.get_throttle_input()
-		var input_pitch = -Controller.get_pitch_input()
-		var input_roll = -Controller.get_roll_input()
-		var input_yaw = -Controller.get_yaw_input()
+		#get input and (rates are already applied)
+		var input_throttle = gb.get_throttle_input()
+		var input_pitch = -gb.get_pitch_input()
+		var input_roll = -gb.get_roll_input()
+		var input_yaw = -gb.get_yaw_input()
 		
 		#make the PIDs figure out the new speeds for pitch, roll and yaw
 		var pitch_speed = PID_pitch.compute(delta, input_pitch, quadcopter.imu_pitch_speed)
 		var roll_speed = PID_roll.compute(delta, input_roll, quadcopter.imu_roll_speed)
 		var yaw_speed = PID_yaw.compute(delta, input_yaw, quadcopter.imu_yaw_speed)
-		
-		gb.input_roll = input_roll
-		gb.roll_speed = quadcopter.imu_roll_speed
 		
 
 		#mix the pitch, roll and yaw speeds to the velocites of the motors

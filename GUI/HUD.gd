@@ -13,9 +13,12 @@ func _ready():
 func _process(delta: float) -> void:
 	
 	#to go from m/s to Km/h you need to multiply by 3.6
-	$VelocityLabel.text = "velocity: "+str(snapped(gb.velocity*3.6, 0.01)) + " Km/h"
+	$DroneStats/VelocityLabel.text = "velocity: "+str(snapped(gb.velocity*3.6, 0.01)) + " Km/h"
 	#in Newton
-	$ThrustLabel.text = "total thrust: "+str(snapped(gb.total_thrust, 0.01)) + " N"
+	$DroneStats/ThrustLabel.text = "total thrust: "+str(snapped(gb.total_thrust, 0.01)) + " N"
+	
+	$DroneStats/DragLabel.text = "drag force: "+str(snapped(gb.drag_force, 0.01)) + " N"
+	
 	
 	fps = Engine.get_frames_per_second()
 	$FPSLabel.text = "FPS: "+str(fps)

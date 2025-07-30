@@ -17,7 +17,7 @@ func load_settings():
 	if ResourceLoader.exists(SETTINGS_PATH, "InputMapRes"):
 		res = ResourceLoader.load(SETTINGS_PATH)
 	else:
-		res = load("res://user settings/DefaultInputMap.tres").duplicate(true)
+		res = load("res://user settings/input_map/DefaultInputMap.tres").duplicate(true)
 		
 	input_menu.load_input_settings()
 		
@@ -39,5 +39,5 @@ func update_input_map():
 			continue
 
 		# Replace event if defined in InputSettings
-		if action in InputSettings.res:
-			replace_event(action, InputSettings.res.get(action))
+		if action in res:
+			replace_event(action, res.get(action))

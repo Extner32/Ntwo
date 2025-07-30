@@ -21,10 +21,9 @@ sky = SubResource("Sky_jcrw3")
 tonemap_mode = 3
 ssao_enabled = true
 ssao_power = 2.61166
+sdfgi_enabled = true
 sdfgi_cascades = 8
 sdfgi_min_cell_size = 0.1
-sdfgi_cascade0_distance = 6.4
-sdfgi_max_distance = 1638.4
 fog_density = 0.001
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0uyxe"]
