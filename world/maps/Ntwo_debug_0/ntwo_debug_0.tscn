@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://idpwlbyd8got"]
+[gd_scene load_steps=11 format=3 uid="uid://idpwlbyd8got"]
 
 [ext_resource type="PackedScene" uid="uid://bqij50utik00e" path="res://world/maps/Ntwo_debug_0/Ntwo_debug_0.blend" id="1_ebjas"]
 [ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="2_2l85k"]
 [ext_resource type="Texture2D" uid="uid://5wjo6ddmv57p" path="res://Grid/Dark/texture_02.png" id="2_t8d4u"]
 [ext_resource type="Material" uid="uid://bj7ljbp6tcuj" path="res://world/maps/Ntwo_debug_0/materials/purple_debug.tres" id="3_0tr1b"]
 [ext_resource type="LightmapGIData" uid="uid://birc0hxh6wumq" path="res://world/maps/Ntwo_debug_0/ntwo_debug_0.lmbake" id="5_0tr1b"]
+[ext_resource type="PackedScene" uid="uid://igw4dto0q5kg" path="res://objects/race_gate.tscn" id="6_bd2o2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bd2o2"]
 albedo_texture = ExtResource("2_t8d4u")
@@ -60,5 +61,85 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4268, 0.106886, 41.5549)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 light_data = ExtResource("5_0tr1b")
+
+[node name="RaceGates" type="Node3D" parent="."]
+
+[node name="RaceGate7" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -102, 4, 53)
+
+[node name="RaceGate9" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 55)
+
+[node name="RaceGate13" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -112.7, 15.6, 72.6)
+
+[node name="RaceGate14" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -104.9, 15.6, 70.5)
+
+[node name="RaceGate26" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-4.2222e-08, -0.965926, -0.258819, 1, -4.37114e-08, 0, -1.13133e-08, -0.258819, 0.965926, -68.2127, 1.69557, 77.5885)
+
+[node name="RaceGate27" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-4.2222e-08, -0.965926, -0.258819, 1, -4.37114e-08, 0, -1.13133e-08, -0.258819, 0.965926, -58.1533, 1.69557, 80.284)
+
+[node name="RaceGate15" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-1.55994e-09, 0.689038, -0.724725, 1, -4.37114e-08, -4.37114e-08, -6.17976e-08, -0.724725, -0.689038, -87.2, 15.6, 77.3)
+
+[node name="RaceGate10" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 51)
+
+[node name="RaceGate11" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 47)
+
+[node name="RaceGate12" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 43)
+
+[node name="RaceGate8" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -102, 4, 45)
+
+[node name="RaceGate16" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -118, 9, 53)
+
+[node name="RaceGate17" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -118, 9, 45)
+
+[node name="RaceGate18" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 0, 1, 1, 4.37114e-08, -4.37114e-08, 14, 1, 4.37114e-07)
+
+[node name="RaceGate19" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-1, -8.74228e-08, 0, 0, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 32, 1, 26)
+
+[node name="RaceGate20" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-0.866025, 0.5, 0, 2.18557e-08, 3.78552e-08, 1, 0.5, 0.866025, -4.37114e-08, 25.6699, 1, 7.0359)
+
+[node name="RaceGate21" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-0.707107, -0.707107, 0, -3.09086e-08, 3.09086e-08, 1, -0.707107, 0.707107, -4.37114e-08, 23.8787, 1, 48.0503)
+
+[node name="RaceGate22" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(0.707107, -0.707107, 0, -3.09086e-08, -3.09086e-08, 1, -0.707107, -0.707107, -4.37114e-08, 6.04345, 1, 51.9758)
+
+[node name="RaceGate6" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-2.12132, 2.12132, 9.27258e-08, 6.35275e-22, -1.31134e-07, 3, 2.12132, 2.12132, 9.27259e-08, -33, 4, -38)
+
+[node name="RaceGate23" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(1.31134e-07, 3, 1.31134e-07, 8.47033e-22, -1.31134e-07, 3, 3, -1.31134e-07, 6.88749e-14, -90, 4, 57)
+
+[node name="RaceGate24" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(1.31134e-07, 3, 1.31134e-07, 8.47033e-22, -1.31134e-07, 3, 3, -1.31134e-07, 6.88749e-14, -90, 25, 57)
+
+[node name="RaceGate25" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -54, 11, 0)
+
+[node name="RaceGate5" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(2, 0, 0, 0, -2, -1.74846e-07, 0, 1.74846e-07, -2, 0, 21, 0)
+
+[node name="RaceGate2" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, 8)
+
+[node name="RaceGate3" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, -6)
+
+[node name="RaceGate4" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 11, -42)
 
 [editable path="Ntwo_debug_0"]

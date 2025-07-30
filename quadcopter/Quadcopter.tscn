@@ -93,5 +93,6 @@ transform = Transform3D(1, 0, 0, 0, 0.936096, 0.351744, 0, -0.351744, 0.936096, 
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_aj1qe")
+volume_db = -47.3871
 autoplay = true
 bus = &"sfx"

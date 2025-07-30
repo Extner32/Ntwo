@@ -16,7 +16,7 @@ var pwm = 0.0
 
 
 const RHO = 1.225 # kg/m³ (air density)
-const CT = 0.1 #thrust
+const CT = 0.13 #thrust
 const CQ = 0.01 #torque
 
 const MAX_RPM = 20000.0

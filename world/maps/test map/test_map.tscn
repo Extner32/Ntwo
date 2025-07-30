@@ -100,45 +100,6 @@ angular_damp = 4.242
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="RaceGate8" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 0, 1, 1, 4.37114e-08, -4.37114e-08, 14, 1, 4.37114e-07)
-
-[node name="RaceGate9" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(-1, -8.74228e-08, 0, 0, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 32, 1, 26)
-
-[node name="RaceGate12" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(-0.866025, 0.5, 0, 2.18557e-08, 3.78552e-08, 1, 0.5, 0.866025, -4.37114e-08, 25.6699, 1, 7.0359)
-
-[node name="RaceGate10" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(-0.707107, -0.707107, 0, -3.09086e-08, 3.09086e-08, 1, -0.707107, 0.707107, -4.37114e-08, 23.8787, 1, 48.0503)
-
-[node name="RaceGate11" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(0.707107, -0.707107, 0, -3.09086e-08, -3.09086e-08, 1, -0.707107, -0.707107, -4.37114e-08, 6.04345, 1, 51.9758)
-
-[node name="RaceGate6" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(-2.12132, 2.12132, 9.27258e-08, 6.35275e-22, -1.31134e-07, 3, 2.12132, 2.12132, 9.27259e-08, -33, 4, -38)
-
-[node name="RaceGate13" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(1.31134e-07, 3, 1.31134e-07, 8.47033e-22, -1.31134e-07, 3, 3, -1.31134e-07, 6.88749e-14, -90, 4, 57)
-
-[node name="RaceGate14" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(1.31134e-07, 3, 1.31134e-07, 8.47033e-22, -1.31134e-07, 3, 3, -1.31134e-07, 6.88749e-14, -90, 25, 57)
-
-[node name="RaceGate7" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -54, 11, 0)
-
-[node name="RaceGate5" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(2, 0, 0, 0, -2, -1.74846e-07, 0, 1.74846e-07, -2, 0, 21, 0)
-
-[node name="RaceGate2" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, 8)
-
-[node name="RaceGate3" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, -6)
-
-[node name="RaceGate4" parent="Objects" instance=ExtResource("3_yh26c")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 11, -42)
-
 [node name="building" type="Node3D" parent="Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
@@ -1244,39 +1205,6 @@ calculate_tangents = false
 use_collision = true
 size = Vector3(20, 1, 1)
 
-[node name="RaceGate7" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -102, 4, 53)
-
-[node name="RaceGate9" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 55)
-
-[node name="RaceGate13" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -112.7, 15.6, 72.6)
-
-[node name="RaceGate14" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -104.9, 15.6, 70.5)
-
-[node name="RaceGate15" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(-1.55994e-09, 0.689038, -0.724725, 1, -4.37114e-08, -4.37114e-08, -6.17976e-08, -0.724725, -0.689038, -87.2, 15.6, 77.3)
-
-[node name="RaceGate10" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 51)
-
-[node name="RaceGate11" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 47)
-
-[node name="RaceGate12" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 43)
-
-[node name="RaceGate8" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -102, 4, 45)
-
-[node name="RaceGate16" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -118, 9, 53)
-
-[node name="RaceGate17" parent="." instance=ExtResource("3_yh26c")]
-transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -118, 9, 45)
-
 [node name="Sheet3" type="Node3D" parent="."]
 transform = Transform3D(1.13133e-08, -0.258819, 0.965926, -1, -4.37114e-08, -4.22798e-15, 4.22219e-08, -0.965926, -0.258819, -103, 4, 70)
 metadata/_edit_group_ = true
@@ -1479,5 +1407,79 @@ transform = Transform3D(-1, 6.18172e-08, 6.18172e-08, -8.74228e-08, -0.707107, -
 calculate_tangents = false
 use_collision = true
 size = Vector3(24, 1, 1)
+
+[node name="RaceGates" type="Node3D" parent="."]
+
+[node name="RaceGate7" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -102, 4, 53)
+
+[node name="RaceGate9" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 55)
+
+[node name="RaceGate13" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -112.7, 15.6, 72.6)
+
+[node name="RaceGate14" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -104.9, 15.6, 70.5)
+
+[node name="RaceGate15" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-1.55994e-09, 0.689038, -0.724725, 1, -4.37114e-08, -4.37114e-08, -6.17976e-08, -0.724725, -0.689038, -87.2, 15.6, 77.3)
+
+[node name="RaceGate10" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 51)
+
+[node name="RaceGate11" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 47)
+
+[node name="RaceGate12" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -8.74228e-08, 1, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 8.74228e-08, -120.6, 8.6, 43)
+
+[node name="RaceGate8" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -102, 4, 45)
+
+[node name="RaceGate16" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -118, 9, 53)
+
+[node name="RaceGate17" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(4.37114e-08, -1, -1.31134e-07, 1, 4.37114e-08, -4.37114e-08, 4.37114e-08, -1.31134e-07, 1, -118, 9, 45)
+
+[node name="RaceGate18" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 0, 1, 1, 4.37114e-08, -4.37114e-08, 14, 1, 4.37114e-07)
+
+[node name="RaceGate19" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-1, -8.74228e-08, 0, 0, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 32, 1, 26)
+
+[node name="RaceGate20" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-0.866025, 0.5, 0, 2.18557e-08, 3.78552e-08, 1, 0.5, 0.866025, -4.37114e-08, 25.6699, 1, 7.0359)
+
+[node name="RaceGate21" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-0.707107, -0.707107, 0, -3.09086e-08, 3.09086e-08, 1, -0.707107, 0.707107, -4.37114e-08, 23.8787, 1, 48.0503)
+
+[node name="RaceGate22" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(0.707107, -0.707107, 0, -3.09086e-08, -3.09086e-08, 1, -0.707107, -0.707107, -4.37114e-08, 6.04345, 1, 51.9758)
+
+[node name="RaceGate6" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-2.12132, 2.12132, 9.27258e-08, 6.35275e-22, -1.31134e-07, 3, 2.12132, 2.12132, 9.27259e-08, -33, 4, -38)
+
+[node name="RaceGate23" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1.31134e-07, 3, 1.31134e-07, 8.47033e-22, -1.31134e-07, 3, 3, -1.31134e-07, 6.88749e-14, -90, 4, 57)
+
+[node name="RaceGate24" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1.31134e-07, 3, 1.31134e-07, 8.47033e-22, -1.31134e-07, 3, 3, -1.31134e-07, 6.88749e-14, -90, 25, 57)
+
+[node name="RaceGate25" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -54, 11, 0)
+
+[node name="RaceGate5" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(2, 0, 0, 0, -2, -1.74846e-07, 0, 1.74846e-07, -2, 0, 21, 0)
+
+[node name="RaceGate2" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, 8)
+
+[node name="RaceGate3" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11, -6)
+
+[node name="RaceGate4" parent="RaceGates" instance=ExtResource("3_yh26c")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 11, -42)
 
 [editable path="human_low"]

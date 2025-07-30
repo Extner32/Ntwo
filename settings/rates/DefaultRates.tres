@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RatesRes" load_steps=2 format=3 uid="uid://cvrdx1ey5r0rh"]
+
+[ext_resource type="Script" uid="uid://cur56vqdmx7f6" path="res://settings/rates/RatesResource.gd" id="1_8l156"]
+
+[resource]
+script = ExtResource("1_8l156")
+pitch_center_rate = 250.0
+pitch_max_rate = 800.0
+pitch_expo = 1.0
+roll_center_rate = 250.0
+roll_max_rate = 800.0
+roll_expo = 1.0
+yaw_center_rate = 250.0
+yaw_max_rate = 800.0
+yaw_expo = 1.0
+metadata/_custom_type_script = "uid://cur56vqdmx7f6"

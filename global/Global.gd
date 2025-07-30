@@ -1,7 +1,6 @@
 extends Node
 
 const air_density = 1.225 #in kg/m^3
-const air_drag = 1
 
 var velocity := 0.0
 var total_thrust := 0.0
