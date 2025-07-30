@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://idpwlbyd8got"]
+
+[ext_resource type="PackedScene" uid="uid://bqij50utik00e" path="res://world/maps/Ntwo_debug_0/Ntwo_debug_0.blend" id="1_ebjas"]
+[ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="2_2l85k"]
+[ext_resource type="Texture2D" uid="uid://5wjo6ddmv57p" path="res://Grid/Dark/texture_02.png" id="2_t8d4u"]
+[ext_resource type="Material" uid="uid://bj7ljbp6tcuj" path="res://world/maps/Ntwo_debug_0/materials/purple_debug.tres" id="3_0tr1b"]
+[ext_resource type="LightmapGIData" uid="uid://birc0hxh6wumq" path="res://world/maps/Ntwo_debug_0/ntwo_debug_0.lmbake" id="5_0tr1b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bd2o2"]
+albedo_texture = ExtResource("2_t8d4u")
+uv1_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2l85k"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_bottom_color = Color(0.938046, 0.9179, 0.895083, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jcrw3"]
+sky_material = SubResource("ProceduralSkyMaterial_2l85k")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_vxghj"]
+background_mode = 2
+sky = SubResource("Sky_jcrw3")
+tonemap_mode = 3
+ssao_enabled = true
+ssao_power = 2.61166
+sdfgi_cascades = 8
+sdfgi_min_cell_size = 0.1
+sdfgi_cascade0_distance = 6.4
+sdfgi_max_distance = 1638.4
+fog_density = 0.001
+
+[node name="Ntwo_debug_0" type="Node3D"]
+
+[node name="Ntwo_debug_0" parent="." instance=ExtResource("1_ebjas")]
+
+[node name="ground" parent="Ntwo_debug_0" index="1"]
+material_override = SubResource("StandardMaterial3D_bd2o2")
+
+[node name="purple_wall" parent="Ntwo_debug_0" index="6"]
+material_override = ExtResource("3_0tr1b")
+
+[node name="purple_block" parent="Ntwo_debug_0" index="7"]
+material_override = ExtResource("3_0tr1b")
+
+[node name="purple_slope" parent="Ntwo_debug_0" index="8"]
+material_override = ExtResource("3_0tr1b")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vxghj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, -1, -3.4641, 1.73205)
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="Quadcopter" parent="." instance=ExtResource("2_2l85k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4268, 0.106886, 41.5549)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+light_data = ExtResource("5_0tr1b")
+
+[editable path="Ntwo_debug_0"]

@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://xt4m8jaqfh6a" path="res://quadcopter/383852__simeonradivoev__mini-quadcopter-flying-loop.wav" id="5_aj1qe"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n3fk8"]
-friction = 0.8
 bounce = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6p65n"]
@@ -25,13 +24,11 @@ physics_material_override = SubResource("PhysicsMaterial_n3fk8")
 can_sleep = false
 continuous_cd = true
 linear_damp_mode = 1
-angular_damp = 1.0
 script = ExtResource("1_2l7nd")
 motor1 = NodePath("motors/Motor1")
 motor2 = NodePath("motors/Motor2")
 motor3 = NodePath("motors/Motor3")
 motor4 = NodePath("motors/Motor4")
-drag_coefficients = Vector3(0.02, 0.04, 0.02)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6p65n")
@@ -46,7 +43,7 @@ mesh = SubResource("BoxMesh_ivhy6")
 [node name="Motor1" parent="motors" node_paths=PackedStringArray("prop") instance=ExtResource("1_7js25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0, 0.08)
 prop = NodePath("Propeller")
-direction = true
+direction = 1
 
 [node name="Propeller" parent="motors/Motor1" instance=ExtResource("2_rl4bc")]
 visible = false
@@ -54,6 +51,7 @@ visible = false
 [node name="Motor2" parent="motors" node_paths=PackedStringArray("prop") instance=ExtResource("1_7js25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0, -0.08)
 prop = NodePath("Propeller")
+direction = -1
 
 [node name="Propeller" parent="motors/Motor2" instance=ExtResource("2_rl4bc")]
 visible = false
@@ -61,6 +59,7 @@ visible = false
 [node name="Motor3" parent="motors" node_paths=PackedStringArray("prop") instance=ExtResource("1_7js25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, 0.08)
 prop = NodePath("Propeller")
+direction = -1
 
 [node name="Propeller" parent="motors/Motor3" instance=ExtResource("2_rl4bc")]
 visible = false
@@ -68,7 +67,7 @@ visible = false
 [node name="Motor4" parent="motors" node_paths=PackedStringArray("prop") instance=ExtResource("1_7js25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, -0.08)
 prop = NodePath("Propeller")
-direction = true
+direction = 1
 
 [node name="Propeller" parent="motors/Motor4" instance=ExtResource("2_rl4bc")]
 visible = false

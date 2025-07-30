@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dl1ttl764ii3a"]
 
 [ext_resource type="PackedScene" uid="uid://0chsx6yecwbn" path="res://post process/post_process.tscn" id="2_g20ue"]
-[ext_resource type="PackedScene" uid="uid://djiskdxn5dfpb" path="res://world/maps/test map/test_map.tscn" id="2_ns77e"]
 [ext_resource type="PackedScene" uid="uid://b5aq7rwrg1xvm" path="res://GUI/HUD.tscn" id="2_qcaji"]
 [ext_resource type="PackedScene" uid="uid://bw7d2fl35plyt" path="res://GUI/GUI.tscn" id="3_5hvw7"]
+[ext_resource type="PackedScene" uid="uid://idpwlbyd8got" path="res://world/maps/Ntwo_debug_0/ntwo_debug_0.tscn" id="4_5hvw7"]
 
 [node name="world" type="Node3D"]
 
@@ -16,4 +16,4 @@ visible = false
 
 [node name="GUI" parent="GUILayer" instance=ExtResource("3_5hvw7")]
 
-[node name="TestMap" parent="." instance=ExtResource("2_ns77e")]
+[node name="Ntwo_debug_0" parent="." instance=ExtResource("4_5hvw7")]

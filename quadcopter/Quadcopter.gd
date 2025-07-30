@@ -17,7 +17,7 @@ extends RigidBody3D
 #if for example the y drag is high (top-bottom):
 	#if the top/bottom is facing the same direction
 	#as the direction that the quad is moving in, the drone will slow down
-@export var drag_coefficients = Vector3(0.003, 0.05, 0.002)
+@export var XYZ_projected_areas = Vector3(0.02, 0.05, 0.02)
 @export var drag_mult = 0.3
 
 var imu_pitch_speed = 0
@@ -47,8 +47,11 @@ func _process(delta):
 	$DebugCamPivot.global_position = global_position
 	$DebugCamPivot.global_rotation.y = global_rotation.y
 	
+	#these are all for the HUD
 	gb.velocity = linear_velocity.length()
-	
+	gb.imu_values[0] = imu_pitch
+	gb.imu_values[1] = imu_roll
+	gb.imu_values[2] = imu_yaw
 
 	
 func _physics_process(delta):
@@ -67,16 +70,16 @@ func _physics_process(delta):
 	gb.total_thrust = total_thrust
 	#peruno is from 0-1 instead of 0-100%
 	var thrust_peruno = total_thrust/70
-	audio.volume_db = linear_to_db(thrust_peruno)
+	audio.volume_db = linear_to_db(thrust_peruno*0.3)
 	audio.pitch_scale = pow(2, thrust_peruno)
 	
 	
 	
 	var vel_norm = linear_velocity.normalized()
 	var drag_directions = Vector3(0, 0, 0)
-	drag_directions.x = pow(global_basis.x.dot(vel_norm), 2)*drag_coefficients.x * drag_mult
-	drag_directions.y = pow(global_basis.y.dot(vel_norm), 2)*drag_coefficients.y * drag_mult
-	drag_directions.z = pow(global_basis.z.dot(vel_norm), 2)*drag_coefficients.z * drag_mult
+	drag_directions.x = pow(global_basis.x.dot(vel_norm), 2)*XYZ_projected_areas.x * drag_mult
+	drag_directions.y = pow(global_basis.y.dot(vel_norm), 2)*XYZ_projected_areas.y * drag_mult
+	drag_directions.z = pow(global_basis.z.dot(vel_norm), 2)*XYZ_projected_areas.z * drag_mult
 	
 	var drag = drag_directions.x + drag_directions.y + drag_directions.z
 	var drag_force = (vel_norm * linear_velocity.length_squared()) * gb.air_drag * drag

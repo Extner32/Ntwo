@@ -7,7 +7,7 @@ var velocity := 0.0
 var total_thrust := 0.0
 var drag_force := 0.0
 
-
+var imu_values := [0.0, 0.0, 0.0]
 
 func reset():
 	get_tree().reload_current_scene()
@@ -25,9 +25,10 @@ func rates_function(x, max_rate, center_rate, expo):
 	#this is multiplied by sign(x) so it also works for x < 0
 	return (center_rate*x)+((max_rate-center_rate)*expo_factor) * sign(x)
 
-var throttle_max := 16.0
+var throttle_expo = 1.0
 
-
+func throttle_curve_function(x, expo):
+	return pow(x, 1+expo)
 
 #throttle
 func raw_throttle():
@@ -37,7 +38,7 @@ func raw_throttle():
 		return (Input.get_axis("throttle_down", "throttle_up") + 1)/2
 
 func get_throttle_input():
-	return raw_throttle() * throttle_max
+	return throttle_curve_function(raw_throttle(), throttle_expo)
 	
 #pitch
 func raw_pitch():

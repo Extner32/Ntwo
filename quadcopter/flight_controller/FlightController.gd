@@ -9,7 +9,8 @@ extends Node3D
 
 @onready var motors = [motor1, motor2, motor3, motor4]
 
-var motor_idle = 0.2
+#motor idle pwm
+var motor_idle = 0.4
 
 #rates
 
@@ -48,10 +49,32 @@ func _physics_process(delta):
 		
 
 		#mix the pitch, roll and yaw speeds to the velocites of the motors
-		motor1.angular_vel = max(motor_idle + input_throttle  - pitch_speed + roll_speed + yaw_speed, 0)
-		motor2.angular_vel = max(motor_idle + input_throttle  + pitch_speed + roll_speed - yaw_speed, 0)
-		motor3.angular_vel = max(motor_idle + input_throttle  - pitch_speed - roll_speed - yaw_speed, 0)
-		motor4.angular_vel = max(motor_idle + input_throttle  + pitch_speed - roll_speed + yaw_speed, 0)
+		var motors = [
+			motor_idle + input_throttle  - pitch_speed + roll_speed + yaw_speed,
+			motor_idle + input_throttle  + pitch_speed + roll_speed - yaw_speed,
+			motor_idle + input_throttle  - pitch_speed - roll_speed - yaw_speed,
+			motor_idle + input_throttle  + pitch_speed - roll_speed + yaw_speed
+			]
+		
+		# scale the motors so the the fastest motor is 1 and the slowest is 0
+		var max_motor = motors.max()
+		var min_motor = motors.min()
+		
+		# Step 3: Shift all motors up if any are below 0
+		if min_motor < 0.0:
+			for i in range(4):
+				motors[i] -= min_motor  # push the whole set up
+
+		# Step 4: Scale all motors down if any are above 1
+		if max_motor > 1.0:
+			var s = 1.0 / max_motor
+			for i in range(4):
+				motors[i] *= s
+				
+		motor1.pwm = motors[0]
+		motor2.pwm = motors[1]
+		motor3.pwm = motors[2]
+		motor4.pwm = motors[3]
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("self_right"):

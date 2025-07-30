@@ -1,14 +1,14 @@
 class_name Propeller
 extends Node3D
 
-var speed := 0.0
+var angular_vel := 0.0
 var ground_effect_strength = 1.0
-const MAX_SPEED := 3.0
+const diameter = 0.127 # = 5 inches
 @export var color_gradient: Gradient
 
-func _process(delta: float) -> void:
-	$MeshInstance3D.material_override.albedo_color = color_gradient.sample(speed/MAX_SPEED)
-
+func _ready() -> void:
+	$MeshInstance3D.mesh.top_radius = diameter/2
+	$MeshInstance3D.mesh.bottom_radius = diameter/2
 
 func ground_effect():
 	if not $RayCast3D.is_colliding():
