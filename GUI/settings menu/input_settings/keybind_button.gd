@@ -23,9 +23,8 @@ func _input(ev: InputEvent) -> void:
 	
 	if ev is InputEventMouseMotion or ev is InputEventMouseButton:
 		return
-	if ev is InputEventJoypadMotion and abs(ev.axis_value) < 0.5:
+	if ev is InputEventJoypadMotion and abs(ev.axis_value) < 0.8:
 		return
-		
 	last_event = ev
 
 
@@ -53,7 +52,7 @@ func _on_pressed() -> void:
 
 func get_formatted_event(ev):
 	if ev is InputEventJoypadMotion:
-		return "Axis: "+str(ev.axis)
+		return "Axis: "+str(ev.axis)+"|"+str(ev.axis_value)
 	if ev is InputEventJoypadButton:
 		return "Button: "+str(ev.button_index)
 	if ev is InputEventKey:
