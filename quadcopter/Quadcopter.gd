@@ -18,7 +18,7 @@ extends RigidBody3D
 	#if the top/bottom is facing the same direction
 	#as the direction that the quad is moving in, the drone will slow down
 @export var XYZ_projected_areas = Vector3(0.02, 0.05, 0.02)
-@export var drag_coeff = 0.3
+@export var drag_coeff = 1.0
 
 var imu_pitch_speed = 0
 var imu_roll_speed = 0
@@ -57,15 +57,21 @@ func _process(delta):
 func _physics_process(delta):
 	var total_thrust = 0
 	#set forces per motor
+	var prop_drag = 0
+	
 	for motor in motors:
 		var thrust = motor.compute_thrust()
 		var ground_effect = motor.compute_ground_effect()
 		total_thrust += thrust
 		#print("thrust ",thrust)
 		var torque = motor.compute_torque()
+		var drag_torque = motor.compute_drag_torque()
+		prop_drag += motor.compute_prop_drag()
 		
 		apply_force(motor.up * thrust * ground_effect, global_transform.basis * motor.position)
 		apply_torque(motor.up * torque)
+		apply_torque(motor.up * drag_torque)
+		
 		
 	gb.total_thrust = total_thrust
 	#peruno is from 0-1 instead of 0-100%
@@ -75,7 +81,6 @@ func _physics_process(delta):
 	
 	
 
-	# More damping at low speed, less at high
 	var drag_mult =  drag_coeff * (0.5 + 0.5 / (1.0 + linear_velocity.length() * 0.1))
 	
 	var vel_norm = linear_velocity.normalized()
@@ -86,7 +91,7 @@ func _physics_process(delta):
 	drag_directions.z = pow(global_basis.z.dot(vel_norm), 2)*XYZ_projected_areas.z * drag_mult
 	
 	var drag = drag_directions.x + drag_directions.y + drag_directions.z
-	var drag_force = (vel_norm * linear_velocity.length_squared()) * drag
+	var drag_force = (vel_norm * linear_velocity.length_squared()) * (drag+prop_drag)
 	
 	gb.drag_force = drag_force.length()
 	apply_central_force(-drag_force)

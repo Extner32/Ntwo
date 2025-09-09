@@ -10,7 +10,7 @@ extends Node3D
 @onready var motors = [motor1, motor2, motor3, motor4]
 
 #motor idle pwm
-var motor_idle = 0.4
+var motor_idle = 0.1
 
 #rates
 
