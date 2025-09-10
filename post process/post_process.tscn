@@ -1,11 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://0chsx6yecwbn"]
+[gd_scene load_steps=4 format=3 uid="uid://0chsx6yecwbn"]
+
+[ext_resource type="Shader" uid="uid://c710cr8lq0lau" path="res://post process/VHS.gdshader" id="1_km4mk"]
+[ext_resource type="Texture2D" uid="uid://dmbs7pxeswqr5" path="res://post process/rgba-noise-medium.png" id="2_mw7we"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wety1"]
+shader = ExtResource("1_km4mk")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 1.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.1
+shader_parameter/tape_crease_smear = 0.2
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
+shader_parameter/noise_texture = ExtResource("2_mw7we")
 
 [node name="PostProcess" type="CanvasLayer"]
 
 [node name="VHS" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_wety1")
 anchors_preset = 15
 anchor_right = 1.0

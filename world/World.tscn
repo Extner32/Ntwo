@@ -8,7 +8,6 @@
 [node name="world" type="Node3D"]
 
 [node name="PostProcess" parent="." instance=ExtResource("2_g20ue")]
-visible = false
 
 [node name="GUILayer" type="CanvasLayer" parent="."]
 

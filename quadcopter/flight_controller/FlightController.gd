@@ -60,12 +60,12 @@ func _physics_process(delta):
 		var max_motor = motors.max()
 		var min_motor = motors.min()
 		
-		# Step 3: Shift all motors up if any are below 0
+		#Shift all motors up if any are below 0
 		if min_motor < 0.0:
 			for i in range(4):
-				motors[i] -= min_motor  # push the whole set up
+				motors[i] -= min_motor
 
-		# Step 4: Scale all motors down if any are above 1
+		#Scale all motors down if any are above 1
 		if max_motor > 1.0:
 			var s = 1.0 / max_motor
 			for i in range(4):
