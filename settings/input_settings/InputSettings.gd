@@ -1,7 +1,14 @@
 extends Node
 
 const INPUTSETTINGSRES_PATH = "user://inputsettings.tres"
-var all_actions = ["throttle_up", "throttle_down"]
+var all_actions = [
+	"throttle_up", "throttle_down",
+	"pitch_up", "pitch_down",
+	"roll_left", "roll_right",
+	"yaw_left", "yaw_right",
+	"arm",
+	"self_right", "reset"
+]
 
 var inputsettings_res:InputSettingsRes
 
@@ -14,13 +21,10 @@ func load_settings():
 	#there is no save file yet
 	if not ResourceLoader.exists(INPUTSETTINGSRES_PATH):
 		inputsettings_res = load("res://settings/input_settings/default_inputsettings_res.tres").duplicate(true)
-		print("there is no savefile")
 	#there is a savefile
 	else:
-		print("there is a savefile")
 		inputsettings_res = ResourceLoader.load(INPUTSETTINGSRES_PATH)
 	
-	print(inputsettings_res)
 	replace_actions()
 	
 

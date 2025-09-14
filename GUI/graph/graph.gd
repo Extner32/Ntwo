@@ -1,9 +1,10 @@
 extends Node2D
 
 @export var size := Vector2i(100, 100)
-@export var buffer_max_len := 100.0
-@export var max_value := 1.0
-@export var min_value := -1.0
+@export var buffer_max_len := 100
+@export var max_value_constant := 1.0
+@export var min_value_constant := -1.0
+@export var autominmax := false
 
 @export var data_color := Color(1, 0, 0)
 @export var border_color := Color(0, 0, 0)
@@ -19,6 +20,13 @@ func _process(delta: float) -> void:
 	
 func _draw():
 	draw_rect(Rect2(global_position, size), border_color, false)
+	var min_value = min_value_constant
+	var max_value = max_value_constant
+	
+	if autominmax and data != []:
+		min_value = data.min()
+		max_value = data.max()
+		
 	
 	var diff = abs(min_value)+abs(max_value)
 	

@@ -1,46 +1,216 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfk4wjh3b0t7c"]
+[gd_scene load_steps=7 format=3 uid="uid://cfk4wjh3b0t7c"]
 
 [ext_resource type="Script" uid="uid://c6q5jwhbv4xxv" path="res://settings/input_settings/menu/input_settings_menu.gd" id="1_2paie"]
 [ext_resource type="PackedScene" uid="uid://cbfeed24tiq0h" path="res://settings/input_settings/inputbutton/InputButton.tscn" id="1_cv5ys"]
+[ext_resource type="PackedScene" uid="uid://bd37pqsqhgli0" path="res://settings/input_settings/menu/transform_model/transform.blend" id="3_po14n"]
+[ext_resource type="Texture2D" uid="uid://b2fewa1xek3fv" path="res://settings/input_settings/menu/transform_model/transform_texture.png" id="4_shuy6"]
 
-[node name="InputSettingsMenu" type="HBoxContainer"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0v6mf"]
+shading_mode = 0
+albedo_texture = ExtResource("4_shuy6")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15ypm"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0.752941)
+texture_filter = 0
+
+[node name="InputSettingsMenu" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 script = ExtResource("1_2paie")
 
-[node name="View" type="VBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="InputButtons" type="VBoxContainer" parent="HBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="InputButtons" type="VBoxContainer" parent="."]
+[node name="Throttle" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="ThrottleUpButton" parent="InputButtons" instance=ExtResource("1_cv5ys")]
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Throttle"]
 layout_mode = 2
-text = "throttle up"
+text = "throttle:"
+
+[node name="UpButton" parent="HBoxContainer/ScrollContainer/InputButtons/Throttle" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "up"
 action_name = "throttle_up"
 
-[node name="ThrottleUpBar" type="ProgressBar" parent="InputButtons"]
+[node name="DownButton" parent="HBoxContainer/ScrollContainer/InputButtons/Throttle" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-max_value = 1.0
-show_percentage = false
-
-[node name="ThrotttleDownButton" parent="InputButtons" instance=ExtResource("1_cv5ys")]
-layout_mode = 2
-text = "throttle Down"
+text = "down"
 action_name = "throttle_down"
 
-[node name="ThrottleDownBar" type="ProgressBar" parent="InputButtons"]
+[node name="Pitch" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
 layout_mode = 2
-max_value = 1.0
-show_percentage = false
 
-[node name="Button" type="Button" parent="InputButtons"]
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Pitch"]
 layout_mode = 2
-text = "save(debug)"
+text = "pitch:"
 
-[connection signal="pressed" from="InputButtons/Button" to="." method="_on_button_pressed"]
+[node name="UpButton" parent="HBoxContainer/ScrollContainer/InputButtons/Pitch" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "up"
+action_name = "pitch_up"
+
+[node name="DownButton" parent="HBoxContainer/ScrollContainer/InputButtons/Pitch" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "down"
+action_name = "pitch_down"
+
+[node name="Roll" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Roll"]
+layout_mode = 2
+text = "roll:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons/Roll"]
+layout_mode = 2
+
+[node name="Left" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons/Roll/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" parent="HBoxContainer/ScrollContainer/InputButtons/Roll/HBoxContainer/Left" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "left"
+action_name = "roll_left"
+invert_progressbar = true
+
+[node name="Right" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons/Roll/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" parent="HBoxContainer/ScrollContainer/InputButtons/Roll/HBoxContainer/Right" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "right"
+action_name = "roll_right"
+
+[node name="Yaw" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw"]
+layout_mode = 2
+text = "yaw:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw"]
+layout_mode = 2
+
+[node name="Left" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw/HBoxContainer/Left" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "left"
+action_name = "yaw_left"
+invert_progressbar = true
+
+[node name="Right" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw/HBoxContainer/Right" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "right"
+action_name = "yaw_right"
+
+[node name="Arming" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Arming"]
+layout_mode = 2
+text = "arming:"
+
+[node name="InputButton" parent="HBoxContainer/ScrollContainer/InputButtons/Arming" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "arm"
+action_name = "arm"
+
+[node name="Simulator" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Simulator"]
+layout_mode = 2
+text = "simulator:"
+
+[node name="SelfRight" parent="HBoxContainer/ScrollContainer/InputButtons/Simulator" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "self right"
+action_name = "self_right"
+
+[node name="Reset" parent="HBoxContainer/ScrollContainer/InputButtons/Simulator" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "reset"
+action_name = "reset"
+
+[node name="Other" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Other"]
+layout_mode = 2
+text = "other settings:"
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/ScrollContainer/InputButtons/Other"]
+layout_mode = 2
+text = "throttle 0 at center stick"
+
+[node name="Preview" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/Preview"]
+layout_mode = 2
+text = "preview"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Preview"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer/Preview/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/Preview/PanelContainer/SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="HBoxContainer/Preview/PanelContainer/SubViewportContainer/SubViewport"]
+
+[node name="transform" parent="HBoxContainer/Preview/PanelContainer/SubViewportContainer/SubViewport/Node3D" instance=ExtResource("3_po14n")]
+
+[node name="Cube" parent="HBoxContainer/Preview/PanelContainer/SubViewportContainer/SubViewport/Node3D/transform" index="0"]
+material_override = SubResource("StandardMaterial3D_0v6mf")
+
+[node name="Plane" parent="HBoxContainer/Preview/PanelContainer/SubViewportContainer/SubViewport/Node3D/transform" index="1"]
+material_override = SubResource("StandardMaterial3D_15ypm")
+
+[node name="Camera3D" type="Camera3D" parent="HBoxContainer/Preview/PanelContainer/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, -4.1097e-08, 0.882616, 0.470095, 7.71607e-08, 0.470095, -0.882616, -1.03888e-06, 35.5458, -60.3402)
+fov = 60.0
+
+[editable path="HBoxContainer/Preview/PanelContainer/SubViewportContainer/SubViewport/Node3D/transform"]

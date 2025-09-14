@@ -18,7 +18,7 @@ extends RigidBody3D
 	#if the top/bottom is facing the same direction
 	#as the direction that the quad is moving in, the drone will slow down
 @export var XYZ_projected_areas = Vector3(0.02, 0.05, 0.02)
-@export var drag_coeff = 1.0
+@export var drag_coeff = 0.5
 
 var imu_pitch_speed = 0
 var imu_roll_speed = 0
@@ -49,9 +49,13 @@ func _process(delta):
 	
 	#these are all for the HUD
 	gb.velocity = linear_velocity.length()
-	gb.imu_values[0] = imu_pitch
-	gb.imu_values[1] = imu_roll
-	gb.imu_values[2] = imu_yaw
+	gb.imu_rotations[0] = imu_pitch
+	gb.imu_rotations[1] = imu_roll
+	gb.imu_rotations[2] = imu_yaw
+	
+	gb.imu_rotation_speeds[0] = imu_pitch_speed
+	gb.imu_rotation_speeds[1] = imu_roll_speed
+	gb.imu_rotation_speeds[2] = imu_yaw_speed
 
 	
 func _physics_process(delta):

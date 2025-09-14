@@ -17,7 +17,7 @@ func _on_resume_button_pressed() -> void:
 	
 func _on_settings_button_pressed() -> void:
 	hide()
-	$"../SettingsMenu".show()
+	gb.settings_menu_ref.show()
 	
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

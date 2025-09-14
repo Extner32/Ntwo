@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://6gx7yfx883d"]
+[gd_scene load_steps=3 format=3 uid="uid://6gx7yfx883d"]
 
 [ext_resource type="Script" uid="uid://ditb4sn4rgyo" path="res://GUI/pause menu/pause_menu.gd" id="1_0fxbn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fxbn"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.14, 0.14, 0.14, 0.317647)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -12,33 +23,42 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0fxbn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -158.0
-offset_top = -50.0
-offset_right = 158.0
-offset_bottom = 51.0
+offset_left = -180.0
+offset_top = -67.0
+offset_right = 180.0
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fxbn")
 
-[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "Resume"
+text = "resume"
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Settings"
+text = "settings"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+text = "quit"
 
-[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

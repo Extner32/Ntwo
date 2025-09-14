@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2fewa1xek3fv"
-path="res://.godot/imported/transform_texture.png-cc73e552fb89b6f0149d5207c2b2a39e.ctex"
+uid="uid://dn68bl40s5cbe"
+path="res://.godot/imported/logo_wide_full_prop.svg-02166346c7e2eaafc07fcf79160fad06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://settings/input_settings/transform_model/transform_texture.png"
-dest_files=["res://.godot/imported/transform_texture.png-cc73e552fb89b6f0149d5207c2b2a39e.ctex"]
+source_file="res://logo_wide_full_prop.svg"
+dest_files=["res://.godot/imported/logo_wide_full_prop.svg-02166346c7e2eaafc07fcf79160fad06.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,7 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
+svg/scale=6.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

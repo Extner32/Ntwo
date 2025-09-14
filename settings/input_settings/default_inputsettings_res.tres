@@ -1,6 +1,32 @@
-[gd_resource type="Resource" script_class="InputSettingsRes" load_steps=4 format=3 uid="uid://basuew5x1pqhs"]
+[gd_resource type="Resource" script_class="InputSettingsRes" load_steps=13 format=3 uid="uid://basuew5x1pqhs"]
 
 [ext_resource type="Script" uid="uid://bdinoebabe58t" path="res://settings/input_settings/InputSettingsRes.gd" id="1_1q18l"]
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_sbgor"]
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_3yxlc"]
+axis = 1
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_kq0i7"]
+axis = 1
+axis_value = -1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_latpj"]
+device = -1
+keycode = 82
+unicode = 114
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_822xf"]
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_u77go"]
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_1q18l"]
+pressed = true
 
 [sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_1q18l"]
 axis = 2
@@ -10,8 +36,26 @@ axis_value = -1.0
 axis = 2
 axis_value = 1.0
 
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_0kqcv"]
+axis = 3
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_fdmsl"]
+axis = 3
+axis_value = 1.0
+
 [resource]
 script = ExtResource("1_1q18l")
 throttle_up = SubResource("InputEventJoypadMotion_yb1ks")
 throttle_down = SubResource("InputEventJoypadMotion_1q18l")
+throttle_0_at_center = false
+pitch_up = SubResource("InputEventJoypadMotion_kq0i7")
+pitch_down = SubResource("InputEventJoypadMotion_3yxlc")
+roll_left = SubResource("InputEventJoypadMotion_822xf")
+roll_right = SubResource("InputEventJoypadMotion_u77go")
+yaw_left = SubResource("InputEventJoypadMotion_0kqcv")
+yaw_right = SubResource("InputEventJoypadMotion_fdmsl")
+arm = SubResource("InputEventJoypadMotion_sbgor")
+self_right = SubResource("InputEventJoypadButton_1q18l")
+reset = SubResource("InputEventKey_latpj")
 metadata/_custom_type_script = "uid://bdinoebabe58t"

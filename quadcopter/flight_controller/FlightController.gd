@@ -28,7 +28,6 @@ var motor_idle = 0.1
 
 var armed = true
 
-#0.1, 0.4, 0.001
 @onready var PID_pitch = $PID_pitch
 @onready var PID_roll =$PID_roll
 @onready var PID_yaw = $PID_yaw

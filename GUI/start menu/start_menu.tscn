@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ac0po86f7lt"]
+
+[ext_resource type="Texture2D" uid="uid://dn68bl40s5cbe" path="res://logo_wide_full_prop.svg" id="1_l51wx"]
+[ext_resource type="Script" uid="uid://crfkjalqdorx0" path="res://GUI/start menu/start_menu.gd" id="1_mqfr5"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mqfr5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -238.5
+offset_right = 372.0
+offset_bottom = 238.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_l51wx")
+stretch_mode = 5
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 1.45519e-11)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SandboxButton" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+text = "sandbox"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+text = "settings"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+text = "quit"
+
+[connection signal="pressed" from="VBoxContainer/Buttons/SandboxButton" to="." method="_on_sandbox_button_pressed"]

@@ -43,6 +43,17 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "FPS: "
 
 [node name="Graph" parent="." instance=ExtResource("2_5qcxp")]
+size = Vector2i(500, 100)
+buffer_max_len = 500
+max_value_constant = 2.0
+min_value_constant = -2.0
+data_color = Color(0.0500001, 1, 0, 1)
+
+[node name="GraphInput" parent="." instance=ExtResource("2_5qcxp")]
+size = Vector2i(500, 100)
+buffer_max_len = 500
+max_value_constant = 2.0
+min_value_constant = -2.0
 
 [node name="DroneStats" type="PanelContainer" parent="."]
 layout_mode = 1

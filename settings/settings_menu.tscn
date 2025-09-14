@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://3lnd15sih54l"]
+[gd_scene load_steps=3 format=3 uid="uid://3lnd15sih54l"]
 
 [ext_resource type="PackedScene" uid="uid://cfk4wjh3b0t7c" path="res://settings/input_settings/menu/input_settings_menu.tscn" id="1_1np8e"]
+[ext_resource type="Script" uid="uid://oj8vctqtfe5r" path="res://settings/settings_menu.gd" id="1_gjdk6"]
 
 [node name="SettingsMenu" type="VBoxContainer"]
 anchors_preset = 15
@@ -8,11 +9,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gjdk6")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
 current_tab = 0
 
 [node name="InputSettingsMenu" parent="TabContainer" instance=ExtResource("1_1np8e")]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="SaveAndCloseButton" type="Button" parent="."]
+layout_mode = 2
+text = "save & close"
+
+[connection signal="pressed" from="SaveAndCloseButton" to="." method="_on_save_and_close_button_pressed"]

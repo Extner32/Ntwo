@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw7d2fl35plyt"]
 
 [ext_resource type="PackedScene" uid="uid://6gx7yfx883d" path="res://GUI/pause menu/pause_menu.tscn" id="1_17ifr"]
-[ext_resource type="PackedScene" uid="uid://cdi77hs80voda" path="res://settings/input_settings/menu/input_menu.tscn" id="2_1x7qj"]
+[ext_resource type="PackedScene" uid="uid://3lnd15sih54l" path="res://settings/settings_menu.tscn" id="2_17ifr"]
 
 [node name="GUI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +16,6 @@ grow_vertical = 2
 visible = false
 layout_mode = 1
 
-[node name="SettingsMenu" parent="." instance=ExtResource("2_1x7qj")]
+[node name="SettingsMenu" parent="." instance=ExtResource("2_17ifr")]
 visible = false
 layout_mode = 1
