@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfk4wjh3b0t7c"]
+
+[ext_resource type="Script" uid="uid://c6q5jwhbv4xxv" path="res://settings/input_settings/menu/input_settings_menu.gd" id="1_2paie"]
+[ext_resource type="PackedScene" uid="uid://cbfeed24tiq0h" path="res://settings/input_settings/inputbutton/InputButton.tscn" id="1_cv5ys"]
+
+[node name="InputSettingsMenu" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2paie")
+
+[node name="View" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButtons" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ThrottleUpButton" parent="InputButtons" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "throttle up"
+action_name = "throttle_up"
+
+[node name="ThrottleUpBar" type="ProgressBar" parent="InputButtons"]
+layout_mode = 2
+max_value = 1.0
+show_percentage = false
+
+[node name="ThrotttleDownButton" parent="InputButtons" instance=ExtResource("1_cv5ys")]
+layout_mode = 2
+text = "throttle Down"
+action_name = "throttle_down"
+
+[node name="ThrottleDownBar" type="ProgressBar" parent="InputButtons"]
+layout_mode = 2
+max_value = 1.0
+show_percentage = false
+
+[node name="Button" type="Button" parent="InputButtons"]
+layout_mode = 2
+text = "save(debug)"
+
+[connection signal="pressed" from="InputButtons/Button" to="." method="_on_button_pressed"]

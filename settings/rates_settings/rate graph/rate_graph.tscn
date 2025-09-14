@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bh8sbb7ijckks"]
 
-[ext_resource type="Shader" uid="uid://b1sqnf15gie1x" path="res://GUI/rate plotter/rate_plotter.gdshader" id="1_q8l78"]
-[ext_resource type="Script" uid="uid://cfgr1vdahi84n" path="res://GUI/rate plotter/rate_plotter.gd" id="2_jt31b"]
+[ext_resource type="Shader" uid="uid://b1sqnf15gie1x" path="res://settings/rates_settings/rate graph/rate_graph.gdshader" id="1_q8l78"]
+[ext_resource type="Script" uid="uid://cfgr1vdahi84n" path="res://settings/rates_settings/rate graph/rate_graph.gd" id="2_jt31b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rjv66"]
 resource_local_to_scene = true

@@ -43,19 +43,19 @@ func get_throttle_input():
 func raw_pitch():
 	return clamp(Input.get_axis("pitch_up", "pitch_down"), -1, 1)
 	
-func get_pitch_input():
-	return rates_function(raw_pitch(), deg_to_rad(RatesSettings.res.pitch_max_rate), deg_to_rad(RatesSettings.res.pitch_center_rate), RatesSettings.res.pitch_expo)
-	
-#roll
-func raw_roll():
-	return clamp(Input.get_axis("roll_left", "roll_right"), -1, 1)
-
-func get_roll_input():
-	return rates_function(raw_roll(), deg_to_rad(RatesSettings.res.roll_max_rate), deg_to_rad(RatesSettings.res.roll_center_rate), RatesSettings.res.roll_expo)
-	
-#yaw
-func raw_yaw():
-	return clamp(Input.get_axis("yaw_left", "yaw_right"), -1, 1)
-
-func get_yaw_input():
-	return rates_function(raw_yaw(), deg_to_rad(RatesSettings.res.yaw_max_rate), deg_to_rad(RatesSettings.res.yaw_center_rate), RatesSettings.res.yaw_expo)
+#func get_pitch_input():
+	#return rates_function(raw_pitch(), deg_to_rad(RatesSettings.res.pitch_max_rate), deg_to_rad(RatesSettings.res.pitch_center_rate), RatesSettings.res.pitch_expo)
+	#
+##roll
+#func raw_roll():
+	#return clamp(Input.get_axis("roll_left", "roll_right"), -1, 1)
+#
+#func get_roll_input():
+	#return rates_function(raw_roll(), deg_to_rad(RatesSettings.res.roll_max_rate), deg_to_rad(RatesSettings.res.roll_center_rate), RatesSettings.res.roll_expo)
+	#
+##yaw
+#func raw_yaw():
+	#return clamp(Input.get_axis("yaw_left", "yaw_right"), -1, 1)
+#
+#func get_yaw_input():
+	#return rates_function(raw_yaw(), deg_to_rad(RatesSettings.res.yaw_max_rate), deg_to_rad(RatesSettings.res.yaw_center_rate), RatesSettings.res.yaw_expo)

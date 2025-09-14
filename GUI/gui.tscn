@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw7d2fl35plyt"]
 
 [ext_resource type="PackedScene" uid="uid://6gx7yfx883d" path="res://GUI/pause menu/pause_menu.tscn" id="1_17ifr"]
-[ext_resource type="PackedScene" uid="uid://bhhthl84lm37i" path="res://GUI/settings menu/settings_menu.tscn" id="2_1x7qj"]
+[ext_resource type="PackedScene" uid="uid://cdi77hs80voda" path="res://settings/input_settings/menu/input_menu.tscn" id="2_1x7qj"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3

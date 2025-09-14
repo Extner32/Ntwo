@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbfeed24tiq0h"]
+
+[ext_resource type="Script" uid="uid://bcm35xaa3ohrw" path="res://settings/input_settings/inputbutton/input_button.gd" id="1_6pxyt"]
+
+[node name="InputButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6pxyt")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

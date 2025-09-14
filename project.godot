@@ -19,10 +19,9 @@ config/icon="res://logo.png"
 
 [autoload]
 
+InputSettings="*res://settings/input_settings/InputSettings.gd"
 gb="*res://global/Global.gd"
 Controller="*res://global/controller.gd"
-InputSettings="*res://settings/input_map/InputSettings.gd"
-RatesSettings="*res://settings/rates/RatesSettings.gd"
 
 [display]
 
@@ -33,6 +32,7 @@ window/vsync/vsync_mode=0
 folder_colors={
 "res://GUI/": "green",
 "res://quadcopter/": "yellow",
+"res://settings/": "purple",
 "res://world/": "red"
 }
 
@@ -107,5 +107,6 @@ common/physics_ticks_per_second=120
 
 [rendering]
 
+renderer/rendering_method="mobile"
 global_illumination/gi/use_half_resolution=true
 global_illumination/sdfgi/frames_to_converge=2
