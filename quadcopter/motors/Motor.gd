@@ -17,7 +17,7 @@ var pwm = 0.0
 
 const RHO = 1.225 # kg/m³ (air density)
 const CT = 0.45 #thrust
-const CQ = 0.02 #torque
+const CQ = 0.4 #torque
 
 const MAX_RPM = 20000.0
 #aka the angular velocity at max PWM duty cycle 
@@ -64,5 +64,5 @@ func _process(delta):
 	#print(angular_vel)
 
 #this is just pow but the original sign gets preserved
-func signed_pow(base, exp):
-	return sign(base)*abs(pow(base, exp))
+func signed_pow(base, expo):
+	return sign(base)*abs(pow(base, expo))

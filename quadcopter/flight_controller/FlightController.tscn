@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl5eci0hpso2m"]
+[gd_scene load_steps=5 format=3 uid="uid://bl5eci0hpso2m"]
 
 [ext_resource type="Script" uid="uid://b7f75ok6e4thq" path="res://quadcopter/flight_controller/FlightController.gd" id="1_apqoi"]
 [ext_resource type="Script" uid="uid://btk5vyqql5uby" path="res://quadcopter/pid controller/pidcontroller.gd" id="2_nfqh2"]
+[ext_resource type="PackedScene" uid="uid://c7dy4ybkm8330" path="res://GUI/graph/graph.tscn" id="3_k5t54"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_33ynk"]
 size = Vector3(0.03, 0.008, 0.03)
@@ -15,17 +16,39 @@ mesh = SubResource("BoxMesh_33ynk")
 [node name="PID_pitch" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.015
-clamp_min = -0.4
-clamp_max = 0.4
+Kfeedforward = 0.001
+throttle_influence = 0.8
+clamp_min = -0.1
+clamp_max = 0.1
 
 [node name="PID_roll" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.015
-clamp_min = -0.4
-clamp_max = 0.4
+Kfeedforward = 0.001
+throttle_influence = 0.8
+clamp_min = -0.1
+clamp_max = 0.1
 
 [node name="PID_yaw" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.05
+throttle_influence = 0.8
 clamp_min = -0.4
 clamp_max = 0.4
+
+[node name="Graphs" type="Node2D" parent="."]
+position = Vector2(251, 211)
+metadata/_edit_group_ = true
+
+[node name="GraphA" parent="Graphs" instance=ExtResource("3_k5t54")]
+size = Vector2i(500, 500)
+buffer_max_len = 500
+max_value_constant = 20.0
+min_value_constant = -20.0
+data_color = Color(0.670732, 0.328382, 0.964249, 1)
+
+[node name="GraphB" parent="Graphs" instance=ExtResource("3_k5t54")]
+size = Vector2i(500, 500)
+buffer_max_len = 500
+max_value_constant = 20.0
+min_value_constant = -20.0

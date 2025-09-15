@@ -74,12 +74,17 @@ func _physics_process(delta):
 		motor2.pwm = motors[1]
 		motor3.pwm = motors[2]
 		motor4.pwm = motors[3]
+		
+		$Graphs/GraphA.data.append(input_pitch)
+		$Graphs/GraphB.data.append(quadcopter.imu_pitch_speed)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("self_right"):
 		quadcopter.global_rotation.z = 0
 		quadcopter.global_rotation.x = 0
 		reset()
+	
+
 
 	
 

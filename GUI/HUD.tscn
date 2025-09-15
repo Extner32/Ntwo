@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5aq7rwrg1xvm"]
+[gd_scene load_steps=4 format=3 uid="uid://b5aq7rwrg1xvm"]
 
 [ext_resource type="Script" uid="uid://dfcgcgsmp126l" path="res://GUI/HUD.gd" id="1_2vknh"]
-[ext_resource type="PackedScene" uid="uid://c7dy4ybkm8330" path="res://GUI/graph/graph.tscn" id="2_5qcxp"]
 
 [sub_resource type="Gradient" id="Gradient_xdgpj"]
 offsets = PackedFloat32Array(0, 0.535948, 1)
@@ -41,19 +40,6 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "FPS: "
-
-[node name="Graph" parent="." instance=ExtResource("2_5qcxp")]
-size = Vector2i(500, 100)
-buffer_max_len = 500
-max_value_constant = 2.0
-min_value_constant = -2.0
-data_color = Color(0.0500001, 1, 0, 1)
-
-[node name="GraphInput" parent="." instance=ExtResource("2_5qcxp")]
-size = Vector2i(500, 100)
-buffer_max_len = 500
-max_value_constant = 2.0
-min_value_constant = -2.0
 
 [node name="DroneStats" type="PanelContainer" parent="."]
 layout_mode = 1

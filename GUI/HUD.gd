@@ -18,6 +18,3 @@ func _process(delta: float) -> void:
 	fps = Engine.get_frames_per_second()
 	$FPSLabel.text = "FPS: "+str(fps)
 	$FPSLabel.add_theme_color_override("font_color", fps_gradient.sample(fps/good_fps))
-
-	$Graph.data.append(snapped(gb.imu_rotation_speeds[0], 0.01))
-	$GraphInput.data.append(snapped(-gb.get_pitch_input(), 0.01))

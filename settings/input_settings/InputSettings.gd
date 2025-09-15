@@ -21,10 +21,11 @@ func load_settings():
 	#there is no save file yet
 	if not ResourceLoader.exists(INPUTSETTINGSRES_PATH):
 		inputsettings_res = load("res://settings/input_settings/default_inputsettings_res.tres").duplicate(true)
+		print("loaded defaults")
 	#there is a savefile
 	else:
 		inputsettings_res = ResourceLoader.load(INPUTSETTINGSRES_PATH)
-	
+		print("loaded settings")
 	replace_actions()
 	
 
