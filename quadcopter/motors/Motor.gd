@@ -28,7 +28,7 @@ const THRUST_CONST = CT * gb.air_density * pow(prop.diameter, 4)
 const TORQUE_CONST = CQ * gb.air_density * pow(prop.diameter, 5)
 
 const TORQUE_DRAG_CONST := 1e-8
-const PROP_DRAG_CONST := 1e-10
+const PROP_DRAG_CONST := 1e-9
 
 var angular_vel = 0
 var up = Vector3.ZERO

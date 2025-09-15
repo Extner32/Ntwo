@@ -26,7 +26,7 @@ func rates_function(x, max_rate, center_rate, expo):
 	#this is multiplied by sign(x) so it also works for x < 0
 	return (center_rate*x)+((max_rate-center_rate)*expo_factor) * sign(x)
 
-var throttle_expo = 1.0
+var throttle_expo = 1.5
 
 func throttle_curve_function(x, expo):
 	return pow(x, 1+expo)
