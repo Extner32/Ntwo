@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnmb7uf2phcpo"]
+
+[ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="1_8nhy8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_45ygh"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_bottom_color = Color(0.938046, 0.9179, 0.895083, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jcrw3"]
+sky_material = SubResource("ProceduralSkyMaterial_45ygh")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_xdcn3"]
+background_mode = 2
+sky = SubResource("Sky_jcrw3")
+tonemap_mode = 3
+ssao_power = 2.61166
+sdfgi_cascades = 8
+sdfgi_min_cell_size = 0.1
+sdfgi_cascade0_distance = 6.4
+sdfgi_max_distance = 1638.4
+fog_enabled = true
+fog_density = 0.001
+fog_sky_affect = 0.328
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kbdw"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0.270588)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u5duw"]
+size = Vector2(10000, 10000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rj023"]
+size = Vector3(3, 0.5, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uo8dw"]
+size = Vector3(3, 0.5, 3)
+
+[node name="NtwoVoid" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xdcn3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, -1, -3.4641, 1.73205)
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="Quadcopter" parent="." instance=ExtResource("1_8nhy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.292083, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_3kbdw")
+mesh = SubResource("PlaneMesh_u5duw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_rj023")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_uo8dw")

@@ -16,13 +16,13 @@ sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_bottom_color = Color(0.938046, 0.9179, 0.895083, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_jcrw3"]
+[sub_resource type="Sky" id="Sky_bd2o2"]
 sky_material = SubResource("ProceduralSkyMaterial_2l85k")
 radiance_size = 2
 
 [sub_resource type="Environment" id="Environment_vxghj"]
 background_mode = 2
-sky = SubResource("Sky_jcrw3")
+sky = SubResource("Sky_bd2o2")
 tonemap_mode = 3
 ssao_power = 2.61166
 sdfgi_cascades = 8

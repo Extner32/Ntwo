@@ -15,29 +15,20 @@ mesh = SubResource("BoxMesh_33ynk")
 
 [node name="PID_pitch" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
-Kp = 0.015
-Kfeedforward = 0.001
-throttle_influence = 0.8
-clamp_min = -0.1
-clamp_max = 0.1
+Kp = 0.035
+clamp_min = -100.0
+clamp_max = 100.0
 
 [node name="PID_roll" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
-Kp = 0.015
-Kfeedforward = 0.001
-throttle_influence = 0.8
-clamp_min = -0.1
-clamp_max = 0.1
 
 [node name="PID_yaw" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
-Kp = 0.05
-throttle_influence = 0.8
 clamp_min = -0.4
 clamp_max = 0.4
 
 [node name="Graphs" type="Node2D" parent="."]
-position = Vector2(251, 211)
+position = Vector2(102, 89)
 metadata/_edit_group_ = true
 
 [node name="GraphA" parent="Graphs" instance=ExtResource("3_k5t54")]
@@ -45,7 +36,7 @@ size = Vector2i(500, 500)
 buffer_max_len = 500
 max_value_constant = 20.0
 min_value_constant = -20.0
-data_color = Color(0.670732, 0.328382, 0.964249, 1)
+data_color = Color(0.0558, 0.93, 0.42005, 1)
 
 [node name="GraphB" parent="Graphs" instance=ExtResource("3_k5t54")]
 size = Vector2i(500, 500)

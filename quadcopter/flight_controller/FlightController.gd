@@ -32,6 +32,7 @@ var armed = true
 @onready var PID_roll =$PID_roll
 @onready var PID_yaw = $PID_yaw
 
+var highest_pitch_speed = 0
 
 func _physics_process(delta):
 	if armed:
@@ -46,29 +47,39 @@ func _physics_process(delta):
 		var roll_speed = PID_roll.compute(delta, input_roll, quadcopter.imu_roll_speed)
 		var yaw_speed = PID_yaw.compute(delta, input_yaw, quadcopter.imu_yaw_speed)
 		
+		var correction = max(abs(pitch_speed), abs(roll_speed), abs(yaw_speed))
+		var throttle_headroom = 1.0 - correction
+		var effective_throttle = input_throttle
+		
+		print(effective_throttle/input_throttle)
+		
 
 		#mix the pitch, roll and yaw speeds to the velocites of the motors
 		var motors = [
-			motor_idle + input_throttle  - pitch_speed + roll_speed + yaw_speed,
-			motor_idle + input_throttle  + pitch_speed + roll_speed - yaw_speed,
-			motor_idle + input_throttle  - pitch_speed - roll_speed - yaw_speed,
-			motor_idle + input_throttle  + pitch_speed - roll_speed + yaw_speed
+			motor_idle + effective_throttle - pitch_speed + roll_speed + yaw_speed,
+			motor_idle + effective_throttle + pitch_speed + roll_speed - yaw_speed,
+			motor_idle + effective_throttle - pitch_speed - roll_speed - yaw_speed,
+			motor_idle + effective_throttle + pitch_speed - roll_speed + yaw_speed
 			]
 		
 		# scale the motors so the the fastest motor is 1 and the slowest is 0
-		var max_motor = motors.max()
-		var min_motor = motors.min()
-		
-		#Shift all motors up if any are below 0
-		if min_motor < 0.0:
-			for i in range(4):
-				motors[i] -= min_motor
-
-		#Scale all motors down if any are above 1
-		if max_motor > 1.0:
-			var s = 1.0 / max_motor
-			for i in range(4):
-				motors[i] *= s
+		#var max_motor = motors.max()
+		#var min_motor = motors.min()
+		#
+		##Shift all motors up if any are below 0
+		#if min_motor < 0.0:
+			#for i in range(4):
+				#motors[i] -= min_motor
+#
+		##Scale all motors down if any are above 1
+		#if max_motor > 1.0:
+			#var s = 1.0 / max_motor
+			#for i in range(4):
+				#motors[i] *= s
+				
+		for i in range(4):
+			motors[i] = clamp(motors[i], 0.0, 1.0)
+			
 				
 		motor1.pwm = motors[0]
 		motor2.pwm = motors[1]
@@ -77,12 +88,14 @@ func _physics_process(delta):
 		
 		$Graphs/GraphA.data.append(input_pitch)
 		$Graphs/GraphB.data.append(quadcopter.imu_pitch_speed)
+		
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("self_right"):
 		quadcopter.global_rotation.z = 0
 		quadcopter.global_rotation.x = 0
 		reset()
+		
 	
 
 
