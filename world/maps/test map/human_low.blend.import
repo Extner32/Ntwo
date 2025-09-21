@@ -4,20 +4,22 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cqpi8dl1uxmrn"
-path="res://.godot/imported/human_low.blend-ed39aaa7bd83f3f8257a71f0ccba4ec1.scn"
+path="res://.godot/imported/human_low.blend-14c991daf78c1725460a9514401f3764.scn"
 
 [deps]
 
-source_file="res://test/human_low.blend"
-dest_files=["res://.godot/imported/human_low.blend-ed39aaa7bd83f3f8257a71f0ccba4ec1.scn"]
+source_file="res://world/maps/test map/human_low.blend"
+dest_files=["res://.godot/imported/human_low.blend-14c991daf78c1725460a9514401f3764.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,6 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
@@ -51,3 +56,4 @@ blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
+gltf/naming_version=0

@@ -47,19 +47,15 @@ func _physics_process(delta):
 		var roll_speed = PID_roll.compute(delta, input_roll, quadcopter.imu_roll_speed)
 		var yaw_speed = PID_yaw.compute(delta, input_yaw, quadcopter.imu_yaw_speed)
 		
-		var correction = max(abs(pitch_speed), abs(roll_speed), abs(yaw_speed))
-		var throttle_headroom = 1.0 - correction
-		var effective_throttle = input_throttle
-		
-		print(effective_throttle/input_throttle)
+		input_throttle = clamp(input_throttle-max(pitch_speed, roll_speed, yaw_speed), 0.0, 1.0)
 		
 
-		#mix the pitch, roll and yaw speeds to the velocites of the motors
-		var motors = [
-			motor_idle + effective_throttle - pitch_speed + roll_speed + yaw_speed,
-			motor_idle + effective_throttle + pitch_speed + roll_speed - yaw_speed,
-			motor_idle + effective_throttle - pitch_speed - roll_speed - yaw_speed,
-			motor_idle + effective_throttle + pitch_speed - roll_speed + yaw_speed
+		#mix the pitch, roll and yaw speeds to the velocities of the motors
+		var motor_mix = [
+			motor_idle + input_throttle - pitch_speed + roll_speed + yaw_speed,
+			motor_idle + input_throttle + pitch_speed + roll_speed - yaw_speed,
+			motor_idle + input_throttle - pitch_speed - roll_speed - yaw_speed,
+			motor_idle + input_throttle + pitch_speed - roll_speed + yaw_speed
 			]
 		
 		# scale the motors so the the fastest motor is 1 and the slowest is 0
@@ -78,13 +74,13 @@ func _physics_process(delta):
 				#motors[i] *= s
 				
 		for i in range(4):
-			motors[i] = clamp(motors[i], 0.0, 1.0)
+			motor_mix[i] = clamp(motor_mix[i], 0.0, 1.0)
 			
 				
-		motor1.pwm = motors[0]
-		motor2.pwm = motors[1]
-		motor3.pwm = motors[2]
-		motor4.pwm = motors[3]
+		motor1.pwm = motor_mix[0]
+		motor2.pwm = motor_mix[1]
+		motor3.pwm = motor_mix[2]
+		motor4.pwm = motor_mix[3]
 		
 		$Graphs/GraphA.data.append(input_pitch)
 		$Graphs/GraphB.data.append(quadcopter.imu_pitch_speed)

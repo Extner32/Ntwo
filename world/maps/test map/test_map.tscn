@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ukwqm4lynwtt" path="res://quadcopter/Quadcopter.tscn" id="2_cy4ne"]
 [ext_resource type="PackedScene" uid="uid://igw4dto0q5kg" path="res://objects/race_gate.tscn" id="3_yh26c"]
 [ext_resource type="Texture2D" uid="uid://bw3n6xkmrxoot" path="res://Grid/Purple/texture_01.png" id="4_1fjex"]
-[ext_resource type="PackedScene" uid="uid://cqpi8dl1uxmrn" path="res://test/human_low.blend" id="6_s8mc5"]
+[ext_resource type="PackedScene" uid="uid://cqpi8dl1uxmrn" path="res://world/maps/test map/human_low.blend" id="6_s8mc5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tkn1t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

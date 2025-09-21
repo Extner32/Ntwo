@@ -13,7 +13,7 @@ config_version=5
 config/name="Ntwo"
 run/main_scene="uid://0ac0po86f7lt"
 config/use_custom_user_dir=true
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=500
 config/icon="uid://c3eq80a6qo4t0"
 
