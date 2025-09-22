@@ -26,7 +26,6 @@ Kp = 0.015
 [node name="PID_yaw" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.02
-Kfeedforward = 0.001
 clamp_min = -0.4
 clamp_max = 0.4
 

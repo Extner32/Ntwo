@@ -1,7 +1,7 @@
 class_name Propeller
 extends Node3D
 
-var angular_vel := 0.0
+var angular_velocity := 0.0
 var ground_effect_strength = 1.0
 const diameter = 0.127 # = 5 inches
 @export var color_gradient: Gradient

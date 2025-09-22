@@ -10,7 +10,7 @@ extends Node3D
 @onready var motors = [motor1, motor2, motor3, motor4]
 
 #motor idle pwm
-var motor_idle = 0.1
+var motor_idle = 0.05
 
 #rates
 
@@ -57,21 +57,6 @@ func _physics_process(delta):
 			motor_idle + input_throttle - pitch_speed - roll_speed - yaw_speed,
 			motor_idle + input_throttle + pitch_speed - roll_speed + yaw_speed
 			]
-		
-		# scale the motors so the the fastest motor is 1 and the slowest is 0
-		#var max_motor = motors.max()
-		#var min_motor = motors.min()
-		#
-		##Shift all motors up if any are below 0
-		#if min_motor < 0.0:
-			#for i in range(4):
-				#motors[i] -= min_motor
-#
-		##Scale all motors down if any are above 1
-		#if max_motor > 1.0:
-			#var s = 1.0 / max_motor
-			#for i in range(4):
-				#motors[i] *= s
 				
 		for i in range(4):
 			motor_mix[i] = clamp(motor_mix[i], 0.0, 1.0)

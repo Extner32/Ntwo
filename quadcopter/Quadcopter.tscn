@@ -35,7 +35,7 @@ shape = SubResource("BoxShape3D_6p65n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_4prjh")
-gi_mode = 2
+gi_mode = 0
 mesh = SubResource("BoxMesh_ivhy6")
 
 [node name="motors" type="Node3D" parent="."]

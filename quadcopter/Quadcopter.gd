@@ -18,7 +18,7 @@ extends RigidBody3D
 	#if the top/bottom is facing the same direction
 	#as the direction that the quad is moving in, the drone will slow down
 @export var XYZ_projected_areas = Vector3(0.02, 0.05, 0.02)
-@export var drag_coeff = 0.5
+@export var drag_coeff = 0.4
 
 var imu_pitch_speed = 0
 var imu_roll_speed = 0
@@ -60,6 +60,7 @@ func _process(delta):
 	
 func _physics_process(delta):
 	var total_thrust = 0
+	var total_angular_velocity = 0
 	#set forces per motor
 	var prop_drag = 0
 	
@@ -67,6 +68,7 @@ func _physics_process(delta):
 		var thrust = motor.compute_thrust()
 		var ground_effect = motor.compute_ground_effect()
 		total_thrust += thrust
+		total_angular_velocity += motor.angular_velocity
 		#print("thrust ",thrust)
 		var torque = motor.compute_torque()
 		var drag_torque = motor.compute_drag_torque()
@@ -78,10 +80,10 @@ func _physics_process(delta):
 		
 		
 	gb.total_thrust = total_thrust
-	#peruno is from 0-1 instead of 0-100%
-	var thrust_peruno = total_thrust/70
-	audio.volume_db = linear_to_db(thrust_peruno*0.5)
-	audio.pitch_scale = pow(2, thrust_peruno)
+	
+	var angular_velocity01 = total_angular_velocity/10000.0
+	audio.volume_linear = 0.01+angular_velocity01
+	audio.pitch_scale = 0.5+angular_velocity01*1.5
 	
 	
 

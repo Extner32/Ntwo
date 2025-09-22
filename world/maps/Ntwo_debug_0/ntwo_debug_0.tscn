@@ -27,8 +27,6 @@ tonemap_mode = 3
 ssao_power = 2.61166
 sdfgi_cascades = 8
 sdfgi_min_cell_size = 0.1
-sdfgi_cascade0_distance = 6.4
-sdfgi_max_distance = 1638.4
 fog_enabled = true
 fog_density = 0.001
 fog_sky_affect = 0.328
@@ -37,16 +35,16 @@ fog_sky_affect = 0.328
 
 [node name="Ntwo_debug_0" parent="." instance=ExtResource("1_ebjas")]
 
-[node name="ground" parent="Ntwo_debug_0" index="1"]
+[node name="ground" parent="Ntwo_debug_0" index="0"]
 material_override = SubResource("StandardMaterial3D_bd2o2")
 
-[node name="purple_wall" parent="Ntwo_debug_0" index="6"]
+[node name="purple_wall" parent="Ntwo_debug_0" index="5"]
 material_override = ExtResource("3_0tr1b")
 
-[node name="purple_block" parent="Ntwo_debug_0" index="7"]
+[node name="purple_block" parent="Ntwo_debug_0" index="6"]
 material_override = ExtResource("3_0tr1b")
 
-[node name="purple_slope" parent="Ntwo_debug_0" index="8"]
+[node name="purple_slope" parent="Ntwo_debug_0" index="7"]
 material_override = ExtResource("3_0tr1b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -58,7 +56,7 @@ light_bake_mode = 1
 shadow_enabled = true
 
 [node name="Quadcopter" parent="." instance=ExtResource("2_2l85k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4268, 0.106886, 41.5549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4268, 2.3986328, 41.5549)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 light_data = ExtResource("5_0tr1b")
