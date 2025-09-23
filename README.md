@@ -1,17 +1,17 @@
-![image](https://github.com/user-attachments/assets/de747f52-3c83-49f1-845b-88b2048e8226)
+<img width="50%" src="https://github.com/Extner32/Ntwo/blob/main/logo_wide_full_prop.svg"/>
 
-
-## the goal
-- Open source and free forever
-- allow for user-created maps (made in the Godot editor and then used in the game)
+## The goal
+- Free and Open source forever
 - Realistic physics
-- Good preformance (should easily run on integrated gpu's with the right settings), but also allow nice visuals if your computer can handle it.
+- Very performant (should easily run on integrated gpu's with the right settings), but also allow nice visuals if your computer can handle it.
+- user created maps and drone parts (created in the Godot Editor)
 
-## current working features:
-- drone physics (this will probably keep getting improved during development)
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/8d3545a6-4fd3-4636-a146-604a3a75e871" />
+
+## Current working features:
+- Drone physics (this will probably keep getting improved during development)
     - PID controllers
     - ground effect simulation
-    - Actual Rates
-
-- one test map
-- input rebind menu
+- 1 debug map
+- Input settings menu
+- (very basic) simulator settings menu
