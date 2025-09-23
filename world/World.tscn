@@ -14,6 +14,7 @@ script = ExtResource("1_ahhnx")
 [node name="GUILayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="GUILayer" instance=ExtResource("2_qcaji")]
+visible = false
 
 [node name="GUI" parent="GUILayer" instance=ExtResource("3_5hvw7")]
 

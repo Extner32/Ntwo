@@ -1,8 +1,6 @@
 class_name Quadcopter
 extends RigidBody3D
 
-@export var debug_cam = false
-
 @export var motor1: Motor
 @export var motor2: Motor
 @export var motor3: Motor
@@ -41,11 +39,6 @@ func _process(delta):
 	imu_pitch_speed = local_angular_velocity.x
 	imu_roll_speed = local_angular_velocity.z
 	imu_yaw_speed = local_angular_velocity.y
-	
-	$FPVCam.current = not debug_cam
-	$DebugCamPivot/DebugCam.current = debug_cam
-	$DebugCamPivot.global_position = global_position
-	$DebugCamPivot.global_rotation.y = global_rotation.y
 	
 	#these are all for the HUD
 	gb.velocity = linear_velocity.length()

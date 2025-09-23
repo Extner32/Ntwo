@@ -87,12 +87,6 @@ current = true
 fov = 90.0
 near = 0.001
 
-[node name="DebugCamPivot" type="Node3D" parent="."]
-top_level = true
-
-[node name="DebugCam" type="Camera3D" parent="DebugCamPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.936096, 0.351744, 0, -0.351744, 0.936096, 0, 0.538586, 0.98207)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_aj1qe")
 volume_db = -47.3871
