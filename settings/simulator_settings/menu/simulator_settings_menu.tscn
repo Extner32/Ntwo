@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk5jgcwq605mr"]
+
+[ext_resource type="PackedScene" uid="uid://utbxito1s2ef" path="res://settings/simulator_settings/menu/menu_slider/menu_slider.tscn" id="1_2tt15"]
+[ext_resource type="Script" uid="uid://c3ghuyi5inbav" path="res://settings/simulator_settings/menu/simulator_settings_menu.gd" id="1_rbegr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tt15"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="SimulatorSettingsMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_rbegr")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Graphics" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Graphics"]
+layout_mode = 2
+text = "Graphics settings:"
+
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/VBoxContainer/Graphics"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2tt15")
+
+[node name="ResolutionScaleSlider" parent="ScrollContainer/VBoxContainer/Graphics/PanelContainer" instance=ExtResource("1_2tt15")]
+layout_mode = 2
+description = "Resolution scale"
+slider_min = 0.1
+
+[connection signal="value_changed" from="ScrollContainer/VBoxContainer/Graphics/PanelContainer/ResolutionScaleSlider" to="." method="_on_resolution_scale_slider_value_changed"]

@@ -1,12 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl22qui08rcyb"]
+[gd_scene load_steps=7 format=3 uid="uid://cl22qui08rcyb"]
 
 [ext_resource type="Script" uid="uid://dscxbrlgm5jj4" path="res://test/test.gd" id="1_s5xu3"]
 [ext_resource type="Texture2D" uid="uid://bsuky4ifqnh66" path="res://test/analog_shader/gopro.png" id="2_hrq6i"]
 [ext_resource type="Texture2D" uid="uid://b37asgg7h7q4x" path="res://test/analog_shader/analog.png" id="3_tbfq4"]
-[ext_resource type="Shader" uid="uid://cnh1thl7q8j2h" path="res://test/analog_video.gdshader" id="4_s3n3v"]
+[ext_resource type="Shader" uid="uid://cnh1thl7q8j2h" path="res://test/analog_noise.gdshader" id="4_s3n3v"]
+[ext_resource type="Texture2D" uid="uid://dsfa0q6478qlk" path="res://post process/rgb_noise.png" id="5_tbfq4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgdm3"]
 shader = ExtResource("4_s3n3v")
+shader_parameter/contrast = 1.01600004826
+shader_parameter/brightness = -0.25199996446999995
+shader_parameter/saturation = 0.8770000416575
+shader_parameter/noise_texture = ExtResource("5_tbfq4")
+shader_parameter/noise_strength = 0.3170000150575
+shader_parameter/blur_sharp = 0.0
+shader_parameter/pixel = 1.0
 
 [node name="test" type="Node2D"]
 script = ExtResource("1_s5xu3")

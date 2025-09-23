@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SimulatorSettingsRes" load_steps=2 format=3 uid="uid://0ux36t22i8m3"]
+
+[ext_resource type="Script" uid="uid://c0b447p26t40k" path="res://settings/simulator_settings/SimulatorSettingsRes.gd" id="1_y4lf5"]
+
+[resource]
+script = ExtResource("1_y4lf5")
+resolution_scale = 1.0
+metadata/_custom_type_script = "uid://c0b447p26t40k"

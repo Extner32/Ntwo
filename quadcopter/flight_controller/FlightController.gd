@@ -10,7 +10,7 @@ extends Node3D
 @onready var motors = [motor1, motor2, motor3, motor4]
 
 #motor idle pwm
-var motor_idle = 0.05
+var motor_idle = 0.1
 
 #rates
 
@@ -26,7 +26,7 @@ var motor_idle = 0.05
 #3   1
 #-> <-
 
-var armed = true
+var armed = false
 
 @onready var PID_pitch = $PID_pitch
 @onready var PID_roll =$PID_roll
@@ -67,8 +67,13 @@ func _physics_process(delta):
 		motor3.pwm = motor_mix[2]
 		motor4.pwm = motor_mix[3]
 		
-		$Graphs/GraphA.data.append(input_pitch)
-		$Graphs/GraphB.data.append(quadcopter.imu_pitch_speed)
+		#$Graphs/GraphA.data.append(input_pitch)
+		#$Graphs/GraphB.data.append(quadcopter.imu_pitch_speed)
+	else:
+		motor1.pwm = 0
+		motor2.pwm = 0
+		motor3.pwm = 0
+		motor4.pwm = 0
 		
 
 func _process(delta: float) -> void:
@@ -77,6 +82,7 @@ func _process(delta: float) -> void:
 		quadcopter.global_rotation.x = 0
 		reset()
 		
+	armed = bool(round(Input.get_action_strength("arm")))
 	
 
 

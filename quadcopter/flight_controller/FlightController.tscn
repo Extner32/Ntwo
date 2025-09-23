@@ -16,20 +16,24 @@ mesh = SubResource("BoxMesh_33ynk")
 [node name="PID_pitch" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.015
+Ki = 0.01
 clamp_min = -100.0
 clamp_max = 100.0
 
 [node name="PID_roll" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.015
+Ki = 0.01
 
 [node name="PID_yaw" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
 Kp = 0.02
+Ki = 0.01
 clamp_min = -0.4
 clamp_max = 0.4
 
 [node name="Graphs" type="Node2D" parent="."]
+visible = false
 position = Vector2(102, 89)
 metadata/_edit_group_ = true
 

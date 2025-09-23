@@ -38,14 +38,11 @@ size_flags_horizontal = 4
 
 [node name="SandboxButton" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
-text = "sandbox"
-
-[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons"]
-layout_mode = 2
-text = "settings"
+text = "Sandbox"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
-text = "quit"
+text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Buttons/SandboxButton" to="." method="_on_sandbox_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -82,8 +82,8 @@ func _physics_process(delta):
 	gb.total_thrust = total_thrust
 	
 	var angular_velocity01 = total_angular_velocity/10000.0
-	audio.volume_linear = 0.01+angular_velocity01
-	audio.pitch_scale = 0.5+angular_velocity01*1.5
+	audio.volume_linear = angular_velocity01
+	audio.pitch_scale = 0.3+angular_velocity01*2.0
 	
 	
 

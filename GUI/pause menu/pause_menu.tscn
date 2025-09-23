@@ -49,15 +49,15 @@ horizontal_alignment = 1
 [node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "resume"
+text = "Resume"
 
 [node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "settings"
+text = "Settings"
 
 [node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "quit"
+text = "Quit"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

@@ -42,6 +42,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "FPS: "
 
 [node name="DroneStats" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -70,3 +71,15 @@ text = "thrust: "
 [node name="DragLabel" type="Label" parent="DroneStats/VboxContainer"]
 layout_mode = 2
 text = "drag: "
+
+[node name="AlphaLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.0
+offset_right = 166.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.20392157, 1)
+text = "Alpha Version: Not representative of final product"

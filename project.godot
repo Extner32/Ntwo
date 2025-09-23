@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="Ntwo"
+config/version="0.0"
 run/main_scene="uid://0ac0po86f7lt"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "Forward Plus")
-run/max_fps=500
 config/icon="uid://c3eq80a6qo4t0"
 
 [autoload]
@@ -22,10 +22,7 @@ config/icon="uid://c3eq80a6qo4t0"
 InputSettings="*res://settings/input_settings/InputSettings.gd"
 gb="*res://global/Global.gd"
 RatesSettings="*res://settings/rates_settings/RatesSettings.gd"
-
-[display]
-
-window/vsync/vsync_mode=0
+SimulatorSettings="*res://settings/simulator_settings/SimulatorSettings.gd"
 
 [file_customization]
 

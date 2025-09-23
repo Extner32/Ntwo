@@ -46,16 +46,16 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Throttle"]
 layout_mode = 2
-text = "throttle:"
+text = "Throttle:"
 
 [node name="UpButton" parent="HBoxContainer/ScrollContainer/InputButtons/Throttle" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "up"
+text = "↑ Up"
 action_name = "throttle_up"
 
 [node name="DownButton" parent="HBoxContainer/ScrollContainer/InputButtons/Throttle" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "down"
+text = "↓ Down"
 action_name = "throttle_down"
 
 [node name="Pitch" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
@@ -63,16 +63,16 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Pitch"]
 layout_mode = 2
-text = "pitch:"
+text = "Pitch:"
 
 [node name="UpButton" parent="HBoxContainer/ScrollContainer/InputButtons/Pitch" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "up"
+text = "↑ Up"
 action_name = "pitch_up"
 
 [node name="DownButton" parent="HBoxContainer/ScrollContainer/InputButtons/Pitch" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "down"
+text = "↓ Down"
 action_name = "pitch_down"
 
 [node name="Roll" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
@@ -80,7 +80,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Roll"]
 layout_mode = 2
-text = "roll:"
+text = "Roll:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons/Roll"]
 layout_mode = 2
@@ -91,7 +91,7 @@ size_flags_horizontal = 3
 
 [node name="Button" parent="HBoxContainer/ScrollContainer/InputButtons/Roll/HBoxContainer/Left" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "left"
+text = "↺ Left"
 action_name = "roll_left"
 invert_progressbar = true
 
@@ -101,7 +101,7 @@ size_flags_horizontal = 3
 
 [node name="Button" parent="HBoxContainer/ScrollContainer/InputButtons/Roll/HBoxContainer/Right" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "right"
+text = "Right ↻"
 action_name = "roll_right"
 
 [node name="Yaw" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
@@ -109,7 +109,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw"]
 layout_mode = 2
-text = "yaw:"
+text = "Yaw:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw"]
 layout_mode = 2
@@ -120,7 +120,7 @@ size_flags_horizontal = 3
 
 [node name="Button" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw/HBoxContainer/Left" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "left"
+text = "← Left"
 action_name = "yaw_left"
 invert_progressbar = true
 
@@ -130,7 +130,7 @@ size_flags_horizontal = 3
 
 [node name="Button" parent="HBoxContainer/ScrollContainer/InputButtons/Yaw/HBoxContainer/Right" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "right"
+text = "Right →"
 action_name = "yaw_right"
 
 [node name="Arming" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
@@ -138,11 +138,11 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Arming"]
 layout_mode = 2
-text = "arming:"
+text = "Arming:"
 
 [node name="InputButton" parent="HBoxContainer/ScrollContainer/InputButtons/Arming" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "arm"
+text = "Arm"
 action_name = "arm"
 
 [node name="Simulator" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
@@ -150,16 +150,16 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Simulator"]
 layout_mode = 2
-text = "simulator:"
+text = "Simulator:"
 
 [node name="SelfRight" parent="HBoxContainer/ScrollContainer/InputButtons/Simulator" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "self right"
+text = "🗘Self-Right"
 action_name = "self_right"
 
 [node name="Reset" parent="HBoxContainer/ScrollContainer/InputButtons/Simulator" instance=ExtResource("1_cv5ys")]
 layout_mode = 2
-text = "reset"
+text = "Reset"
 action_name = "reset"
 
 [node name="Other" type="VBoxContainer" parent="HBoxContainer/ScrollContainer/InputButtons"]
@@ -168,11 +168,11 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/InputButtons/Other"]
 layout_mode = 2
-text = "other settings:"
+text = "Other settings:"
 
 [node name="CheckBox" type="CheckBox" parent="HBoxContainer/ScrollContainer/InputButtons/Other"]
 layout_mode = 2
-text = "throttle 0 at center stick"
+text = "Throttle 0 at center stick"
 
 [node name="Preview" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -180,7 +180,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/Preview"]
 layout_mode = 2
-text = "preview"
+text = "Preview:"
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Preview"]
 layout_mode = 2
@@ -196,7 +196,7 @@ stretch = true
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(564, 601)
 render_target_update_mode = 4
 
 [node name="Node3D" type="Node3D" parent="HBoxContainer/Preview/PanelContainer/SubViewportContainer/SubViewport"]

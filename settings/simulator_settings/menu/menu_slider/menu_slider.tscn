@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://utbxito1s2ef"]
+
+[ext_resource type="Script" uid="uid://1wjdra744tup" path="res://settings/simulator_settings/menu/menu_slider/menu_slider.gd" id="1_odxjm"]
+
+[node name="MenuSlider" type="HBoxContainer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1142.0
+offset_bottom = 638.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_odxjm")
+
+[node name="DescriptionLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="SliderValueLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "0.0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

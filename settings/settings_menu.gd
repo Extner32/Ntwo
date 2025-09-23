@@ -5,5 +5,6 @@ func _ready() -> void:
 
 func _on_save_and_close_button_pressed() -> void:
 	InputSettings.save_settings()
+	SimulatorSettings.save_settings()
 	hide()
 	$"../PauseMenu".show()

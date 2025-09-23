@@ -7,7 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://xt4m8jaqfh6a" path="res://quadcopter/383852__simeonradivoev__mini-quadcopter-flying-loop.wav" id="5_aj1qe"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n3fk8"]
-bounce = 0.1
+friction = 0.6
+bounce = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6p65n"]
 size = Vector3(0.2, 0.02, 0.2)
@@ -96,4 +97,4 @@ transform = Transform3D(1, 0, 0, 0, 0.936096, 0.351744, 0, -0.351744, 0.936096, 
 stream = ExtResource("5_aj1qe")
 volume_db = -47.3871
 autoplay = true
-bus = &"sfx"
+bus = &"SFX"

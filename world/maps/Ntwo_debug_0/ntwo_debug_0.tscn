@@ -56,7 +56,7 @@ light_bake_mode = 1
 shadow_enabled = true
 
 [node name="Quadcopter" parent="." instance=ExtResource("2_2l85k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4268, 2.3986328, 41.5549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4268, 0.04583931, 41.5549)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 light_data = ExtResource("5_0tr1b")
@@ -128,6 +128,15 @@ transform = Transform3D(1.31134e-07, 3, 1.31134e-07, 8.47033e-22, -1.31134e-07, 
 
 [node name="RaceGate25" parent="RaceGates" instance=ExtResource("6_bd2o2")]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -54, 11, 0)
+
+[node name="RaceGate28" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -111.527176, 10.303523, -24.366274)
+
+[node name="RaceGate29" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-0.50000006, 0.8660254, 4.37114e-08, 2.18557e-08, -3.785518e-08, 1, 0.8660254, 0.50000006, 1.654706e-15, -109.386314, 10.303523, -43.66535)
+
+[node name="RaceGate30" parent="RaceGates" instance=ExtResource("6_bd2o2")]
+transform = Transform3D(-0.881008, 0.4731013, 4.3711402e-08, 3.8510095e-08, -2.0679916e-08, 1, 0.4731013, 0.881008, 1.406867e-15, -93.468834, 3.9791074, -43.520706)
 
 [node name="RaceGate5" parent="RaceGates" instance=ExtResource("6_bd2o2")]
 transform = Transform3D(2, 0, 0, 0, -2, -1.74846e-07, 0, 1.74846e-07, -2, 0, 21, 0)

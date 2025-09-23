@@ -48,7 +48,6 @@ axis_value = 1.0
 script = ExtResource("1_1q18l")
 throttle_up = SubResource("InputEventJoypadMotion_yb1ks")
 throttle_down = SubResource("InputEventJoypadMotion_1q18l")
-throttle_0_at_center = false
 pitch_up = SubResource("InputEventJoypadMotion_kq0i7")
 pitch_down = SubResource("InputEventJoypadMotion_3yxlc")
 roll_left = SubResource("InputEventJoypadMotion_822xf")
