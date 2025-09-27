@@ -18,8 +18,6 @@ tonemap_mode = 3
 ssao_power = 2.61166
 sdfgi_cascades = 8
 sdfgi_min_cell_size = 0.1
-sdfgi_cascade0_distance = 6.4
-sdfgi_max_distance = 1638.4
 fog_enabled = true
 fog_density = 0.001
 fog_sky_affect = 0.328
@@ -28,7 +26,7 @@ fog_sky_affect = 0.328
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_color = Color(0, 0, 0, 0.270588)
+albedo_color = Color(0, 0, 1, 0.27058825)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u5duw"]
 size = Vector2(10000, 10000)

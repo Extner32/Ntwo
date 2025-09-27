@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2bumishd0xhu"]
+
+[ext_resource type="Script" uid="uid://c032bs20ereas" path="res://GUI/start/map select menu/map_tile.gd" id="1_ky0t2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ky0t2"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="MapTile" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_ky0t2")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ky0t2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+
+[node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

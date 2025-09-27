@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7f75ok6e4thq" path="res://quadcopter/flight_controller/FlightController.gd" id="1_apqoi"]
 [ext_resource type="Script" uid="uid://btk5vyqql5uby" path="res://quadcopter/pid controller/pidcontroller.gd" id="2_nfqh2"]
-[ext_resource type="PackedScene" uid="uid://c7dy4ybkm8330" path="res://GUI/graph/graph.tscn" id="3_k5t54"]
+[ext_resource type="Script" uid="uid://bki3bdaiys76u" path="res://GUI/data plotter/data_plotter.gd" id="3_k5t54"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_33ynk"]
 size = Vector3(0.03, 0.008, 0.03)
@@ -15,37 +15,42 @@ mesh = SubResource("BoxMesh_33ynk")
 
 [node name="PID_pitch" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
-Kp = 0.015
-Ki = 0.01
+Kp = 0.03
+Ki = 0.001
+Kfeedforward = 0.001
+throttle_influence = 0.8
 clamp_min = -100.0
 clamp_max = 100.0
 
 [node name="PID_roll" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
-Kp = 0.015
-Ki = 0.01
+Kp = 0.03
+Ki = 0.001
+Kfeedforward = 0.001
+throttle_influence = 0.8
 
 [node name="PID_yaw" type="Node" parent="."]
 script = ExtResource("2_nfqh2")
-Kp = 0.02
-Ki = 0.01
+Kp = 0.03
+Ki = 0.001
+Kfeedforward = 0.001
+throttle_influence = 0.8
 clamp_min = -0.4
 clamp_max = 0.4
 
-[node name="Graphs" type="Node2D" parent="."]
-visible = false
-position = Vector2(102, 89)
-metadata/_edit_group_ = true
-
-[node name="GraphA" parent="Graphs" instance=ExtResource("3_k5t54")]
-size = Vector2i(500, 500)
-buffer_max_len = 500
-max_value_constant = 20.0
-min_value_constant = -20.0
-data_color = Color(0.0558, 0.93, 0.42005, 1)
-
-[node name="GraphB" parent="Graphs" instance=ExtResource("3_k5t54")]
-size = Vector2i(500, 500)
-buffer_max_len = 500
-max_value_constant = 20.0
-min_value_constant = -20.0
+[node name="DataPlotter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -235.0
+offset_top = 43.0
+offset_right = 235.0
+offset_bottom = 322.0
+grow_horizontal = 2
+script = ExtResource("3_k5t54")
+max_data_len = 1000
+stream_colors = Array[Color]([Color(0, 1, 0, 1), Color(1, 0, 0, 1)])
+data_min = -20.0
+data_max = 20.0
+metadata/_custom_type_script = "uid://bki3bdaiys76u"

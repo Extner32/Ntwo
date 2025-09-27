@@ -10,6 +10,8 @@ var imu_rotations := [0.0, 0.0, 0.0]
 var imu_rotation_speeds := [0.0, 0.0, 0.0]
 
 var settings_menu_ref = null
+var gui_ref = null
+var world_ref = null
 
 func reset():
 	get_tree().reload_current_scene()

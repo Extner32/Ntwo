@@ -12,9 +12,11 @@ config_version=5
 
 config/name="Ntwo"
 config/version="0.0"
-run/main_scene="uid://0ac0po86f7lt"
+run/main_scene="uid://rxkorklgmpu4"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.1764706, 0.1764706, 0.18431373, 1)
+boot_splash/show_image=false
 config/icon="uid://c3eq80a6qo4t0"
 
 [autoload]
@@ -23,6 +25,7 @@ InputSettings="*res://settings/input_settings/InputSettings.gd"
 gb="*res://global/Global.gd"
 RatesSettings="*res://settings/rates_settings/RatesSettings.gd"
 SimulatorSettings="*res://settings/simulator_settings/SimulatorSettings.gd"
+MapManager="*res://world/map_manager.gd"
 
 [file_customization]
 
@@ -99,7 +102,8 @@ pause={
 [physics]
 
 3d/run_on_separate_thread=true
-common/physics_ticks_per_second=120
+common/physics_ticks_per_second=200
+common/max_physics_steps_per_frame=16
 3d/physics_engine="Jolt Physics"
 
 [rendering]
@@ -107,3 +111,4 @@ common/physics_ticks_per_second=120
 renderer/rendering_method="mobile"
 global_illumination/gi/use_half_resolution=true
 global_illumination/sdfgi/frames_to_converge=2
+environment/defaults/default_clear_color=Color(0.1764706, 0.1764706, 0.18431373, 1)

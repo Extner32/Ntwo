@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw7d2fl35plyt"]
+[gd_scene load_steps=2 format=3 uid="uid://bw7d2fl35plyt"]
 
-[ext_resource type="PackedScene" uid="uid://6gx7yfx883d" path="res://GUI/pause menu/pause_menu.tscn" id="1_17ifr"]
-[ext_resource type="PackedScene" uid="uid://3lnd15sih54l" path="res://settings/settings_menu.tscn" id="2_17ifr"]
+[ext_resource type="Script" uid="uid://bh7wbqafnochd" path="res://GUI/gui.gd" id="1_1x7qj"]
 
 [node name="GUI" type="Control"]
 process_mode = 3
@@ -11,11 +10,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="PauseMenu" parent="." instance=ExtResource("1_17ifr")]
-visible = false
-layout_mode = 1
-
-[node name="SettingsMenu" parent="." instance=ExtResource("2_17ifr")]
-visible = false
-layout_mode = 1
+script = ExtResource("1_1x7qj")

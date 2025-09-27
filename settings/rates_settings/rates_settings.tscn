@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://8f5ytvwgp68w"]
+
+[ext_resource type="PackedScene" uid="uid://3mfd3dqrpeow" path="res://settings/rates_settings/graphs/rate_graph.tscn" id="1_jtptv"]
+[ext_resource type="Shader" uid="uid://cpk4hv0x5s431" path="res://settings/rates_settings/graphs/rate_graph.gdshader" id="2_at283"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4l1nk"]
+shader = ExtResource("2_at283")
+shader_parameter/y_max = 1000.0
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/max_rate = 900.0
+shader_parameter/center_rate = 250.0
+shader_parameter/expo = 1.0
+shader_parameter/graph_thickness = 0.01
+shader_parameter/antialias_strength = 0.10000000149012
+shader_parameter/graph_color = Color(0, 0, 1, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nqdib"]
+shader = ExtResource("2_at283")
+shader_parameter/y_max = 1000.0
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/max_rate = 800.0
+shader_parameter/center_rate = 250.0
+shader_parameter/expo = 1.0
+shader_parameter/graph_thickness = 0.01
+shader_parameter/antialias_strength = 0.10000000149012
+shader_parameter/graph_color = Color(0, 1, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nujss"]
+shader = ExtResource("2_at283")
+shader_parameter/y_max = 1000.0
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/max_rate = 900.0
+shader_parameter/center_rate = 250.0
+shader_parameter/expo = 1.0
+shader_parameter/graph_thickness = 0.01
+shader_parameter/antialias_strength = 0.10000000149012
+shader_parameter/graph_color = Color(1, 0, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+
+[node name="RatesSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Preview" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RateGraphYaw" parent="HBoxContainer/Preview" instance=ExtResource("1_jtptv")]
+material = SubResource("ShaderMaterial_4l1nk")
+layout_mode = 2
+
+[node name="RateGraphRoll" parent="HBoxContainer/Preview" instance=ExtResource("1_jtptv")]
+material = SubResource("ShaderMaterial_nqdib")
+layout_mode = 2
+
+[node name="RateGraphPitch" parent="HBoxContainer/Preview" instance=ExtResource("1_jtptv")]
+material = SubResource("ShaderMaterial_nujss")
+layout_mode = 2

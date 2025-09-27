@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl1ttl764ii3a"]
+[gd_scene load_steps=7 format=3 uid="uid://dl1ttl764ii3a"]
 
 [ext_resource type="Script" uid="uid://bwhahmfh0eggo" path="res://world/world.gd" id="1_ahhnx"]
 [ext_resource type="PackedScene" uid="uid://0chsx6yecwbn" path="res://post process/post_process.tscn" id="2_g20ue"]
 [ext_resource type="PackedScene" uid="uid://b5aq7rwrg1xvm" path="res://GUI/HUD.tscn" id="2_qcaji"]
 [ext_resource type="PackedScene" uid="uid://bw7d2fl35plyt" path="res://GUI/GUI.tscn" id="3_5hvw7"]
-[ext_resource type="PackedScene" uid="uid://idpwlbyd8got" path="res://world/maps/Ntwo_debug_0/ntwo_debug_0.tscn" id="4_5hvw7"]
+[ext_resource type="PackedScene" uid="uid://6gx7yfx883d" path="res://GUI/pause menu/pause_menu.tscn" id="5_0wlj7"]
+[ext_resource type="PackedScene" uid="uid://3lnd15sih54l" path="res://settings/settings_menu.tscn" id="6_dodpj"]
 
 [node name="world" type="Node3D"]
 script = ExtResource("1_ahhnx")
@@ -14,9 +15,16 @@ script = ExtResource("1_ahhnx")
 [node name="GUILayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="GUILayer" instance=ExtResource("2_qcaji")]
-visible = false
 
 [node name="GUI" parent="GUILayer" instance=ExtResource("3_5hvw7")]
+
+[node name="PauseMenu" parent="GUILayer/GUI" instance=ExtResource("5_0wlj7")]
+visible = false
+layout_mode = 1
+
+[node name="SettingsMenu" parent="GUILayer/GUI" instance=ExtResource("6_dodpj")]
+visible = false
+layout_mode = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -31,4 +39,4 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Ntwo_debug_0" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_5hvw7")]
+[node name="Map" type="Node3D" parent="SubViewportContainer/SubViewport"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://rxkorklgmpu4"]
+
+[ext_resource type="PackedScene" uid="uid://bw7d2fl35plyt" path="res://GUI/GUI.tscn" id="1_c4ju2"]
+[ext_resource type="PackedScene" uid="uid://3lnd15sih54l" path="res://settings/settings_menu.tscn" id="2_gx148"]
+[ext_resource type="PackedScene" uid="uid://0ac0po86f7lt" path="res://GUI/start/start menu/start_menu.tscn" id="2_nxton"]
+[ext_resource type="PackedScene" uid="uid://b8c5sfca13ubu" path="res://GUI/start/map select menu/map_select_menu.tscn" id="3_c4ju2"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GUI" parent="." instance=ExtResource("1_c4ju2")]
+layout_mode = 1
+
+[node name="SettingsMenu" parent="GUI" instance=ExtResource("2_gx148")]
+visible = false
+layout_mode = 1
+
+[node name="StartMenu" parent="GUI" instance=ExtResource("2_nxton")]
+visible = false
+layout_mode = 1
+offset_top = -221.0
+offset_bottom = 221.0
+
+[node name="MapSelectMenu" parent="GUI" instance=ExtResource("3_c4ju2")]
+visible = false
+layout_mode = 1
